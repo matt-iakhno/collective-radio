@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { spline } from "https://cdn.skypack.dev/@georgedoescode/spline@1.0.1";
-import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@2.4.0";
+import { spline } from "@georgedoescode/spline";
+import { createNoise2D } from "simplex-noise";
 import styles from "./AnimatedPath.module.css"; // Import the CSS module
 
 interface AnimatedPathProps {
@@ -8,7 +8,7 @@ interface AnimatedPathProps {
 }
 
 const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
-  const simplex = new SimplexNoise();
+  const simplex = new createNoise2D();
   const numPoints = 6;
   const rad = 75;
   const points = createPoints();
@@ -84,7 +84,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
   }
 
   function noise(x: number, y: number) {
-    return simplex.noise2D(x, y);
+    return simplex(x, y);
   }
 
   function createPoints() {
