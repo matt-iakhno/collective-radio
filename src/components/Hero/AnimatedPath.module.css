@@ -1,0 +1,42 @@
+:root {
+  --startColor: hsl(0, 100%, 75%);
+  --stopColor: hsl(0, 100%, 75%);
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.childrenContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  pointer-events: none; /* Allow interaction with the SVG beneath */
+}
+
+svg {
+  width: 70vw;
+  height: 90vmin;
+}
+
+path {
+  cursor: pointer;
+}
+
+p {
+  position: absolute;
+  font-size: 1.125rem;
+  font-weight: 500;
+  bottom: 1rem;
+  right: 1rem;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
