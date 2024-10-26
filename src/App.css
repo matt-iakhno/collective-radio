@@ -1,3 +1,7 @@
+:root {
+  overflow-x: hidden;
+}
+
 main {
   height: 80vh;
   background: #fece02;

@@ -40,3 +40,10 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media only screen and (max-width: 767px) {
+  svg {
+    height: 100%;
+    scale: 1.5;
+  }
+}

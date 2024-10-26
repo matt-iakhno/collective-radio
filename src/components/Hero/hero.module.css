@@ -55,9 +55,6 @@
   margin: 0;
 }
 
-.subtitle {
-}
-
 .aurora {
   position: absolute;
   top: 0;
@@ -217,5 +214,12 @@
 
   100% {
     border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .logo {
+    width: 75px;
+    height: 75px;
   }
 }
