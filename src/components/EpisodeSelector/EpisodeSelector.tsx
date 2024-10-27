@@ -14,14 +14,13 @@ import styles from "./swiper.module.css";
 import { type Episode } from "../../@types/types";
 
 function EpisodeSelector() {
-  const [episodes, setEpisodes] = useState<Episode[]>(episodeList);
+  const [episodes] = useState<Episode[]>(episodeList);
 
   // console.log(episodes);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const updateEpisodes = (newEpisodes: Episode[]) => {
-    setEpisodes(newEpisodes);
-  };
+  // const updateEpisodes = (newEpisodes: Episode[]) => {
+  //   setEpisodes(newEpisodes);
+  // };
 
   if (!episodes.length) return <div>Nothing found</div>;
 
