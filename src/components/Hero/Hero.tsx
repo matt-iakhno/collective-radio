@@ -1,6 +1,8 @@
 import styles from "./hero.module.css";
 import AnimatedPath from "./AnimatedPath.tsx";
 
+import { TfiMouse } from "react-icons/tfi";
+
 const Hero: React.FC = () => {
   return (
     <AnimatedPath>
@@ -31,7 +33,9 @@ const Hero: React.FC = () => {
         </h1>
 
         <div className={styles.scrollDown}>
-          <span>Scroll</span>
+          <span>
+            Scroll <TfiMouse size={25} />
+          </span>
         </div>
       </section>
     </AnimatedPath>

@@ -1,20 +1,24 @@
 .rhap_container {
   background: rgba(0, 0, 0, 0.541);
+  /* font-family: inherit; */
 }
 
 .rhap_time {
   color: #fece02;
 }
 
-.rhap_play-status--paused .rhap_download-progress,
-.rhap_play-status--playing .download-progress {
-  background: #00c2ff;
+.rhap_play-status--paused .rhap_progress-filled,
+.rhap_play-status--playing .rhap_progress-filled {
+  background: #fe8802;
 }
 .rhap_play-status--paused .rhap_progress-bar,
 .rhap_play-status--playing .rhap_progress-bar {
   background: #fece02;
 }
 
+.rhap_volume-indicator {
+  background: #fece02;
+}
 /* $rhap_theme-color: #868686 !default; // Color of all buttons and volume/progress indicators
 $rhap_background-color: #fff !default; // Color of the player background
 $rhap_bar-color: #e4e4e4 !default; // Color of volume and progress bar

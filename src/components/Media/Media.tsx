@@ -24,7 +24,7 @@ function Media() {
           <h1>Carousel</h1>
         </section>
 
-        <section className={styles.player}>
+        <section className={styles.playerContainer}>
           <Player />
         </section>
       </div>

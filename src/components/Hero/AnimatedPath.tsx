@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { spline } from "@georgedoescode/spline";
 import { createNoise2D } from "simplex-noise";
-import styles from "./AnimatedPath.module.css"; // Import the CSS module
+import styles from "./animatedpath.module.css"; // Import the CSS module
 
 interface AnimatedPathProps {
   children: React.ReactNode; // Accept children as a prop
@@ -41,8 +41,8 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
       const hueNoise = noise(hueNoiseOffset, hueNoiseOffset);
       const hue = map(hueNoise, -1, 1, 0, 360);
 
-      // root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
-      // root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
+      root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
+      root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
       document.body.style.background = `hsl(${hue + 60}, 75%, 5%)`;
 
       hueNoiseOffset += noiseStep / 6;
@@ -112,7 +112,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
 
   return (
     <div className={styles.container}>
-      <svg viewBox="0 0 200 200" className={styles.svg}>
+      <svg viewBox="0 0 200 200" className={styles.blob}>
         <defs>
           <linearGradient id="gradient" gradientTransform="rotate(90)">
             <stop

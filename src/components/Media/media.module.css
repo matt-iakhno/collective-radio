@@ -84,7 +84,7 @@ main {
   animation-duration: 3s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  color: red;
+  color: #fff;
 }
 
 @-moz-keyframes blinker {
@@ -169,6 +169,10 @@ main {
   word-spacing: 1rem;
 }
 
+.carousel {
+  height: 600px;
+}
+
 .about h1 {
   font-size: 4rem;
 }
@@ -177,6 +181,48 @@ main {
   font-size: 3rem;
 }
 
-.player {
-  min-height: 200px;
+.playerContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1920px) {
+  .about {
+    padding: 3rem 0rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .about h1 {
+    font-size: 3rem;
+  }
+
+  .about h3 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .about {
+    padding: 3rem 0rem;
+  }
+  .about h1 {
+    font-size: 2rem;
+  }
+
+  .about h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .about {
+    padding: 2.5rem 0rem;
+  }
+  .about h1 {
+    font-size: 1.5rem;
+  }
+
+  .about h3 {
+    font-size: 1.5rem;
+  }
 }

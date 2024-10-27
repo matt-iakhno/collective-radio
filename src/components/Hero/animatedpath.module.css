@@ -20,17 +20,17 @@
   pointer-events: none; /* Allow interaction with the SVG beneath */
 }
 
-svg {
+.blob {
   width: 70vw;
   height: 90vmin;
 }
 
-path {
+.blob path {
   cursor: pointer;
 }
 
 p {
-  position: absolute;
+  /* position: absolute;
   font-size: 1.125rem;
   font-weight: 500;
   bottom: 1rem;
@@ -38,11 +38,11 @@ p {
   color: #fff;
   font-family: system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 @media only screen and (max-width: 767px) {
-  svg {
+  .blob {
     height: 100%;
     scale: 1.5;
   }

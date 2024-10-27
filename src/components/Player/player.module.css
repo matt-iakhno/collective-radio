@@ -1,0 +1,17 @@
+.container {
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  bottom: 20px;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
