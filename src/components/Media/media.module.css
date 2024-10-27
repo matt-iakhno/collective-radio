@@ -5,6 +5,13 @@ main {
   transform-style: preserve-3d;
   @include perspective(1000px);
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+main div {
+  grid-row-start: 1;
+  grid-column-start: 1;
 }
 
 .circle {
@@ -151,30 +158,34 @@ main {
 }
 
 .content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
+  z-index: 2;
 }
 
 .about {
-  margin-left: 10rem;
-  margin-right: 10rem;
-  padding: 5rem 10rem 15rem 10rem;
+  padding: 5rem 10rem 0 10rem;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  font-family: "Monoton";
+  font-family: "Goldman";
   letter-spacing: clamp(-1.75px, -0.25vw, -3.5px);
   word-spacing: 1rem;
 }
 
 .carousel {
-  height: 600px;
+  height: 750px;
 }
 
 .about h1 {
   font-size: 4rem;
+}
+
+.genreSelector {
+  padding: 0rem 10rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
 }
 
 .about h3 {
@@ -188,9 +199,7 @@ main {
 
 @media only screen and (max-width: 1920px) {
   .about {
-    padding: 3rem 0rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    padding: 3rem 10rem;
   }
   .about h1 {
     font-size: 3rem;
@@ -203,7 +212,7 @@ main {
 
 @media only screen and (max-width: 1366px) {
   .about {
-    padding: 3rem 0rem;
+    padding: 3rem 5rem;
   }
   .about h1 {
     font-size: 2rem;
@@ -216,7 +225,7 @@ main {
 
 @media only screen and (max-width: 768px) {
   .about {
-    padding: 2.5rem 0rem;
+    padding: 2rem 3rem;
   }
   .about h1 {
     font-size: 1.5rem;
