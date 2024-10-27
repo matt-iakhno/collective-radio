@@ -1,9 +1,5 @@
-:root {
-  overflow-x: hidden;
-}
-
 main {
-  height: 80vh;
-  background: #fece02;
-  color: black;
+  /* height: 80vh; */
+  background: black;
+  color: white;
 }

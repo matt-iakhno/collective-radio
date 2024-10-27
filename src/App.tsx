@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import Media from "./components/Media";
 
 import "./reset.css";
 import "./App.css";
@@ -8,9 +9,7 @@ function App() {
     <>
       <Hero />
 
-      <main>
-        <h1>Player</h1>
-      </main>
+      <Media />
     </>
   );
 }

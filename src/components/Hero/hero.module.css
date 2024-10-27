@@ -3,7 +3,7 @@
   --bg: #000;
   --clr-1: #00c2ff;
   --clr-2: #33ff8c;
-  --clr-3: #ffc640;
+  --clr-3: #fece02;
   --clr-4: #e54cff;
   --blur: 0.5rem;
 }
@@ -24,6 +24,8 @@
   cursor: pointer;
   position: fixed;
   right: 0;
+  z-index: 2;
+  mix-blend-mode: exclusion;
 }
 
 .scrollDown {
@@ -53,6 +55,8 @@
   overflow: hidden;
   background: var(--bg);
   margin: 0;
+  font-family: "Monoton";
+  word-spacing: 1rem;
 }
 
 .aurora {

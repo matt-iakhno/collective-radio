@@ -1,0 +1,182 @@
+main {
+  /* padding: 150px; */
+  overflow: hidden;
+  background: #000;
+  transform-style: preserve-3d;
+  @include perspective(1000px);
+  position: relative;
+}
+
+.circle {
+  /* width: 95vw;
+  height: 95vh; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  background: radial-gradient(
+    #fece02 3px,
+    transparent 5px,
+    #00c2ff 7px,
+    transparent 9px,
+    #fece02 11px,
+    transparent 13px,
+    15px,
+    transparent 17px,
+    #00c2ff 19px,
+    transparent 21px,
+    #fece02 23px,
+    transparent 25px,
+    #00c2ff 27px,
+    transparent 29px,
+    #fece02 31px,
+    transparent 33px
+  );
+  background-size: 30px 30px;
+}
+.a {
+  -webkit-animation: adjustHue 1s alternate infinite;
+}
+
+@-webkit-keyframes adjustHue {
+  0% {
+    -webkit-filter: hue-rotate(30deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(60deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(90deg);
+  }
+}
+@-webkit-keyframes loading {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loading {
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes loading {
+  to {
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.circle {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 3s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  animation-name: blinker;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  color: red;
+}
+
+@-moz-keyframes blinker {
+  0% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.03;
+  }
+}
+
+@-webkit-keyframes blinker {
+  0% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.03;
+  }
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.03;
+  }
+}
+.a {
+  background: radial-gradient(
+    #0b853d 3px,
+    transparent 5px,
+    #000 7px,
+    transparent 9px,
+    #0b853d 11px,
+    transparent 13px,
+    15px,
+    transparent 17px,
+    #000 19px,
+    transparent 21px,
+    #0b853d 23px,
+    transparent 25px,
+    #fff 27px,
+    transparent 29px,
+    #000 31px,
+    transparent 33px
+  );
+  background-color: #000;
+  background-size: 32px 32px;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin: -10px;
+  opacity: 0.05;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.about {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  padding: 5rem 10rem 15rem 10rem;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Monoton";
+  letter-spacing: clamp(-1.75px, -0.25vw, -3.5px);
+  word-spacing: 1rem;
+}
+
+.about h1 {
+  font-size: 4rem;
+}
+
+.about h3 {
+  font-size: 3rem;
+}
+
+.player {
+  min-height: 200px;
+}

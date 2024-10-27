@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./hero.module.css";
 import AnimatedPath from "./AnimatedPath.tsx";
 
