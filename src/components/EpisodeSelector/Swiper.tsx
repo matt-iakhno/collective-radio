@@ -41,19 +41,19 @@ function Swiper() {
           spaceBetween={20}
           breakpoints={{
             768: {
-              slidesPerView: 3, // 1 slide per view on mobile
-              spaceBetween: 20, // Smaller gap on mobile
+              slidesPerView: 3,
+              spaceBetween: 20,
             },
             1024: {
-              slidesPerView: 4, // 2 slides per view on larger screens
+              slidesPerView: 4,
               spaceBetween: 30,
             },
             1566: {
-              slidesPerView: 5, // 2 slides per view on larger screens
+              slidesPerView: 5,
               spaceBetween: 40,
             },
             1920: {
-              slidesPerView: 6, // 2 slides per view on larger screens
+              slidesPerView: 6,
               spaceBetween: 60,
             },
           }}

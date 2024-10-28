@@ -1,231 +1,62 @@
 [
   {
     "episodeNum": 1,
+    "fileName": "Collective Radio Vol. 1 - Shane Armstrong [Ghetto Funk Glitch Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%201%20-%20Shane%20Armstrong%20%5BGhetto%20Funk%20Glitch%20Hop%5D.mp3",
     "artists": [
-      "DJ Nova"
+      "Shane Armstrong"
     ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-01-15",
-    "genre": "House",
-    "description": "An uplifting house mix to start your week.",
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
+    "releaseDate": "2017-11-17",
+    "genre": "Glitch Hop",
     "mood": []
   },
   {
     "episodeNum": 2,
+    "fileName": "Collective Radio Vol. 2 - Akula [Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%202%20-%20Akula%20%5BDrum%20%26%20Bass%5D.mp3",
     "artists": [
-      "DJ Blaze",
-      "DJ Pulse"
+      "Akula"
     ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-01-22",
-    "genre": "Deep House",
-    "description": "Deep grooves and smooth vibes for late-night listening.",
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000260764661-fp8np3-t500x500.jpg",
+    "releaseDate": "2017-11-24",
+    "genre": "Drum & Bass",
     "mood": []
   },
   {
     "episodeNum": 3,
+    "fileName": "Collective Radio Vol. 3 - Farid Ahwazi [Future Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%203%20-%20Farid%20Ahwazi%20%5BFuture%20Bass%5D.mp3",
     "artists": [
-      "DJ Echo"
+      "Farid Ahwazi"
     ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-01-29",
-    "genre": "Drum & Bass",
-    "description": "Fast-paced rhythms and heavy basslines to energize your day.",
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000263824661-z1f23w-t500x500.jpg",
+    "releaseDate": "2017-12-01",
+    "genre": "Future Bass",
     "mood": []
   },
   {
     "episodeNum": 4,
+    "fileName": "Collective Radio Vol. 4 - RolyPoly [House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%204%20-%20RolyPoly%20%5BHouse%5D.mp3",
     "artists": [
-      "DJ Luna",
-      "DJ Sparks"
+      "Roly Poly"
     ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-02-05",
-    "genre": "Trance",
-    "description": "A mesmerizing journey through uplifting melodies.",
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000266983433-bjm381-t500x500.jpg",
+    "releaseDate": "2017-12-08",
+    "genre": "House",
     "mood": []
   },
   {
     "episodeNum": 5,
+    "fileName": "Collective Radio Vol. 5 - tai [Deep House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%205%20-%20tai%20%5BDeep%20House%5D.mp3",
     "artists": [
-      "DJ Vortex"
+      "Tai"
     ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-02-12",
-    "genre": "Dubstep",
-    "description": "Heavy drops and relentless beats for the dubstep enthusiasts.",
-    "mood": []
-  },
-  {
-    "episodeNum": 6,
-    "artists": [
-      "DJ Breeze",
-      "DJ Nova"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-02-19",
-    "genre": "House",
-    "description": "Sun-soaked grooves to brighten your day.",
-    "mood": []
-  },
-  {
-    "episodeNum": 7,
-    "artists": [
-      "DJ Flame"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-02-26",
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000269612483-p0kih0-t500x500.jpg",
+    "releaseDate": "2017-12-15",
     "genre": "Deep House",
-    "description": "A deep, soulful exploration into the night.",
-    "mood": []
-  },
-  {
-    "episodeNum": 8,
-    "artists": [
-      "DJ City"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-03-04",
-    "genre": "Drum & Bass",
-    "description": "High-energy beats to keep your heart racing.",
-    "mood": []
-  },
-  {
-    "episodeNum": 9,
-    "artists": [
-      "DJ Shadow",
-      "DJ Pulse"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-03-11",
-    "genre": "Trance",
-    "description": "Diving deep into ethereal soundscapes.",
-    "mood": []
-  },
-  {
-    "episodeNum": 10,
-    "artists": [
-      "DJ Echo"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-03-18",
-    "genre": "Dubstep",
-    "description": "Intense bass and dark vibes for the heavy listeners.",
-    "mood": []
-  },
-  {
-    "episodeNum": 11,
-    "artists": [
-      "DJ Nova",
-      "DJ Traveler"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-03-25",
-    "genre": "House",
-    "description": "Dance the night away with infectious grooves.",
-    "mood": []
-  },
-  {
-    "episodeNum": 12,
-    "artists": [
-      "DJ Blaze"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-04-01",
-    "genre": "Deep House",
-    "description": "Soothing beats for winding down the day.",
-    "mood": []
-  },
-  {
-    "episodeNum": 13,
-    "artists": [
-      "DJ Luna",
-      "DJ Vortex"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-04-08",
-    "genre": "Drum & Bass",
-    "description": "Heavy drum patterns that keep you moving.",
-    "mood": []
-  },
-  {
-    "episodeNum": 14,
-    "artists": [
-      "DJ Shadow"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-04-15",
-    "genre": "Trance",
-    "description": "A sonic journey into the realms of bliss.",
-    "mood": []
-  },
-  {
-    "episodeNum": 15,
-    "artists": [
-      "DJ Flame"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-04-22",
-    "genre": "Dubstep",
-    "description": "Dark beats and epic drops that will shake your speakers.",
-    "mood": []
-  },
-  {
-    "episodeNum": 16,
-    "artists": [
-      "DJ Traveler",
-      "DJ City"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-04-29",
-    "genre": "House",
-    "description": "Feel the energy with this vibrant house mix.",
-    "mood": []
-  },
-  {
-    "episodeNum": 17,
-    "artists": [
-      "DJ Nova"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-05-06",
-    "genre": "Deep House",
-    "description": "Deep basslines and rich melodies for a soulful experience.",
-    "mood": []
-  },
-  {
-    "episodeNum": 18,
-    "artists": [
-      "DJ Pulse",
-      "DJ Echo"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-05-13",
-    "genre": "Drum & Bass",
-    "description": "Fast beats and intricate rhythms that inspire movement.",
-    "mood": []
-  },
-  {
-    "episodeNum": 19,
-    "artists": [
-      "DJ Blaze"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-05-20",
-    "genre": "Trance",
-    "description": "An uplifting journey that transcends the ordinary.",
-    "mood": []
-  },
-  {
-    "episodeNum": 20,
-    "artists": [
-      "DJ Luna",
-      "DJ Vortex"
-    ],
-    "coverArt": "https://i1.sndcdn.com/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-    "releaseDate": "2024-05-27",
-    "genre": "Dubstep",
-    "description": "Get ready for some heavy bass and hard-hitting beats.",
     "mood": []
   }
 ]

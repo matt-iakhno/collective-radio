@@ -4,6 +4,5 @@ export interface Episode {
   coverArt: string;
   releaseDate: string;
   genre: string;
-  description: string;
   mood: string[];
 }
