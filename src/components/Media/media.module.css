@@ -170,6 +170,7 @@ main div {
   font-family: "Goldman";
   letter-spacing: clamp(-1.75px, -0.25vw, -3.5px);
   word-spacing: 1rem;
+  text-align: justify;
 }
 
 .carousel {

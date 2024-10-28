@@ -1,22 +1,30 @@
 .card {
-  margin: 0 30px;
+  /* margin: 0 30px; */
   height: 500px;
-  width: 300px;
+  width: 260px;
   background-color: black;
   border: 5px solid #fece02;
-  box-shadow: 0 0 0 7px #fece02, 0 0 8px 5px #000;
+  box-sizing: border-box;
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); */
 }
 
 .image {
   position: relative;
   width: 100%;
-  border-bottom: 10px solid #fece02;
-  height: 53%;
+  border-bottom: 5px solid #fece02;
+  height: 50%;
   background-color: #fece02;
 }
 
+:global(.swiper-slide) {
+  filter: blur(1px);
+}
+:global(.swiper-slide-active) {
+  filter: blur(0px);
+}
+
 .cardText {
-  height: 44%;
+  height: calc(50% - 5px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

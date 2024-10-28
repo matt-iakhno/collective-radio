@@ -1,2 +1,2 @@
-export * from './EpisodeSelector';
-export { default } from './EpisodeSelector';
+export * from './Swiper';
+export { default } from './Swiper';

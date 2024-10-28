@@ -1,4 +1,8 @@
-function GenreSelector() {
+interface GenreSelectorProps {
+  onShowCarousel: () => void;
+}
+
+function GenreSelector({ onShowCarousel }: GenreSelectorProps) {
   const buttonLabels = Array.from(
     { length: 5 },
     (_, index) => `Button ${index + 1}`
@@ -20,7 +24,10 @@ function GenreSelector() {
           <tr key={rowIndex}>
             {buttonLabels.map((label, colIndex) => (
               <td key={colIndex} className="p-2 border border-gray-300">
-                <button className="p-1 text-white bg-blue-500 rounded">
+                <button
+                  onClick={onShowCarousel}
+                  className="p-1 text-white bg-blue-500 rounded"
+                >
                   {label}
                 </button>
               </td>

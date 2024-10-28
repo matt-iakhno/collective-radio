@@ -23,7 +23,12 @@ const Slide: React.FC<SlideProps> = ({ episode }) => {
         </p>
         <div>
           <div>
-            <span>{episode.episodeNum}</span>
+            <span>
+              E
+              {episode.episodeNum.toString().length === 1
+                ? `0${episode.episodeNum}`
+                : episode.episodeNum}
+            </span>
             {/* <span>&cent;</span> */}
           </div>
           <div>

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import EpisodeSelector from "../EpisodeSelector";
 import GenreSelector from "../GenreSelector";
 import Player from "../Player";
@@ -5,6 +7,8 @@ import Player from "../Player";
 import styles from "./media.module.css";
 
 function Media() {
+  const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
+
   return (
     <main>
       <div>
@@ -22,13 +26,13 @@ function Media() {
         </section>
 
         <section className={styles.genreSelector}>
-          <GenreSelector />
+          <GenreSelector onShowCarousel={() => setIsCarouselVisible(true)} />
         </section>
-
-        <section className={styles.carousel}>
-          <EpisodeSelector />
-        </section>
-
+        {isCarouselVisible && (
+          <section className={styles.carousel}>
+            <EpisodeSelector />
+          </section>
+        )}
         <section className={styles.playerContainer}>
           <Player />
         </section>
