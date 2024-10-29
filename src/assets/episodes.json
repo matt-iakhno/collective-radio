@@ -58,5 +58,66 @@
     "releaseDate": "2017-12-15",
     "genre": "Deep House",
     "mood": []
+  },
+  {
+    "episodeNum": 6,
+    "fileName": "Collective Radio Vol. 6 - Shane Armstrong [Lofi Chill Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%206%20-%20Shane%20Armstrong%20%5BLofi%20Chill%20Hop%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
+    "releaseDate": "2017-12-22",
+    "genre": "Chill Hop",
+    "mood": []
+  },
+  {
+    "episodeNum": 7,
+    "fileName": "Collective Radio Vol. 7 - Akula [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%207%20-%20Akula%20%5BTrance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000316500423-yq53u6-t500x500.jpg",
+    "releaseDate": "2017-12-29",
+    "genre": "Trance",
+    "mood": []
+  },
+  {
+    "episodeNum": 8,
+    "fileName": "Collective Radio Vol. 8 - Farid Ahwazi & tai [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%208%20-%20Farid%20Ahwazi%20%26%20tai%20%5BDubstep%5D.mp3",
+    "artists": [
+      "Farid Ahwazi",
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000280474178-zt3hpu-t500x500.jpg",
+    "releaseDate": "2018-01-05",
+    "genre": "Dubstep",
+    "mood": []
+  },
+  {
+    "episodeNum": 9,
+    "fileName": "Collective Radio Vol. 9 - RolyPoly [Anjunabeats Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%209%20-%20RolyPoly%20%5BAnjunabeats%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Roly Poly"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000284018276-thgfps-t500x500.jpg",
+    "releaseDate": "2018-01-12",
+    "genre": "Anjunabeats",
+    "mood": []
+  },
+  {
+    "episodeNum": 10,
+    "fileName": "Collective Radio Vol. 10 - Shane Armstrong [Electro Swing].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2010%20-%20Shane%20Armstrong%20%5BElectro%20Swing%5D.mp3",
+    "artists": [
+      "Shane"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000287719076-awjupm-t500x500.jpg",
+    "releaseDate": "2018-01-19",
+    "genre": "Electro Swing",
+    "mood": []
   }
 ]

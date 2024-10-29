@@ -1,29 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Slide from "./Slide";
+import { useEpisodes } from "../../store";
+import { type Episode } from "../../@types/types";
 
 import { Swiper as SwiperLibrary, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
 
-import episodeList from "../../assets/episodes.json"; // Adjust the path as necessary
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "./swiper.module.css";
 
-import { type Episode } from "../../@types/types";
+interface SwiperProps {
+  selectedGenre: string | undefined;
+}
 
-function Swiper() {
+function Swiper({ selectedGenre }: SwiperProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [episodes] = useState<Episode[]>(episodeList);
+  const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[] | []>([]);
+  const episodes = useEpisodes();
 
-  // console.log(episodes);
+  useEffect(() => {
+    if (selectedGenre) {
+      const genreEpisodes = episodes.filter(
+        (episode) => episode.genre === selectedGenre
+      );
+      setFilteredEpisodes(genreEpisodes);
+    }
+  }, [selectedGenre, episodes]);
+
+  console.log(selectedGenre, filteredEpisodes);
 
   // const updateEpisodes = (newEpisodes: Episode[]) => {
   //   setEpisodes(newEpisodes);
   // };
 
   if (!episodes.length) return <div>Nothing found</div>;
+  if (selectedGenre && !filteredEpisodes)
+    return <div>No matches for this genre</div>;
 
   return (
     <div className={styles.container}>
@@ -71,11 +86,18 @@ function Swiper() {
           modules={[EffectCoverflow]}
           className={styles.swiper}
         >
-          {episodes.map((episode) => (
-            <SwiperSlide key={episode.episodeNum}>
-              <Slide episode={episode} />
-            </SwiperSlide>
-          ))}
+          {filteredEpisodes.length &&
+            filteredEpisodes.map((episode) => (
+              <SwiperSlide key={episode.episodeNum}>
+                <Slide episode={episode} />
+              </SwiperSlide>
+            ))}
+          {!filteredEpisodes.length &&
+            episodes.map((episode) => (
+              <SwiperSlide key={episode.episodeNum}>
+                <Slide episode={episode} />
+              </SwiperSlide>
+            ))}
         </SwiperLibrary>
       </div>
     </div>
