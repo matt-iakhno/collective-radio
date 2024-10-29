@@ -1,5 +1,8 @@
 import { useMemo } from "react";
 import { useEpisodes } from "../../store";
+
+import styles from "./genreselector.module.css";
+
 interface GenreSelectorProps {
   onShowCarousel: () => void;
   setSelectedGenre: React.Dispatch<React.SetStateAction<string | undefined>>;
@@ -23,7 +26,7 @@ function GenreSelector({
   };
 
   return (
-    <>
+    <div className={styles.container}>
       {genres.map((genre, i) => {
         return (
           <button key={genre} onClick={() => handleGenreSelect(i)}>
@@ -31,7 +34,7 @@ function GenreSelector({
           </button>
         );
       })}
-    </>
+    </div>
   );
 }
 
