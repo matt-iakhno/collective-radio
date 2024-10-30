@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 import Slide from "./Slide";
-import { useEpisodes } from "../../store";
-import { type Episode } from "../../@types/types";
+import { useEpisodes } from "@/store";
+import { type Episode } from "@/types/types";
 
 import { Swiper as SwiperLibrary, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
@@ -29,8 +29,6 @@ function Swiper({ selectedGenre }: SwiperProps) {
       setFilteredEpisodes(genreEpisodes);
     }
   }, [selectedGenre, episodes]);
-
-  console.log(selectedGenre, filteredEpisodes);
 
   // const updateEpisodes = (newEpisodes: Episode[]) => {
   //   setEpisodes(newEpisodes);

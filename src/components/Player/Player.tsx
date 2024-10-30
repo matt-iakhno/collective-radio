@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
+
+import { useEpisodes } from "@/store";
 
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./player.module.css";
-import "./skin.css";
+
 import {
   LuArrowRightToLine,
   LuArrowLeftToLine,
@@ -13,29 +15,65 @@ import {
   LuVolume1,
 } from "react-icons/lu";
 
-function Player() {
-  const [playlist] = useState([
-    { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
-    { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
-    { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
-  ]);
-  const [currentTrack, setTrackIndex] = useState(0);
+import { isMobileDevice } from "@/lib";
+
+const DEFAULT_VOLUME = isMobileDevice() ? 1.0 : 0.5;
+
+interface PlayerProps {
+  selectedGenre: string | undefined;
+}
+
+function Player({ selectedGenre }: PlayerProps) {
+  const episodes = useEpisodes();
+  const [isVisible, setIsVisible] = useState(false);
+
+  // TODO: decide how to deal with this
+  const playlist = episodes.filter(
+    (episode) => episode.genre === selectedGenre
+  );
+  const playlistMedia = playlist.map((episode) => {
+    return { src: episode.url };
+  });
+  // TODO: able to read return to right episode on subsequent session
+  const intialTrackIndex = playlist.length
+    ? Math.floor(Math.random() * playlist.length)
+    : 0;
+
+  const [activeTrackIndex, setActiveTrackIndex] = useState(intialTrackIndex);
+
+  // show player when user has scrolled past the Episode selector
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const bottomThreshold = document.documentElement.offsetHeight - 300;
+
+      if (scrollPosition >= bottomThreshold) {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleClickNext = () => {
     console.log("click next");
-    setTrackIndex((currentTrack) =>
+    setActiveTrackIndex((currentTrack) =>
       currentTrack < playlist.length - 1 ? currentTrack + 1 : 0
     );
   };
 
   const handleClickPrevious = () => {
     console.log("click previous");
-    setTrackIndex((currentTrack) => (currentTrack > 0 ? currentTrack - 1 : 0));
+    setActiveTrackIndex((currentTrack) =>
+      currentTrack > 0 ? currentTrack - 1 : 0
+    );
   };
 
   const handleEnd = () => {
     console.log("media end");
-    setTrackIndex((currentTrack) =>
+    setActiveTrackIndex((currentTrack) =>
       currentTrack < playlist.length - 1 ? currentTrack + 1 : 0
     );
   };
@@ -49,9 +87,10 @@ function Player() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
       <AudioPlayer
-        src={playlist[currentTrack].src}
+        src={playlistMedia[activeTrackIndex]?.src}
+        volume={DEFAULT_VOLUME}
         className="rounded-lg"
         showSkipControls
         showJumpControls={false}
@@ -63,8 +102,8 @@ function Player() {
         onError={handleError}
         customAdditionalControls={[]}
         customIcons={{
-          play: <LuPlay color="#fece02" size={25} />,
-          pause: <LuPause color="#fece02" size={25} />,
+          play: <LuPlay color="#fece02" size={30} />,
+          pause: <LuPause color="#fece02" size={30} />,
           previous: <LuArrowLeftToLine color="#fece02" size={25} />,
           next: <LuArrowRightToLine color="#fece02" size={25} />,
           // loop: <LuRepeat1 color="#fff" size={25} />,

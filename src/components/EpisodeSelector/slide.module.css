@@ -36,7 +36,8 @@
 }
 
 .cardText p {
-  margin-top: 0px;
+  margin: 0 auto 0 auto;
+  max-width: 80%;
 }
 
 .cardText > div {

@@ -45,6 +45,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
       root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
       document.body.style.background = `hsl(${hue + 60}, 75%, 5%)`;
 
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       hueNoiseOffset += noiseStep / 6;
 
       requestAnimationFrame(animate);
@@ -55,6 +56,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
 
     // Add event listeners for mouse events
     path.addEventListener("mouseover", () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       noiseStep = 0.001; // Adjusted accordingly
     });
 

@@ -6,6 +6,14 @@
   position: fixed;
   bottom: 20px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media only screen and (max-width: 767px) {
@@ -14,4 +22,47 @@
     max-width: 95%;
     margin: 0 auto;
   }
+}
+
+/* player skin  */
+:global(.rhap_container) {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+:global(.rhap_time) {
+  color: #fece02;
+}
+:global(.rhap_play-status--paused .rhap_progress-bar),
+:global(.rhap_play-status--playing .rhap_progress-bar) {
+  background: #333;
+}
+
+:global(.rhap_play-status--paused .rhap_progress-filled),
+:global(.rhap_play-status--playing .rhap_progress-filled) {
+  background: linear-gradient(
+    to right,
+    #fece02 0%,
+    #fece02 calc(100% - 200px),
+    #fe8802 100%
+  );
+}
+
+@media (max-width: 766px) {
+  :global(.rhap_play-status--paused .rhap_progress-filled),
+  :global(.rhap_play-status--playing .rhap_progress-filled) {
+    background: linear-gradient(
+      to right,
+      #fece02 0%,
+      #fece02 calc(100% - 100px),
+      #fe8802 100%
+    );
+  }
+}
+
+:global(.rhap_volume-indicator) {
+  background: #fece02;
+}
+:global(.rhap_volume-bar) {
+  background: #fe8802;
 }

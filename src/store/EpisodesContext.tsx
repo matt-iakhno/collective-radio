@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo, useState, ReactNode } from "react";
-import episodeList from "../assets/episodes.json";
-import { type Episode } from "../@types/types";
+import episodeList from "@/assets/episodes.json";
+import { type Episode } from "@/types/types";
 
 const EpisodesContext = createContext<Episode[] | undefined>(undefined);
 

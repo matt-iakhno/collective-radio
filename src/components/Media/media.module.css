@@ -187,6 +187,11 @@ main div {
   display: flex;
   justify-content: center;
   margin-bottom: 100px;
+  row-gap: 20px;
+}
+
+.genreSelector button {
+  margin-right: 20px;
 }
 
 .about h3 {
@@ -212,6 +217,9 @@ main div {
 }
 
 @media only screen and (max-width: 1366px) {
+  .genreSelector {
+    padding: 0rem 5rem;
+  }
   .about {
     padding: 3rem 5rem;
   }
@@ -225,6 +233,9 @@ main div {
 }
 
 @media only screen and (max-width: 768px) {
+  .genreSelector {
+    padding: 0rem 2rem;
+  }
   .about {
     padding: 2rem 3rem;
   }
