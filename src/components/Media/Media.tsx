@@ -4,13 +4,16 @@ import EpisodeSelector from "@/components/EpisodeSelector";
 import GenreSelector from "@/components/GenreSelector";
 import Player from "@/components/Player";
 
-import { EpisodesProvider } from "@/store";
+import { EpisodesProvider } from "@/contexts";
 
 import styles from "./media.module.css";
 
 function Media() {
   const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
   const [selectedGenre, setSelectedGenre] = useState<string | undefined>(
+    undefined
+  );
+  const [selectedEpisode, setSelectedEpisode] = useState<number | undefined>(
     undefined
   );
 
@@ -39,13 +42,19 @@ function Media() {
           </section>
           <section className={styles.carousel}>
             {isCarouselVisible && (
-              <EpisodeSelector selectedGenre={selectedGenre} />
+              <EpisodeSelector
+                selectedGenre={selectedGenre}
+                setSelectedEpisode={setSelectedEpisode}
+              />
             )}
           </section>
         </div>
       </main>
       <section className={styles.playerContainer}>
-        <Player selectedGenre={selectedGenre} />
+        <Player
+          selectedGenre={selectedGenre}
+          selectedEpisode={selectedEpisode}
+        />
       </section>
     </EpisodesProvider>
   );

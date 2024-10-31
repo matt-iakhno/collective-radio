@@ -2,11 +2,18 @@ import { type Episode } from "@/types/types";
 
 import styles from "./slide.module.css";
 
+import { PiPlayDuotone } from "react-icons/pi";
+
 interface SlideProps {
   episode: Episode;
+  playEpisode: (episodeNum: number) => void;
 }
 
-const Slide: React.FC<SlideProps> = ({ episode }) => {
+const Slide: React.FC<SlideProps> = ({ episode, playEpisode }) => {
+  const playButtonClicked = () => {
+    playEpisode(episode.episodeNum);
+  };
+
   return (
     <div className={styles.card}>
       <img
@@ -14,6 +21,9 @@ const Slide: React.FC<SlideProps> = ({ episode }) => {
         src={episode.coverArt}
         alt={`Episode ${episode.episodeNum} - ${episode.genre[0]} Cover`}
       />
+      <button className={`${styles.play} `} onClick={() => playButtonClicked()}>
+        <PiPlayDuotone size={150} />
+      </button>
       <div className={styles.cardText}>
         <h2>{episode.genre}</h2>
         <p>

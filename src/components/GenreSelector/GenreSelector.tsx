@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useEpisodes } from "../../store";
+import { useEpisodes } from "@/contexts";
 
 import styles from "./genreselector.module.css";
 

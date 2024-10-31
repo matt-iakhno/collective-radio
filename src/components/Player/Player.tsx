@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 
-import { useEpisodes } from "@/store";
+import { useEpisodes } from "@/contexts";
 
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./player.module.css";
@@ -21,25 +21,23 @@ const DEFAULT_VOLUME = isMobileDevice() ? 1.0 : 0.5;
 
 interface PlayerProps {
   selectedGenre: string | undefined;
+  selectedEpisode: number | undefined;
 }
 
-function Player({ selectedGenre }: PlayerProps) {
+function Player({ selectedEpisode }: PlayerProps) {
   const episodes = useEpisodes();
+
+  // TODO: able to read return to right episode on subsequent session
+  const [source, setSource] = useState<undefined | string>(undefined);
+
   const [isVisible, setIsVisible] = useState(false);
 
-  // TODO: decide how to deal with this
-  const playlist = episodes.filter(
-    (episode) => episode.genre === selectedGenre
-  );
-  const playlistMedia = playlist.map((episode) => {
-    return { src: episode.url };
-  });
-  // TODO: able to read return to right episode on subsequent session
-  const intialTrackIndex = playlist.length
-    ? Math.floor(Math.random() * playlist.length)
-    : 0;
-
-  const [activeTrackIndex, setActiveTrackIndex] = useState(intialTrackIndex);
+  useEffect(() => {
+    const source = episodes.find(
+      (episode) => episode.episodeNum === selectedEpisode
+    );
+    setSource(source?.url);
+  }, [selectedEpisode, episodes]);
 
   // show player when user has scrolled past the Episode selector
   useEffect(() => {
@@ -57,29 +55,12 @@ function Player({ selectedGenre }: PlayerProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleClickNext = () => {
-    console.log("click next");
-    setActiveTrackIndex((currentTrack) =>
-      currentTrack < playlist.length - 1 ? currentTrack + 1 : 0
-    );
-  };
-
-  const handleClickPrevious = () => {
-    console.log("click previous");
-    setActiveTrackIndex((currentTrack) =>
-      currentTrack > 0 ? currentTrack - 1 : 0
-    );
-  };
-
   const handleEnd = () => {
-    console.log("media end");
-    setActiveTrackIndex((currentTrack) =>
-      currentTrack < playlist.length - 1 ? currentTrack + 1 : 0
-    );
+    //console.log("media end");
   };
 
   const handleOnPlay = () => {
-    console.log("media play");
+    //console.log("media play");
   };
 
   const handleError = (e: unknown) => {
@@ -89,14 +70,12 @@ function Player({ selectedGenre }: PlayerProps) {
   return (
     <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
       <AudioPlayer
-        src={playlistMedia[activeTrackIndex]?.src}
+        src={source}
         volume={DEFAULT_VOLUME}
         className="rounded-lg"
         showSkipControls
         showJumpControls={false}
         showDownloadProgress={false}
-        onClickNext={handleClickNext}
-        onClickPrevious={handleClickPrevious}
         onEnded={handleEnd}
         onPlay={handleOnPlay}
         onError={handleError}
