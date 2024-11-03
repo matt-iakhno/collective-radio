@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 
 import { useEpisodes } from "@/contexts";
+import { Episode } from "@/types/types";
 
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./player.module.css";
@@ -28,7 +29,9 @@ function Player({ selectedEpisode }: PlayerProps) {
   const episodes = useEpisodes();
 
   // TODO: able to read return to right episode on subsequent session
-  const [source, setSource] = useState<undefined | string>(undefined);
+  const [currentTrack, setCurrentTrack] = useState<undefined | Episode>(
+    undefined
+  );
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,7 +39,7 @@ function Player({ selectedEpisode }: PlayerProps) {
     const source = episodes.find(
       (episode) => episode.episodeNum === selectedEpisode
     );
-    setSource(source?.url);
+    setCurrentTrack(source);
   }, [selectedEpisode, episodes]);
 
   // show player when user has scrolled past the Episode selector
@@ -55,6 +58,27 @@ function Player({ selectedEpisode }: PlayerProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if ("mediaSession" in navigator && currentTrack) {
+      const { episodeNum, artists, coverArt } = currentTrack;
+      const episodeName = "Collective Radio EP" + episodeNum;
+      const episodeArtists = artists.join(" & ");
+
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: episodeName,
+        artist: episodeArtists,
+        album: "Collective Radio",
+        artwork: [
+          {
+            src: coverArt,
+            sizes: "500x500",
+            type: "image/jpeg",
+          },
+        ],
+      });
+    }
+  }, [currentTrack]);
+
   const handleEnd = () => {
     //console.log("media end");
   };
@@ -70,7 +94,7 @@ function Player({ selectedEpisode }: PlayerProps) {
   return (
     <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
       <AudioPlayer
-        src={source}
+        src={currentTrack?.url}
         volume={DEFAULT_VOLUME}
         className="rounded-lg"
         showSkipControls
