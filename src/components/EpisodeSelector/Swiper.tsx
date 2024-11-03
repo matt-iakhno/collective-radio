@@ -14,11 +14,11 @@ import "swiper/css/pagination";
 import styles from "./swiper.module.css";
 
 interface SwiperProps {
-  selectedGenre: string | undefined;
+  selectedCategory: string | undefined;
   setSelectedEpisode: (episodeNum: number) => void;
 }
 
-function Swiper({ selectedGenre, setSelectedEpisode }: SwiperProps) {
+function Swiper({ selectedCategory, setSelectedEpisode }: SwiperProps) {
   const swiperRef = useRef<SwiperCore | null>(null);
   const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[] | []>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -27,9 +27,9 @@ function Swiper({ selectedGenre, setSelectedEpisode }: SwiperProps) {
   const episodes = useEpisodes();
 
   useEffect(() => {
-    if (selectedGenre) {
+    if (selectedCategory) {
       const genreEpisodes = episodes.filter(
-        (episode) => episode.genre === selectedGenre
+        (episode) => episode.mood === selectedCategory
       );
       setFilteredEpisodes(genreEpisodes);
       setActiveIndex(Math.floor(Math.random() * genreEpisodes.length));
@@ -38,7 +38,7 @@ function Swiper({ selectedGenre, setSelectedEpisode }: SwiperProps) {
       // pick a random episode from this genre to set as the active slide
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedGenre, episodes]);
+  }, [selectedCategory, episodes]);
 
   const handleSlideChange = (swiper: SwiperCore) => {
     setActiveIndex(swiper.activeIndex);

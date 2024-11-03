@@ -1,1207 +1,1307 @@
 [
-	{
-		"episodeNum": 1,
-		"fileName": "Collective Radio Vol. 1 - Shane Armstrong [Ghetto Funk Glitch Hop].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%201%20-%20Shane%20Armstrong%20%5BGhetto%20Funk%20Glitch%20Hop%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Glitch Hop",
-		"mood": []
-	},
-	{
-		"episodeNum": 2,
-		"fileName": "Collective Radio Vol. 2 - Akula [Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%202%20-%20Akula%20%5BDrum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000260764661-fp8np3-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 3,
-		"fileName": "Collective Radio Vol. 3 - Farid Ahwazi [Future Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%203%20-%20Farid%20Ahwazi%20%5BFuture%20Bass%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000263824661-z1f23w-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Future Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 4,
-		"fileName": "Collective Radio Vol. 4 - RolyPoly [House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%204%20-%20RolyPoly%20%5BHouse%5D.mp3",
-		"artists": [
-			"Roly Poly"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000266983433-bjm381-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "House",
-		"mood": []
-	},
-	{
-		"episodeNum": 5,
-		"fileName": "Collective Radio Vol. 5 - tai [Deep House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%205%20-%20tai%20%5BDeep%20House%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000269612483-p0kih0-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Deep House",
-		"mood": []
-	},
-	{
-		"episodeNum": 6,
-		"fileName": "Collective Radio Vol. 6 - Shane Armstrong [Lofi Chill Hop].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%206%20-%20Shane%20Armstrong%20%5BLofi%20Chill%20Hop%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Chill Hop",
-		"mood": []
-	},
-	{
-		"episodeNum": 7,
-		"fileName": "Collective Radio Vol. 7 - Akula [Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%207%20-%20Akula%20%5BTrance%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000316500423-yq53u6-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 8,
-		"fileName": "Collective Radio Vol. 8 - Farid Ahwazi & tai [Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%208%20-%20Farid%20Ahwazi%20%26%20tai%20%5BDubstep%5D.mp3",
-		"artists": [
-			"Farid Ahwazi",
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000280474178-zt3hpu-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 9,
-		"fileName": "Collective Radio Vol. 9 - RolyPoly [Anjunabeats Tribute Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%209%20-%20RolyPoly%20%5BAnjunabeats%20Tribute%20Mix%5D.mp3",
-		"artists": [
-			"Roly Poly"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000284018276-thgfps-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Anjunabeats",
-		"mood": []
-	},
-	{
-		"episodeNum": 10,
-		"fileName": "Collective Radio Vol. 10 - Shane Armstrong [Electro Swing].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2010%20-%20Shane%20Armstrong%20%5BElectro%20Swing%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000287719076-awjupm-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Electro Swing",
-		"mood": []
-	},
-	{
-		"episodeNum": 11,
-		"fileName": "Collective Radio Vol. 11 - Akula [Monstercat Tribute Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2011%20-%20Akula%20%5BMonstercat%20Tribute%20Mix%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000291227082-7y7cno-t500x500.jpg",
-		"releaseDate": "2018-01-26",
-		"genre": "Monstercat",
-		"mood": []
-	},
-	{
-		"episodeNum": 12,
-		"fileName": "Collective Radio Vol. 12 - Farid Ahwazi [Bass House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2012%20-%20Farid%20Ahwazi%20%5BBass%20House%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000296504964-ix1b69-t500x500.jpg",
-		"releaseDate": "2018-02-02",
-		"genre": "Bass House",
-		"mood": []
-	},
-	{
-		"episodeNum": 13,
-		"fileName": "Collective Radio Vol. 13 - tai [Chillwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2013%20-%20tai%20%5BChillwave%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000299781492-53me4d-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Chillwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 14,
-		"fileName": "Collective Radio Vol. 14 - Shane Armstrong [Synthwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2014%20-%20Shane%20Armstrong%20%5BSynthwave%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000303458943-nolwap-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Synthwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 15,
-		"fileName": "Collective Radio Vol. 15 - Farid Ahwazi [Trap].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2015%20-%20Farid%20Ahwazi%20%5BTrap%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000307004562-td8wi8-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Trap",
-		"mood": []
-	},
-	{
-		"episodeNum": 16,
-		"fileName": "Collective Radio Vol. 16 - KRYLK [Hardstyle].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2016%20-%20KRYLK%20%5BHardstyle%5D.mp3",
-		"artists": [
-			"KRYLK"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000310208547-5cgrsg-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Hardstyle",
-		"mood": []
-	},
-	{
-		"episodeNum": 17,
-		"fileName": "Collective Radio Vol. 17 - Akula [Electro House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2017%20-%20Akula%20%5BElectro%20House%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000313367784-mjkn92-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Electro House",
-		"mood": []
-	},
-	{
-		"episodeNum": 18,
-		"fileName": "Collective Radio Vol. 18 - RolyPoly [UK Hardcore].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2018%20-%20RolyPoly%20%5BUK%20Hardcore%5D.mp3",
-		"artists": [
-			"Roly Poly"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000321101145-ore8u7-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Happy Hardcore",
-		"mood": []
-	},
-	{
-		"episodeNum": 19,
-		"fileName": "Collective Radio Vol. 19 - tai [Never Say Die Tribute Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2019%20-%20tai%20%5BNever%20Say%20Die%20Tribute%20Mix%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000322879056-77lswp-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Never Say Die",
-		"mood": []
-	},
-	{
-		"episodeNum": 20,
-		"fileName": "Collective Radio Vol. 20 - Shane Armstrong [Moombahton].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2020%20-%20Shane%20Armstrong%20%5BMoombahton%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000327552138-63uoxc-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Moombahton",
-		"mood": []
-	},
-	{
-		"episodeNum": 21,
-		"fileName": "Collective Radio Vol. 21 - Akula [Psytrance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2021%20-%20Akula%20%5BPsytrance%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000330778059-dfo8wu-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Psytrance",
-		"mood": []
-	},
-	{
-		"episodeNum": 22,
-		"fileName": "Collective Radio Vol. 22 - Farid Ahwazi [Industrial].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2022%20-%20Farid%20Ahwazi%20%5BIndustrial%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000334771947-yzj1g8-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Midtempo",
-		"mood": []
-	},
-	{
-		"episodeNum": 23,
-		"fileName": "Collective Radio Vol. 23 - tai [Anjunadeep Tribute Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2023%20-%20tai%20%5BAnjunadeep%20Tribute%20Mix%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000337850472-tjwnuy-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Anjunadeep",
-		"mood": []
-	},
-	{
-		"episodeNum": 24,
-		"fileName": "Collective Radio Vol. 24 - Shane Armstrong [Nu Disco].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2024%20-%20Shane%20Armstrong%20%5BNu%20Disco%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000341439972-ip8dqr-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Nu Disco",
-		"mood": []
-	},
-	{
-		"episodeNum": 25,
-		"fileName": "Collective Radio Vol. 25 - Akula [Avicii Tribute Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2025%20-%20Akula%20%5BAvicii%20Tribute%20Mix%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000410443560-4ra0eg-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Avicii Tribute",
-		"mood": []
-	},
-	{
-		"episodeNum": 26,
-		"fileName": "Collective Radio Vol. 26 - Farid Ahwazi [Ghetto House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2026%20-%20Farid%20Ahwazi%20%5BGhetto%20House%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000347051715-5l3s28-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Ghetto House",
-		"mood": []
-	},
-	{
-		"episodeNum": 27,
-		"fileName": "Collective Radio Vol. 27 - LYNS [Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2027%20-%20LYNS%20%5BDubstep%5D.mp3",
-		"artists": [
-			"LYNS"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000349837290-wdgd2j-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 28,
-		"fileName": "Collective Radio Vol. 28 - RolyPoly [Deep House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2028%20-%20RolyPoly%20%5BDeep%20House%5D.mp3",
-		"artists": [
-			"Roly Poly"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000358545489-jn9vj7-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Deep House",
-		"mood": []
-	},
-	{
-		"episodeNum": 29,
-		"fileName": "Collective Radio Vol. 29 - tai [Melodic Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2029%20-%20tai%20%5BMelodic%20Dubstep%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000361252857-bli9r3-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Melodic Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 30,
-		"fileName": "Collective Radio Vol. 30 - Shane Armstrong [Lofi Chill Hop].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2030%20-%20Shane%20Armstrong%20%5BLofi%20Chill%20Hop%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000363980109-vewkhv-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Chill Hop",
-		"mood": []
-	},
-	{
-		"episodeNum": 31,
-		"fileName": "Collective Radio Vol. 31 - Akula [Tech Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2031%20-%20Akula%20%5BTech%20Trance%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000366741840-b2dtsa-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Tech Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 32,
-		"fileName": "Collective Radio Vol. 32 - Farid Ahwazi [Progressive Big Room House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2032%20-%20Farid%20Ahwazi%20%5BProgressive%20Big%20Room%20House%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000369498792-nvka3f-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Big Room",
-		"mood": []
-	},
-	{
-		"episodeNum": 33,
-		"fileName": "Collective Radio Vol. 33 - tai [Progressive House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2033%20-%20tai%20%5BProgressive%20House%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000373234236-v9li3q-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Progressive House",
-		"mood": []
-	},
-	{
-		"episodeNum": 34,
-		"fileName": "Collective Radio Vol. 34 - K-OG [Hip-Hop].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2034%20-%20K-OG%20%5BHip-Hop%5D.mp3",
-		"artists": [
-			"K-OG"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000376926192-cmi6i9-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Hip-Hop",
-		"mood": []
-	},
-	{
-		"episodeNum": 35,
-		"fileName": "Collective Radio Vol. 35 - Shane Armstrong [Future Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2035%20-%20Shane%20Armstrong%20%5BFuture%20Bass%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000380252571-8g66ge-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Future Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 36,
-		"fileName": "Collective Radio Vol. 36 - Lightform [Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2036%20-%20Lightform%20%5BTrance%5D.mp3",
-		"artists": [
-			"Lightform"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000383684394-8cd9nf-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 37,
-		"fileName": "Collective Radio Vol. 37 - Akula [Tech House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2037%20-%20Akula%20%5BTech%20House%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000394263384-ccxu25-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Tech House",
-		"mood": []
-	},
-	{
-		"episodeNum": 38,
-		"fileName": "Collective Radio Vol. 38 - Farid Ahwazi [Riddim].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2038%20-%20Farid%20Ahwazi%20%5BRiddim%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000397969053-26lnt9-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Riddim",
-		"mood": []
-	},
-	{
-		"episodeNum": 39,
-		"fileName": "Collective Radio Vol. 39 - tai [Chillwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2039%20-%20tai%20%5BChillwave%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000401088036-66ezfl-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Chillwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 40,
-		"fileName": "Collective Radio Vol. 40 - Shane Armstrong [Psytrance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2040%20-%20Shane%20Armstrong%20%5BPsytrance%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000405475443-kl5z9q-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Psytrance",
-		"mood": []
-	},
-	{
-		"episodeNum": 41,
-		"fileName": "Collective Radio Vol. 41 - Akula [Garuda Label Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2041%20-%20Akula%20%5BGaruda%20Label%20Mix%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000409124022-vhrqkr-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Garuda",
-		"mood": []
-	},
-	{
-		"episodeNum": 42,
-		"fileName": "Collective Radio Vol. 42 - Farid Ahwazi [Complextro].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2042%20-%20Farid%20Ahwazi%20%5BComplextro%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000412160238-6ba69n-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Complextro",
-		"mood": []
-	},
-	{
-		"episodeNum": 43,
-		"fileName": "Collective Radio Vol. 43 - tai [Industrial].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2043%20-%20tai%20%5BIndustrial%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000415252146-707spi-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Midtempo",
-		"mood": []
-	},
-	{
-		"episodeNum": 44,
-		"fileName": "Collective Radio Vol. 44 - Shane Armstrong & Farid Ahwazi [Experimental].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2044%20-%20Shane%20Armstrong%20%26%20Farid%20Ahwazi%20%5BExperimental%5D.mp3",
-		"artists": [
-			"Shane Armstrong",
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000419835402-ml9nue-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Experimental",
-		"mood": []
-	},
-	{
-		"episodeNum": 45,
-		"fileName": "Collective Radio Vol. 45 - Akula [Downtempo].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2045%20-%20Akula%20%5BDowntempo%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000424162626-21xx22-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Downtempo",
-		"mood": []
-	},
-	{
-		"episodeNum": 46,
-		"fileName": "Collective Radio Vol. 46 - tai [Progressive Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2046%20-%20tai%20%5BProgressive%20Trance%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000424162626-21xx22-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Prog Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 47,
-		"fileName": "Collective Radio Vol. 47 - RolyPoly [House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2047%20-%20RolyPoly%20%5BHouse%5D.mp3",
-		"artists": [
-			"Roly Poly"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000437068491-0vzkwt-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "House",
-		"mood": []
-	},
-	{
-		"episodeNum": 48,
-		"fileName": "Collective Radio Vol. 48 - One Year Collective Mix [Deep House Progressive House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2048%20-%20One%20Year%20Collective%20Mix%20%5BDeep%20House%20Progressive%20House%5D.mp3",
-		"artists": [
-			"Collective Radio"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000440955204-063xq8-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Deep House",
-		"mood": []
-	},
-	{
-		"episodeNum": 49,
-		"fileName": "Collective Radio Vol. 49 - Leo Reyes [Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2049%20-%20Leo%20Reyes%20%5BTrance%5D.mp3",
-		"artists": [
-			"Leo Reyes"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000445646013-0bqit8-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 50,
-		"fileName": "Collective Radio Vol. 50 - Shane Armstrong [Synthwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2050%20-%20Shane%20Armstrong%20%5BSynthwave%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000450281697-q6uzrz-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Synthwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 51,
-		"fileName": "Collective Radio Vol. 51 - tai [Deep House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2051%20-%20tai%20%5BDeep%20House%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000497170158-uffxsr-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Deep House",
-		"mood": []
-	},
-	{
-		"episodeNum": 52,
-		"fileName": "Collective Radio Vol. 52 - Farid Ahwazi [Melodic Techno].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2052%20-%20Farid%20Ahwazi%20%5BMelodic%20Techno%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000504565140-sdb5uq-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Melodic Techno",
-		"mood": []
-	},
-	{
-		"episodeNum": 53,
-		"fileName": "Collective Radio Vol. 53 - Akula [Liquid Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2053%20-%20Akula%20%5BLiquid%20Drum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000550669128-641egm-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Liquid Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 54,
-		"fileName": "Collective Radio Vol. 54 - Shane Armstrong [Tech House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2054%20-%20Shane%20Armstrong%20%5BTech%20House%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000550670928-8abmmi-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Tech House",
-		"mood": []
-	},
-	{
-		"episodeNum": 55,
-		"fileName": "Collective Radio Vol. 55 - Farid Ahwazi & tai [Trap].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2055%20-%20Farid%20Ahwazi%20%26%20tai%20%5BTrap%5D.mp3",
-		"artists": [
-			"Tai",
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000550671564-u0ml0u-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Trap",
-		"mood": []
-	},
-	{
-		"episodeNum": 56,
-		"fileName": "Collective Radio Vol. 56 - Akula [Techno].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2056%20-%20Akula%20%5BTechno%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000550671945-8sd74p-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Techno",
-		"mood": []
-	},
-	{
-		"episodeNum": 57,
-		"fileName": "Collective Radio Vol. 57 - Shane Armstrong [Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2057%20-%20Shane%20Armstrong%20%5BDrum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000550672596-rwxcbf-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 58,
-		"fileName": "Collective Radio Vol. 58 - tai [Melodic Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2058%20-%20tai%20%5BMelodic%20Dubstep%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000550673730-9nt3be-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Melodic Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 59,
-		"fileName": "Collective Radio Vol. 59 - Farid Ahwazi [Future Garage].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2059%20-%20Farid%20Ahwazi%20%5BFuture%20Garage%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000555623055-zk2oh6-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Future Garage",
-		"mood": []
-	},
-	{
-		"episodeNum": 60,
-		"fileName": "Collective Radio Vol. 60 - Akula [Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2060%20-%20Akula%20%5BTrance%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000561689511-7rydxp-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 61,
-		"fileName": "Collective Radio Vol. 61 - Shane Armstrong [Nu Disco].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2061%20-%20Shane%20Armstrong%20%5BNu%20Disco%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000568354016-8vora7-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Nu Disco",
-		"mood": []
-	},
-	{
-		"episodeNum": 62,
-		"fileName": "Collective Radio Vol. 62 - tai [Shambhala 2019 Tribute Mix].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2062%20-%20tai%20%5BShambhala%202019%20Tribute%20Mix%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000576295298-2hckdd-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Shambhala",
-		"mood": []
-	},
-	{
-		"episodeNum": 63,
-		"fileName": "Collective Radio Vol. 63 - Farid Ahwazi [Wave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2063%20-%20Farid%20Ahwazi%20%5BWave%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000583489208-iusi76-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Wave",
-		"mood": []
-	},
-	{
-		"episodeNum": 64,
-		"fileName": "Collective Radio Vol. 64 - d0uce [Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2064%20-%20d0uce%20%5BDubstep%5D.mp3",
-		"artists": [
-			"D0uce"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000587887886-xfr7ln-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 65,
-		"fileName": "Collective Radio Vol. 65 - Akula [Tech House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2065%20-%20Akula%20%5BTech%20House%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000596518988-gbes5v-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Tech House",
-		"mood": []
-	},
-	{
-		"episodeNum": 66,
-		"fileName": "Collective Radio Vol. 66 - Shane Armstrong [Glitch Hop].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2066%20-%20Shane%20Armstrong%20%5BGlitch%20Hop%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000602912359-76rzdi-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Glitch Hop",
-		"mood": []
-	},
-	{
-		"episodeNum": 67,
-		"fileName": "Collective Radio Vol. 67 - tai [Chillwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2067%20-%20tai%20%5BChillwave%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000610835194-a5fe4b-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Chillwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 68,
-		"fileName": "Collective Radio Vol. 68 - Farid Ahwazi [Midtempo].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2068%20-%20Farid%20Ahwazi%20%5BMidtempo%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000622241731-no73gn-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Midtempo",
-		"mood": []
-	},
-	{
-		"episodeNum": 69,
-		"fileName": "Collective Radio Vol. 69 - Akula [DubstepTechstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2069%20-%20Akula%20%5BDubstepTechstep%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000634311004-shykac-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Dubstep/Techstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 70,
-		"fileName": "Collective Radio Vol. 70 - Two Year Collective Mix [Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2070%20-%20Two%20Year%20Collective%20Mix%20%5BDrum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Collective Radio"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000648069079-pd6hxv-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 71,
-		"fileName": "Collective Radio Vol. 71 - M3L [Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2071%20-%20M3L%20%5BDubstep%5D.mp3",
-		"artists": [
-			"M3L"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000658379029-sv4of8-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 72,
-		"fileName": "Collective Radio Vol. 72 - Shane Armstrong [Progressive House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2072%20-%20Shane%20Armstrong%20%5BProgressive%20House%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-wEQOSVfJg7WzHwBu-ljSh6Q-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Progressive House",
-		"mood": []
-	},
-	{
-		"episodeNum": 73,
-		"fileName": "Collective Radio Vol. 73 - tai [Ghetto House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2073%20-%20tai%20%5BGhetto%20House%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-YvST7k3t2hg4YcJj-ZHeHHQ-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Ghetto House",
-		"mood": []
-	},
-	{
-		"episodeNum": 74,
-		"fileName": "Collective Radio Vol. 74 - Farid Ahwazi [Deep House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2074%20-%20Farid%20Ahwazi%20%5BDeep%20House%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-dIaruryIiDUofAHN-B5468w-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Deep House",
-		"mood": []
-	},
-	{
-		"episodeNum": 75,
-		"fileName": "Collective Radio Vol. 75 - Akula [Happy Hardcore].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2075%20-%20Akula%20%5BHappy%20Hardcore%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-fsKY1Gji4ZrWoZQ4-nVS8Wg-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Happy Hardcore",
-		"mood": []
-	},
-	{
-		"episodeNum": 76,
-		"fileName": "Collective Radio Vol. 76 - Shane Armstrong [Trap & Future Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2076%20-%20Shane%20Armstrong%20%5BTrap%20%26%20Future%20Bass%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Trap",
-		"mood": []
-	},
-	{
-		"episodeNum": 77,
-		"fileName": "Collective Radio Vol. 77 - tai [Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2077%20-%20tai%20%5BDrum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000316500423-yq53u6-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 78,
-		"fileName": "Collective Radio Vol. 78 - Farid Ahwazi [Trap].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2078%20-%20Farid%20Ahwazi%20%5BTrap%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-xSBWqyaymzdJolbL-rGPnmg-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Trap",
-		"mood": []
-	},
-	{
-		"episodeNum": 79,
-		"fileName": "Collective Radio Vol. 79 - Akula [Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2079%20-%20Akula%20%5BDrum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-zVl9ItrzJzsvVdxZ-lKWVvg-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 80,
-		"fileName": "Collective Radio Vol. 80 - Shane Armstrong [Nu Disco].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2080%20-%20Shane%20Armstrong%20%5BNu%20Disco%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-VLWyzYizzxyHHRlG-mZUoqA-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Nu Disco",
-		"mood": []
-	},
-	{
-		"episodeNum": 81,
-		"fileName": "Collective Radio Vol. 81 - tai [Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2081%20-%20tai%20%5BDubstep%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Melodic Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 82,
-		"fileName": "Collective Radio Vol. 82 - Farid Ahwazi [Ghetto House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2082%20-%20Farid%20Ahwazi%20%5BGhetto%20House%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000260764661-fp8np3-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Ghetto House",
-		"mood": []
-	},
-	{
-		"episodeNum": 83,
-		"fileName": "Collective Radio Vol. 83 - Akula [Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2083%20-%20Akula%20%5BTrance%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-hSHOQXRLGHz6WEKd-VnV9iQ-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 84,
-		"fileName": "Collective Radio Vol. 84 - Shane Armstrong [Funky Jackin' House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2084%20-%20Shane%20Armstrong%20%5BFunky%20Jackin'%20House%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-yzfTzOIw0uOtUrS0-99XJBg-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Jackin House",
-		"mood": []
-	},
-	{
-		"episodeNum": 85,
-		"fileName": "Collective Radio Vol. 85 - Farid Ahwazi [Riddim].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2085%20-%20Farid%20Ahwazi%20%5BRiddim%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-pzw2eLOyNESHn6AW-zu4zdg-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Riddim",
-		"mood": []
-	},
-	{
-		"episodeNum": 86,
-		"fileName": "Collective Radio Vol. 86 - Silverback [Tech & Bass House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2086%20-%20Silverback%20%5BTech%20%26%20Bass%20House%5D.mp3",
-		"artists": [
-			"D0uce"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-r8wlfDUT5d4g8Ehz-IXIAZg-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Tech House",
-		"mood": []
-	},
-	{
-		"episodeNum": 87,
-		"fileName": "Collective Radio Vol. 87 - tai [Chillwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2087%20-%20tai%20%5BChillwave%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-cdXm36nDzNyDMgyh-6ZnrEw-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Chillwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 88,
-		"fileName": "Collective Radio Vol. 88 - Akula [Liquid Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2088%20-%20Akula%20%5BLiquid%20Drum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-LokHb0ZSC1VjnboQ-TwnMtA-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Liquid Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 89,
-		"fileName": "Collective Radio Vol. 89 - Shane Armstrong [Deep House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2089%20-%20Shane%20Armstrong%20%5BDeep%20House%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-hEnzsrGeBBqyz8Y3-daALjw-t500x500.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Deep House",
-		"mood": []
-	},
-	{
-		"episodeNum": 90,
-		"fileName": "Collective Radio Vol. 90 - Farid Ahwazi [Neuro Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2090%20-%20Farid%20Ahwazi%20%5BNeuro%20Drum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-uqCoOr4yeB3Gzbiz-8dUFuQ-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Neurofunk",
-		"mood": []
-	},
-	{
-		"episodeNum": 91,
-		"fileName": "Collective Radio Vol. 91 - tai [Melodic Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2091%20-%20tai%20%5BMelodic%20Dubstep%5D.mp3",
-		"artists": [
-			"Tai"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
-		"releaseDate": "2017-11-17",
-		"genre": "Melodic Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 92,
-		"fileName": "Collective Radio Vol. 92 - Akula [Techno].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2092%20-%20Akula%20%5BTechno%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-iUiAzU86Hg7tCgyR-uyoezg-t500x500.jpg",
-		"releaseDate": "2017-11-24",
-		"genre": "Techno",
-		"mood": []
-	},
-	{
-		"episodeNum": 93,
-		"fileName": "Collective Radio Vol. 93 - Shane Armstrong [Synthwave].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2093%20-%20Shane%20Armstrong%20%5BSynthwave%5D.mp3",
-		"artists": [
-			"Shane Armstrong"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-dAl3CxMypxBvVOxU-Vp6cPA-t500x500.jpg",
-		"releaseDate": "2017-12-01",
-		"genre": "Synthwave",
-		"mood": []
-	},
-	{
-		"episodeNum": 94,
-		"fileName": "Collective Radio Vol. 94 - Farid Ahwazi & tai [Hybrid Trap].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2094%20-%20Farid%20Ahwazi%20%26%20tai%20%5BHybrid%20Trap%5D.mp3",
-		"artists": [
-			"Tai",
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-SMm0P1ByKFW7d5jz-nwI6WA-t500x500.jpg",
-		"releaseDate": "2017-12-08",
-		"genre": "Hybrid Trap",
-		"mood": []
-	},
-	{
-		"episodeNum": 95,
-		"fileName": "Collective Radio Vol. 95 - Silverback [Liquid Drum & Bass].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2095%20-%20Silverback%20%5BLiquid%20Drum%20%26%20Bass%5D.mp3",
-		"artists": [
-			"D0uce"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-wVRAU9ux78eq5BCO-v7LI5w-t500x500.jpg",
-		"releaseDate": "2017-12-15",
-		"genre": "Liquid Drum & Bass",
-		"mood": []
-	},
-	{
-		"episodeNum": 96,
-		"fileName": "Collective Radio Vol. 96 - KRYLK [Hardstyle].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2096%20-%20KRYLK%20%5BHardstyle%5D.mp3",
-		"artists": [
-			"KRYLK"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
-		"releaseDate": "2017-12-22",
-		"genre": "Hardstyle",
-		"mood": []
-	},
-	{
-		"episodeNum": 97,
-		"fileName": "Collective Radio Vol. 97 - Akula [Trance].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2097%20-%20Akula%20%5BTrance%5D.mp3",
-		"artists": [
-			"Akula"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-vcZzyhUNoHxa4fCx-dHOZAw-t500x500.jpg",
-		"releaseDate": "2017-12-29",
-		"genre": "Trance",
-		"mood": []
-	},
-	{
-		"episodeNum": 98,
-		"fileName": "Collective Radio Vol. 98 - M3L [Dubstep].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2098%20-%20M3L%20%5BDubstep%5D.mp3",
-		"artists": [
-			"M3L"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-000280474178-zt3hpu-t500x500.jpg",
-		"releaseDate": "2018-01-05",
-		"genre": "Dubstep",
-		"mood": []
-	},
-	{
-		"episodeNum": 99,
-		"fileName": "Collective Radio Vol. 99 - Shane Armstrong & Farid Ahwazi [Future House].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2099%20-%20Shane%20Armstrong%20%26%20Farid%20Ahwazi%20%5BFuture%20House%5D.mp3",
-		"artists": [
-			"Shane Armstrong",
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/Collective%20Radio%20Vol.%2099%20-%20Shane%20Armstrong%20%26%20Farid%20Ahwazi%20%5BFuture%20House%5D.jpg",
-		"releaseDate": "2018-01-12",
-		"genre": "Future House",
-		"mood": []
-	},
-	{
-		"episodeNum": 100,
-		"fileName": "Collective Radio Vol. 100 - Farid Ahwazi [Neurofunk].mp3",
-		"url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%20100%20-%20Farid%20Ahwazi%20%5BNeurofunk%5D.mp3",
-		"artists": [
-			"Farid Ahwazi"
-		],
-		"coverArt": "https://media.collectiveradio.com/covers/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
-		"releaseDate": "2018-01-19",
-		"genre": "Neurofunk",
-		"mood": []
-	}
+  {
+    "episodeNum": 1,
+    "fileName": "Collective Radio Vol. 1 - Shane Armstrong [Ghetto Funk Glitch Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%201%20-%20Shane%20Armstrong%20%5BGhetto%20Funk%20Glitch%20Hop%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
+    "releaseDate": "2017-11-17",
+    "genre": "Glitch Hop",
+    "mood": "eclectic",
+    "coverArtBlurhash": "UWF#^6xaJCkDT#bce-a#1JR+wIj?=EoJS$of"
+  },
+  {
+    "episodeNum": 2,
+    "fileName": "Collective Radio Vol. 2 - Akula [Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%202%20-%20Akula%20%5BDrum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000260764661-fp8np3-t500x500.jpg",
+    "releaseDate": "2017-11-24",
+    "genre": "Drum & Bass",
+    "mood": "energetic",
+    "coverArtBlurhash": "U17-QTX-00~T00Mye@NJ00wd%NE2u2yC~pV@"
+  },
+  {
+    "episodeNum": 3,
+    "fileName": "Collective Radio Vol. 3 - Farid Ahwazi [Future Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%203%20-%20Farid%20Ahwazi%20%5BFuture%20Bass%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000263824661-z1f23w-t500x500.jpg",
+    "releaseDate": "2017-12-01",
+    "genre": "Future Bass",
+    "mood": "melodic",
+    "coverArtBlurhash": "UdDv$pM}X7xv.Aj?WFt7Ipt6aeadV[RkobWA"
+  },
+  {
+    "episodeNum": 4,
+    "fileName": "Collective Radio Vol. 4 - RolyPoly [House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%204%20-%20RolyPoly%20%5BHouse%5D.mp3",
+    "artists": [
+      "Roly Poly"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000266983433-bjm381-t500x500.jpg",
+    "releaseDate": "2017-12-08",
+    "genre": "House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "U89a5IRi00NIR~Rje?WE00kD_4s.^-xvD$Ri"
+  },
+  {
+    "episodeNum": 5,
+    "fileName": "Collective Radio Vol. 5 - tai [Deep House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%205%20-%20tai%20%5BDeep%20House%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000269612483-p0kih0-t500x500.jpg",
+    "releaseDate": "2017-12-15",
+    "genre": "Deep House",
+    "mood": "chill",
+    "coverArtBlurhash": "UhFilhofa#of_4oeayj[Mxayoff6WAaxoffk"
+  },
+  {
+    "episodeNum": 6,
+    "fileName": "Collective Radio Vol. 6 - Shane Armstrong [Lofi Chill Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%206%20-%20Shane%20Armstrong%20%5BLofi%20Chill%20Hop%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
+    "releaseDate": "2017-12-22",
+    "genre": "Chill Hop",
+    "mood": "chill",
+    "coverArtBlurhash": "UF8}[cxuDiRkF8RPohozwNkCM|RjHqs:xut7"
+  },
+  {
+    "episodeNum": 7,
+    "fileName": "Collective Radio Vol. 7 - Akula [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%207%20-%20Akula%20%5BTrance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000316500423-yq53u6-t500x500.jpg",
+    "releaseDate": "2017-12-29",
+    "genre": "Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "U69PpSof0JRiBwt7MfR*5in$-pbb{CR*Tas:"
+  },
+  {
+    "episodeNum": 8,
+    "fileName": "Collective Radio Vol. 8 - Farid Ahwazi & tai [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%208%20-%20Farid%20Ahwazi%20%26%20tai%20%5BDubstep%5D.mp3",
+    "artists": [
+      "Farid Ahwazi",
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000280474178-zt3hpu-t500x500.jpg",
+    "releaseDate": "2018-01-05",
+    "genre": "Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UUEe.1xZ4.ay~UoeE1f6WBWBWBoekrWVRjkB"
+  },
+  {
+    "episodeNum": 9,
+    "fileName": "Collective Radio Vol. 9 - RolyPoly [Anjunabeats Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%209%20-%20RolyPoly%20%5BAnjunabeats%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Roly Poly"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000284018276-thgfps-t500x500.jpg",
+    "releaseDate": "2018-01-12",
+    "genre": "Anjunabeats",
+    "mood": "euphoric",
+    "coverArtBlurhash": "UHAAwXxwDjSigls:WBWC5HR.%Ms;ktWXM{of"
+  },
+  {
+    "episodeNum": 10,
+    "fileName": "Collective Radio Vol. 10 - Shane Armstrong [Electro Swing].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2010%20-%20Shane%20Armstrong%20%5BElectro%20Swing%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000287719076-awjupm-t500x500.jpg",
+    "releaseDate": "2018-01-19",
+    "genre": "Electro Swing",
+    "mood": "eclectic",
+    "coverArtBlurhash": "U8EMLDof00ay~qayj[ay00t7%Mof-;ayD%ay"
+  },
+  {
+    "episodeNum": 11,
+    "fileName": "Collective Radio Vol. 11 - Akula [Monstercat Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2011%20-%20Akula%20%5BMonstercat%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000291227082-7y7cno-t500x500.jpg",
+    "releaseDate": "2018-01-26",
+    "genre": "Monstercat",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "U99%F_xvR%xu55RjE1M{55V@j]WB~Wxu%Mxu"
+  },
+  {
+    "episodeNum": 12,
+    "fileName": "Collective Radio Vol. 12 - Farid Ahwazi [Bass House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2012%20-%20Farid%20Ahwazi%20%5BBass%20House%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000296504964-ix1b69-t500x500.jpg",
+    "releaseDate": "2018-02-02",
+    "genre": "Bass House",
+    "mood": "energetic",
+    "coverArtBlurhash": "U683z~M|0fjFFxxaZ$Rj1If+,?az|^RkF_s:"
+  },
+  {
+    "episodeNum": 13,
+    "fileName": "Collective Radio Vol. 13 - tai [Chillwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2013%20-%20tai%20%5BChillwave%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000299781492-53me4d-t500x500.jpg",
+    "releaseDate": "2018-02-09",
+    "genre": "Chillwave",
+    "mood": "chill",
+    "coverArtBlurhash": "UzH{KEozRjkC?wkCj[j]RPj[ofj[s:j@WBfP"
+  },
+  {
+    "episodeNum": 14,
+    "fileName": "Collective Radio Vol. 14 - Shane Armstrong [Synthwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2014%20-%20Shane%20Armstrong%20%5BSynthwave%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000303458943-nolwap-t500x500.jpg",
+    "releaseDate": "2018-02-16",
+    "genre": "Synthwave",
+    "mood": "melodic",
+    "coverArtBlurhash": "U58pT9of0Ki{JEj]ROR%1ds:;}NG}ZWBOYxa"
+  },
+  {
+    "episodeNum": 15,
+    "fileName": "Collective Radio Vol. 15 - Farid Ahwazi [Trap].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2015%20-%20Farid%20Ahwazi%20%5BTrap%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000307004562-td8wi8-t500x500.jpg",
+    "releaseDate": "2018-02-23",
+    "genre": "Trap",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UABpXwIU02t6_3IVM_j@EARj%IkC~RRkIuof"
+  },
+  {
+    "episodeNum": 16,
+    "fileName": "Collective Radio Vol. 16 - KRYLK [Hardstyle].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2016%20-%20KRYLK%20%5BHardstyle%5D.mp3",
+    "artists": [
+      "KRYLK"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000310208547-5cgrsg-t500x500.jpg",
+    "releaseDate": "2018-03-02",
+    "genre": "Hardstyle",
+    "mood": "energetic",
+    "coverArtBlurhash": "U49ZsMkQ0J9]-t$A8_N?AeNF-EWAU#JR={t2"
+  },
+  {
+    "episodeNum": 17,
+    "fileName": "Collective Radio Vol. 17 - Akula [Electro House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2017%20-%20Akula%20%5BElectro%20House%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000313367784-mjkn92-t500x500.jpg",
+    "releaseDate": "2018-03-09",
+    "genre": "Electro House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "U47nk9NH8wof-rofD$V@00t7pfRjbvayn,kB"
+  },
+  {
+    "episodeNum": 18,
+    "fileName": "Collective Radio Vol. 18 - RolyPoly [UK Hardcore].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2018%20-%20RolyPoly%20%5BUK%20Hardcore%5D.mp3",
+    "artists": [
+      "Roly Poly"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000321101145-ore8u7-t500x500.jpg",
+    "releaseDate": "2018-03-16",
+    "genre": "Happy Hardcore",
+    "mood": "energetic",
+    "coverArtBlurhash": "UQCZYHt8E0j]?wf+V@bIk=WVxbj[?HWDShj["
+  },
+  {
+    "episodeNum": 19,
+    "fileName": "Collective Radio Vol. 19 - tai [Never Say Die Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2019%20-%20tai%20%5BNever%20Say%20Die%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000322879056-77lswp-t500x500.jpg",
+    "releaseDate": "2018-03-23",
+    "genre": "Never Say Die",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UHDcwQ_4ITWC0LNHRPaytSaIjZNG?bs+Rit7"
+  },
+  {
+    "episodeNum": 20,
+    "fileName": "Collective Radio Vol. 20 - Shane Armstrong [Moombahton].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2020%20-%20Shane%20Armstrong%20%5BMoombahton%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000327552138-63uoxc-t500x500.jpg",
+    "releaseDate": "2018-03-30",
+    "genre": "Moombahton",
+    "mood": "energetic",
+    "coverArtBlurhash": "UwEz7+xZR-W;cIRkWCofNNozj=WCr:ofa~ax"
+  },
+  {
+    "episodeNum": 21,
+    "fileName": "Collective Radio Vol. 21 - Akula [Psytrance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2021%20-%20Akula%20%5BPsytrance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000330778059-dfo8wu-t500x500.jpg",
+    "releaseDate": "2018-04-06",
+    "genre": "Psytrance",
+    "mood": "chill",
+    "coverArtBlurhash": "UAB{ZvxbITsq^-oLM{afWHs;jYazE0NGt7kC"
+  },
+  {
+    "episodeNum": 22,
+    "fileName": "Collective Radio Vol. 22 - Farid Ahwazi [Industrial].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2022%20-%20Farid%20Ahwazi%20%5BIndustrial%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000334771947-yzj1g8-t500x500.jpg",
+    "releaseDate": "2018-04-13",
+    "genre": "Midtempo",
+    "mood": "dark",
+    "coverArtBlurhash": "UqGb^%WVNGa|_NR*R*fkxuWBayfkjZj[WBWV"
+  },
+  {
+    "episodeNum": 23,
+    "fileName": "Collective Radio Vol. 23 - tai [Anjunadeep Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2023%20-%20tai%20%5BAnjunadeep%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000337850472-tjwnuy-t500x500.jpg",
+    "releaseDate": "2018-04-20",
+    "genre": "Anjunadeep",
+    "mood": "melodic",
+    "coverArtBlurhash": "UnFix]xtM{j[?ws:aya}WWjYt7ofRjaeR*j["
+  },
+  {
+    "episodeNum": 24,
+    "fileName": "Collective Radio Vol. 24 - Shane Armstrong [Nu Disco].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2024%20-%20Shane%20Armstrong%20%5BNu%20Disco%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000341439972-ip8dqr-t500x500.jpg",
+    "releaseDate": "2018-04-27",
+    "genre": "Nu Disco",
+    "mood": "melodic",
+    "coverArtBlurhash": "UKExeQxZ57W;0~S4$Nn%0LRkjtR*}Xs:S#of"
+  },
+  {
+    "episodeNum": 25,
+    "fileName": "Collective Radio Vol. 25 - Akula [Avicii Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2025%20-%20Akula%20%5BAvicii%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000410443560-4ra0eg-t500x500.jpg",
+    "releaseDate": "2018-05-04",
+    "genre": "Avicii Tribute",
+    "mood": "euphoric",
+    "coverArtBlurhash": "U*K-2vIgj]R:_+nQXgnkXfwunRobozkBs8ni"
+  },
+  {
+    "episodeNum": 26,
+    "fileName": "Collective Radio Vol. 26 - Farid Ahwazi [Ghetto House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2026%20-%20Farid%20Ahwazi%20%5BGhetto%20House%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000347051715-5l3s28-t500x500.jpg",
+    "releaseDate": "2018-05-11",
+    "genre": "Ghetto House",
+    "mood": "energetic",
+    "coverArtBlurhash": "U16a;k5l00=y-:oz00D%00xtx]M{~qOA%M=}"
+  },
+  {
+    "episodeNum": 27,
+    "fileName": "Collective Radio Vol. 27 - LYNS [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2027%20-%20LYNS%20%5BDubstep%5D.mp3",
+    "artists": [
+      "LYNS"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000349837290-wdgd2j-t500x500.jpg",
+    "releaseDate": "2018-05-18",
+    "genre": "Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UpF?2{t7M_ay~qt7Rjj[?Ij[j]of?HoLWWt7"
+  },
+  {
+    "episodeNum": 28,
+    "fileName": "Collective Radio Vol. 28 - RolyPoly [Deep House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2028%20-%20RolyPoly%20%5BDeep%20House%5D.mp3",
+    "artists": [
+      "Roly Poly"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000358545489-jn9vj7-t500x500.jpg",
+    "releaseDate": "2018-06-08",
+    "genre": "Deep House",
+    "mood": "chill",
+    "coverArtBlurhash": "UF7e?5okNNOeyFs$IySiWJWajqW=alnzs*bc"
+  },
+  {
+    "episodeNum": 29,
+    "fileName": "Collective Radio Vol. 29 - tai [Melodic Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2029%20-%20tai%20%5BMelodic%20Dubstep%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000361252857-bli9r3-t500x500.jpg",
+    "releaseDate": "2018-06-15",
+    "genre": "Melodic Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "U8C}X:}Y9F#-xan%RPr?0}sCt7I:t7Nut6OX"
+  },
+  {
+    "episodeNum": 30,
+    "fileName": "Collective Radio Vol. 30 - Shane Armstrong [Lofi Chill Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2030%20-%20Shane%20Armstrong%20%5BLofi%20Chill%20Hop%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000363980109-vewkhv-t500x500.jpg",
+    "releaseDate": "2018-06-22",
+    "genre": "Chill Hop",
+    "mood": "chill",
+    "coverArtBlurhash": "UjC[2.oIRjof%%oeWCflM{obbIbIM{oJbHfk"
+  },
+  {
+    "episodeNum": 31,
+    "fileName": "Collective Radio Vol. 31 - Akula [Tech Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2031%20-%20Akula%20%5BTech%20Trance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000366741840-b2dtsa-t500x500.jpg",
+    "releaseDate": "2018-06-29",
+    "genre": "Tech Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "U2Bf#4~Ev:-q00NI00Io04InI-Io00og~Xxu"
+  },
+  {
+    "episodeNum": 32,
+    "fileName": "Collective Radio Vol. 32 - Farid Ahwazi [Progressive Big Room House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2032%20-%20Farid%20Ahwazi%20%5BProgressive%20Big%20Room%20House%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000369498792-nvka3f-t500x500.jpg",
+    "releaseDate": "2018-07-06",
+    "genre": "Big Room",
+    "mood": "energetic",
+    "coverArtBlurhash": "UvJFihofRko2}roLR+jZ%2ayayj[s8ays:oL"
+  },
+  {
+    "episodeNum": 33,
+    "fileName": "Collective Radio Vol. 33 - tai [Progressive House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2033%20-%20tai%20%5BProgressive%20House%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000373234236-v9li3q-t500x500.jpg",
+    "releaseDate": "2018-07-13",
+    "genre": "Progressive House",
+    "mood": "melodic",
+    "coverArtBlurhash": "UMCjR.?GMws:B@M|adj]x^bIXAWX-pjZWXWW"
+  },
+  {
+    "episodeNum": 34,
+    "fileName": "Collective Radio Vol. 34 - K-OG [Hip-Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2034%20-%20K-OG%20%5BHip-Hop%5D.mp3",
+    "artists": [
+      "K-OG"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000376926192-cmi6i9-t500x500.jpg",
+    "releaseDate": "2018-07-20",
+    "genre": "Hip-Hop",
+    "mood": "eclectic",
+    "coverArtBlurhash": "UAF=w2.AD,xc%x$[IUIV00s4xBIUxub_SjxJ"
+  },
+  {
+    "episodeNum": 35,
+    "fileName": "Collective Radio Vol. 35 - Shane Armstrong [Future Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2035%20-%20Shane%20Armstrong%20%5BFuture%20Bass%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000380252571-8g66ge-t500x500.jpg",
+    "releaseDate": "2018-07-27",
+    "genre": "Future Bass",
+    "mood": "melodic",
+    "coverArtBlurhash": "UCBq-~BtxaVqn?X=s*oH0NI9wGbxsrngoxS6"
+  },
+  {
+    "episodeNum": 36,
+    "fileName": "Collective Radio Vol. 36 - Lightform [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2036%20-%20Lightform%20%5BTrance%5D.mp3",
+    "artists": [
+      "Lightform"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000383684394-8cd9nf-t500x500.jpg",
+    "releaseDate": "2018-08-03",
+    "genre": "Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "USHyj.m;o#%1V{%MX5Rj~qW8IAXT.8VtRjs:"
+  },
+  {
+    "episodeNum": 37,
+    "fileName": "Collective Radio Vol. 37 - Akula [Tech House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2037%20-%20Akula%20%5BTech%20House%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000394263384-ccxu25-t500x500.jpg",
+    "releaseDate": "2018-08-24",
+    "genre": "Tech House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UDG*$o-9nL~B~nIYs,x[EjITV[RVN1R%V]WF"
+  },
+  {
+    "episodeNum": 38,
+    "fileName": "Collective Radio Vol. 38 - Farid Ahwazi [Riddim].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2038%20-%20Farid%20Ahwazi%20%5BRiddim%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000397969053-26lnt9-t500x500.jpg",
+    "releaseDate": "2018-08-31",
+    "genre": "Riddim",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UEA^hLtnE0aiomNefzs=00R5s%SwRVs.RhR$"
+  },
+  {
+    "episodeNum": 39,
+    "fileName": "Collective Radio Vol. 39 - tai [Chillwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2039%20-%20tai%20%5BChillwave%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000401088036-66ezfl-t500x500.jpg",
+    "releaseDate": "2018-09-07",
+    "genre": "Chillwave",
+    "mood": "chill",
+    "coverArtBlurhash": "UXIE-7?bRPRP~qt7V?oexaWBV@ayxbogoLRj"
+  },
+  {
+    "episodeNum": 40,
+    "fileName": "Collective Radio Vol. 40 - Shane Armstrong [Psytrance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2040%20-%20Shane%20Armstrong%20%5BPsytrance%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000405475443-kl5z9q-t500x500.jpg",
+    "releaseDate": "2018-09-14",
+    "genre": "Psytrance",
+    "mood": "chill",
+    "coverArtBlurhash": "U39QK[_[DN^F8b9wV?xW00oq%M5azA,,-=jL"
+  },
+  {
+    "episodeNum": 41,
+    "fileName": "Collective Radio Vol. 41 - Akula [Garuda Label Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2041%20-%20Akula%20%5BGaruda%20Label%20Mix%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000409124022-vhrqkr-t500x500.jpg",
+    "releaseDate": "2018-09-21",
+    "genre": "Garuda",
+    "mood": "energetic",
+    "coverArtBlurhash": "UQD]|{wPRPxauPRloIo4XQbWogWXW@bYa$kU"
+  },
+  {
+    "episodeNum": 42,
+    "fileName": "Collective Radio Vol. 42 - Farid Ahwazi [Complextro].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2042%20-%20Farid%20Ahwazi%20%5BComplextro%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000412160238-6ba69n-t500x500.jpg",
+    "releaseDate": "2018-09-28",
+    "genre": "Complextro",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UAE3#w?ux^%F?w%2.8-=00IBr;IUE9DiMwDh"
+  },
+  {
+    "episodeNum": 43,
+    "fileName": "Collective Radio Vol. 43 - tai [Industrial].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2043%20-%20tai%20%5BIndustrial%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000415252146-707spi-t500x500.jpg",
+    "releaseDate": "2018-10-05",
+    "genre": "Midtempo",
+    "mood": "dark",
+    "coverArtBlurhash": "U39QBdXm0K-:^jNZNH-p00M_tkMx00xF%fM{"
+  },
+  {
+    "episodeNum": 44,
+    "fileName": "Collective Radio Vol. 44 - Shane Armstrong & Farid Ahwazi [Experimental].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2044%20-%20Shane%20Armstrong%20%26%20Farid%20Ahwazi%20%5BExperimental%5D.mp3",
+    "artists": [
+      "Shane Armstrong",
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000419835402-ml9nue-t500x500.jpg",
+    "releaseDate": "2018-10-12",
+    "genre": "Experimental",
+    "mood": "eclectic",
+    "coverArtBlurhash": "U5Dk[Y00aPGZ^L1kI7=~001k%v:mQT}stS$v"
+  },
+  {
+    "episodeNum": 45,
+    "fileName": "Collective Radio Vol. 45 - Akula [Downtempo].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2045%20-%20Akula%20%5BDowntempo%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000424162626-21xx22-t500x500.jpg",
+    "releaseDate": "2018-10-19",
+    "genre": "Downtempo",
+    "mood": "chill",
+    "coverArtBlurhash": "U8Cim%MIaK#l~Xvz=xwc9GwI,?oc?bIU%2Rj"
+  },
+  {
+    "episodeNum": 46,
+    "fileName": "Collective Radio Vol. 46 - tai [Progressive Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2046%20-%20tai%20%5BProgressive%20Trance%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000424162626-21xx22-t500x500.jpg",
+    "releaseDate": "2018-11-02",
+    "genre": "Prog Trance",
+    "mood": "melodic",
+    "coverArtBlurhash": "U8Cim%MIaK#l~Xvz=xwc9GwI,?oc?bIU%2Rj"
+  },
+  {
+    "episodeNum": 47,
+    "fileName": "Collective Radio Vol. 47 - RolyPoly [House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2047%20-%20RolyPoly%20%5BHouse%5D.mp3",
+    "artists": [
+      "Roly Poly"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000437068491-0vzkwt-t500x500.jpg",
+    "releaseDate": "2018-11-09",
+    "genre": "House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UkH2WhnhS#tR~qofoft6tlo}oLV@ogkCV@WW"
+  },
+  {
+    "episodeNum": 48,
+    "fileName": "Collective Radio Vol. 48 - One Year Collective Mix [Deep House Progressive House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2048%20-%20One%20Year%20Collective%20Mix%20%5BDeep%20House%20Progressive%20House%5D.mp3",
+    "artists": [
+      "Collective Radio"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000440955204-063xq8-t500x500.jpg",
+    "releaseDate": "2018-11-16",
+    "genre": "Deep House",
+    "mood": "chill",
+    "coverArtBlurhash": "UZHny=ozRpt8}qV@xuad%NbHs+of};j]NHoL"
+  },
+  {
+    "episodeNum": 49,
+    "fileName": "Collective Radio Vol. 49 - Leo Reyes [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2049%20-%20Leo%20Reyes%20%5BTrance%5D.mp3",
+    "artists": [
+      "Leo Reyes"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000445646013-0bqit8-t500x500.jpg",
+    "releaseDate": "2018-11-23",
+    "genre": "Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "UBCP@c%gIVxu.A.9WFWnM{-=xu9Y9Z%M%2IA"
+  },
+  {
+    "episodeNum": 50,
+    "fileName": "Collective Radio Vol. 50 - Shane Armstrong [Synthwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2050%20-%20Shane%20Armstrong%20%5BSynthwave%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000450281697-q6uzrz-t500x500.jpg",
+    "releaseDate": "2018-11-30",
+    "genre": "Synthwave",
+    "mood": "melodic",
+    "coverArtBlurhash": "UA9*$0.8E0I9.mt7WCRP0JM_jEa~J7R*n#tR"
+  },
+  {
+    "episodeNum": 51,
+    "fileName": "Collective Radio Vol. 51 - tai [Deep House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2051%20-%20tai%20%5BDeep%20House%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000497170158-uffxsr-t500x500.jpg",
+    "releaseDate": "2019-03-01",
+    "genre": "Deep House",
+    "mood": "chill",
+    "coverArtBlurhash": "URG@v5}Y=x%3TL=Iv}j[zmjFwdn$E0R%xbs:"
+  },
+  {
+    "episodeNum": 52,
+    "fileName": "Collective Radio Vol. 52 - Farid Ahwazi [Melodic Techno].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2052%20-%20Farid%20Ahwazi%20%5BMelodic%20Techno%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000504565140-sdb5uq-t500x500.jpg",
+    "releaseDate": "2019-03-15",
+    "genre": "Melodic Techno",
+    "mood": "dark",
+    "coverArtBlurhash": "UYJ%Rs^J-mxt%O-4w@kB}lr;s8s,M}R*n$jZ"
+  },
+  {
+    "episodeNum": 53,
+    "fileName": "Collective Radio Vol. 53 - Akula [Liquid Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2053%20-%20Akula%20%5BLiquid%20Drum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000550669128-641egm-t500x500.jpg",
+    "releaseDate": "2019-03-29",
+    "genre": "Liquid Drum & Bass",
+    "mood": "chill",
+    "coverArtBlurhash": "UNEp1-nTsp%N_NVxM|a}RYV|aeWB9FRjn%a}"
+  },
+  {
+    "episodeNum": 54,
+    "fileName": "Collective Radio Vol. 54 - Shane Armstrong [Tech House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2054%20-%20Shane%20Armstrong%20%5BTech%20House%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000550670928-8abmmi-t500x500.jpg",
+    "releaseDate": "2019-04-12",
+    "genre": "Tech House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UmKdC*O?O=tQ}rKNOXbbC6OXkBSgE3kCX7f6"
+  },
+  {
+    "episodeNum": 55,
+    "fileName": "Collective Radio Vol. 55 - Farid Ahwazi & tai [Trap].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2055%20-%20Farid%20Ahwazi%20%26%20tai%20%5BTrap%5D.mp3",
+    "artists": [
+      "Tai",
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000550671564-u0ml0u-t500x500.jpg",
+    "releaseDate": "2019-04-26",
+    "genre": "Trap",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UZHn{Rs*-n%2?bi]V?ay~8i^RPWAtSa~M{R*"
+  },
+  {
+    "episodeNum": 56,
+    "fileName": "Collective Radio Vol. 56 - Akula [Techno].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2056%20-%20Akula%20%5BTechno%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000550671945-8sd74p-t500x500.jpg",
+    "releaseDate": "2019-05-10",
+    "genre": "Techno",
+    "mood": "dark",
+    "coverArtBlurhash": "UNFOyHMw-V%2?wVYVsae-Bi^V?ofInoeV@og"
+  },
+  {
+    "episodeNum": 57,
+    "fileName": "Collective Radio Vol. 57 - Shane Armstrong [Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2057%20-%20Shane%20Armstrong%20%5BDrum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000550672596-rwxcbf-t500x500.jpg",
+    "releaseDate": "2019-05-24",
+    "genre": "Drum & Bass",
+    "mood": "energetic",
+    "coverArtBlurhash": "UbEzW,xes?t9%}RYV|afJIM$V_WFIUjFWFoy"
+  },
+  {
+    "episodeNum": 58,
+    "fileName": "Collective Radio Vol. 58 - tai [Melodic Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2058%20-%20tai%20%5BMelodic%20Dubstep%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000550673730-9nt3be-t500x500.jpg",
+    "releaseDate": "2019-06-07",
+    "genre": "Melodic Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UFAJ=}xa%1%M.9nOROax_4aKV?j[XAjYadj["
+  },
+  {
+    "episodeNum": 59,
+    "fileName": "Collective Radio Vol. 59 - Farid Ahwazi [Future Garage].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2059%20-%20Farid%20Ahwazi%20%5BFuture%20Garage%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000555623055-zk2oh6-t500x500.jpg",
+    "releaseDate": "2019-06-21",
+    "genre": "Future Garage",
+    "mood": "chill",
+    "coverArtBlurhash": "UEEzGq.j?[~oW2yNtdkBGyx+kOIoVW%LtOs;"
+  },
+  {
+    "episodeNum": 60,
+    "fileName": "Collective Radio Vol. 60 - Akula [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2060%20-%20Akula%20%5BTrance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000561689511-7rydxp-t500x500.jpg",
+    "releaseDate": "2019-07-05",
+    "genre": "Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "UkKmu0vgv}xa*0#7rXoJ]ov}$fso58$$xCj["
+  },
+  {
+    "episodeNum": 61,
+    "fileName": "Collective Radio Vol. 61 - Shane Armstrong [Nu Disco].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2061%20-%20Shane%20Armstrong%20%5BNu%20Disco%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000568354016-8vora7-t500x500.jpg",
+    "releaseDate": "2019-07-19",
+    "genre": "Nu Disco",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "U?LNMzOrOXoz}@OENbfkTJNwW;bHEMWVbGa|"
+  },
+  {
+    "episodeNum": 62,
+    "fileName": "Collective Radio Vol. 62 - tai [Shambhala 2019 Tribute Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2062%20-%20tai%20%5BShambhala%202019%20Tribute%20Mix%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000576295298-2hckdd-t500x500.jpg",
+    "releaseDate": "2019-08-02",
+    "genre": "Shambhala",
+    "mood": "eclectic",
+    "coverArtBlurhash": "UA7{5D%~?u.8rEkpX4oy?]k=o}adNao}gMog"
+  },
+  {
+    "episodeNum": 63,
+    "fileName": "Collective Radio Vol. 63 - Farid Ahwazi [Wave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2063%20-%20Farid%20Ahwazi%20%5BWave%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000583489208-iusi76-t500x500.jpg",
+    "releaseDate": "2019-08-16",
+    "genre": "Wave",
+    "mood": "chill",
+    "coverArtBlurhash": "UjL:AeRQe?xa~VR6RQazV|nOnijt9xfkn%jt"
+  },
+  {
+    "episodeNum": 64,
+    "fileName": "Collective Radio Vol. 64 - d0uce [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2064%20-%20d0uce%20%5BDubstep%5D.mp3",
+    "artists": [
+      "D0uce"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000587887886-xfr7ln-t500x500.jpg",
+    "releaseDate": "2019-08-30",
+    "genre": "Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UtLo},%Ki^xt-q$yROs.~Ts+Ris.t8fQV@bI"
+  },
+  {
+    "episodeNum": 65,
+    "fileName": "Collective Radio Vol. 65 - Akula [Tech House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2065%20-%20Akula%20%5BTech%20House%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000596518988-gbes5v-t500x500.jpg",
+    "releaseDate": "2019-09-13",
+    "genre": "Tech House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UWIE6T=G?H%2F#;xv~em{c,nv|r=%MjZxCo#"
+  },
+  {
+    "episodeNum": 66,
+    "fileName": "Collective Radio Vol. 66 - Shane Armstrong [Glitch Hop].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2066%20-%20Shane%20Armstrong%20%5BGlitch%20Hop%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000602912359-76rzdi-t500x500.jpg",
+    "releaseDate": "2019-09-27",
+    "genre": "Glitch Hop",
+    "mood": "eclectic",
+    "coverArtBlurhash": "UMHBrY;S=y-pp_z?v#s:%%w1n4a#GFxGrrbH"
+  },
+  {
+    "episodeNum": 67,
+    "fileName": "Collective Radio Vol. 67 - tai [Chillwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2067%20-%20tai%20%5BChillwave%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000610835194-a5fe4b-t500x500.jpg",
+    "releaseDate": "2019-10-11",
+    "genre": "Chillwave",
+    "mood": "chill",
+    "coverArtBlurhash": "UeIrZ^D%T0-;_NRjM{kC9tt7VrMxRONGWBn~"
+  },
+  {
+    "episodeNum": 68,
+    "fileName": "Collective Radio Vol. 68 - Farid Ahwazi [Midtempo].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2068%20-%20Farid%20Ahwazi%20%5BMidtempo%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000622241731-no73gn-t500x500.jpg",
+    "releaseDate": "2019-10-25",
+    "genre": "Midtempo",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "U8CGS??c?b~qD%RSWEof%4t8M{M{Ri%M-;of"
+  },
+  {
+    "episodeNum": 69,
+    "fileName": "Collective Radio Vol. 69 - Akula [DubstepTechstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2069%20-%20Akula%20%5BDubstepTechstep%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000634311004-shykac-t500x500.jpg",
+    "releaseDate": "2019-11-08",
+    "genre": "Dubstep/Techstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UCDv+U.7X4-;~qI-Inax?[E0S0oyn,R*RjoL"
+  },
+  {
+    "episodeNum": 70,
+    "fileName": "Collective Radio Vol. 70 - Two Year Collective Mix [Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2070%20-%20Two%20Year%20Collective%20Mix%20%5BDrum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Collective Radio"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000648069079-pd6hxv-t500x500.jpg",
+    "releaseDate": "2019-11-22",
+    "genre": "Drum & Bass",
+    "mood": "energetic",
+    "coverArtBlurhash": "UMHdmWb]xZ-p}@R*NGaz0OM{I=NH5UWEjZbH"
+  },
+  {
+    "episodeNum": 71,
+    "fileName": "Collective Radio Vol. 71 - M3L [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2071%20-%20M3L%20%5BDubstep%5D.mp3",
+    "artists": [
+      "M3L"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000658379029-sv4of8-t500x500.jpg",
+    "releaseDate": "2019-12-25",
+    "genre": "Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UbJjfW^P#Qxa5s+[vzjF{w#Rw]n$tRs:s9WV"
+  },
+  {
+    "episodeNum": 72,
+    "fileName": "Collective Radio Vol. 72 - Shane Armstrong [Progressive House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2072%20-%20Shane%20Armstrong%20%5BProgressive%20House%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-wEQOSVfJg7WzHwBu-ljSh6Q-t500x500.jpg",
+    "releaseDate": "2020-01-10",
+    "genre": "Progressive House",
+    "mood": "melodic",
+    "coverArtBlurhash": "ULE-%K9?v|EL~V,.RiI:]Nx[aJtR^1W.V@k="
+  },
+  {
+    "episodeNum": 73,
+    "fileName": "Collective Radio Vol. 73 - tai [Ghetto House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2073%20-%20tai%20%5BGhetto%20House%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-YvST7k3t2hg4YcJj-ZHeHHQ-t500x500.jpg",
+    "releaseDate": "2020-01-24",
+    "genre": "Ghetto House",
+    "mood": "energetic",
+    "coverArtBlurhash": "UhG@fQM_VrAB~BV?V@Na,@jrs.oz#mbHV@o}"
+  },
+  {
+    "episodeNum": 74,
+    "fileName": "Collective Radio Vol. 74 - Farid Ahwazi [Deep House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2074%20-%20Farid%20Ahwazi%20%5BDeep%20House%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-dIaruryIiDUofAHN-B5468w-t500x500.jpg",
+    "releaseDate": "2020-02-07",
+    "genre": "Deep House",
+    "mood": "chill",
+    "coverArtBlurhash": "UoH1_lD#M_os~WM_V[W+i%xtobW,a6t6V@t5"
+  },
+  {
+    "episodeNum": 75,
+    "fileName": "Collective Radio Vol. 75 - Akula [Happy Hardcore].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2075%20-%20Akula%20%5BHappy%20Hardcore%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-fsKY1Gji4ZrWoZQ4-nVS8Wg-t500x500.jpg",
+    "releaseDate": "2020-02-21",
+    "genre": "Happy Hardcore",
+    "mood": "energetic",
+    "coverArtBlurhash": "UgJt^r8_DiWt~WabRiS5R3%MxaW;wsxtM|t8"
+  },
+  {
+    "episodeNum": 76,
+    "fileName": "Collective Radio Vol. 76 - Shane Armstrong [Trap & Future Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2076%20-%20Shane%20Armstrong%20%5BTrap%20%26%20Future%20Bass%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
+    "releaseDate": "2020-03-08",
+    "genre": "Trap",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UF8}[cxuDiRkF8RPohozwNkCM|RjHqs:xut7"
+  },
+  {
+    "episodeNum": 77,
+    "fileName": "Collective Radio Vol. 77 - tai [Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2077%20-%20tai%20%5BDrum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000316500423-yq53u6-t500x500.jpg",
+    "releaseDate": "2020-03-22",
+    "genre": "Drum & Bass",
+    "mood": "energetic",
+    "coverArtBlurhash": "U69PpSof0JRiBwt7MfR*5in$-pbb{CR*Tas:"
+  },
+  {
+    "episodeNum": 78,
+    "fileName": "Collective Radio Vol. 78 - Farid Ahwazi [Trap].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2078%20-%20Farid%20Ahwazi%20%5BTrap%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-xSBWqyaymzdJolbL-rGPnmg-t500x500.jpg",
+    "releaseDate": "2020-04-05",
+    "genre": "Trap Chill",
+    "mood": "chill",
+    "coverArtBlurhash": "UUKK~E4T9E4T~XRiRPoaxuskxZ%19F%1j?-:"
+  },
+  {
+    "episodeNum": 79,
+    "fileName": "Collective Radio Vol. 79 - Akula [Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2079%20-%20Akula%20%5BDrum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-zVl9ItrzJzsvVdxZ-lKWVvg-t500x500.jpg",
+    "releaseDate": "2020-04-19",
+    "genre": "Drum & Bass",
+    "mood": "energetic",
+    "coverArtBlurhash": "UdGlSGDh9ExU~pM{Mxt7IUxst5%LM{t6WA%M"
+  },
+  {
+    "episodeNum": 80,
+    "fileName": "Collective Radio Vol. 80 - Shane Armstrong [Nu Disco].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2080%20-%20Shane%20Armstrong%20%5BNu%20Disco%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-VLWyzYizzxyHHRlG-mZUoqA-t500x500.jpg",
+    "releaseDate": "2020-05-03",
+    "genre": "Nu Disco",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UgGcPq4noYrE~mD$tQ%NxbxaV?x@pA%3IUnS"
+  },
+  {
+    "episodeNum": 81,
+    "fileName": "Collective Radio Vol. 81 - tai [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2081%20-%20tai%20%5BDubstep%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
+    "releaseDate": "2020-05-17",
+    "genre": "Melodic Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UWF#^6xaJCkDT#bce-a#1JR+wIj?=EoJS$of"
+  },
+  {
+    "episodeNum": 82,
+    "fileName": "Collective Radio Vol. 82 - Farid Ahwazi [Ghetto House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2082%20-%20Farid%20Ahwazi%20%5BGhetto%20House%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000260764661-fp8np3-t500x500.jpg",
+    "releaseDate": "2020-05-31",
+    "genre": "Ghetto House",
+    "mood": "energetic",
+    "coverArtBlurhash": "U17-QTX-00~T00Mye@NJ00wd%NE2u2yC~pV@"
+  },
+  {
+    "episodeNum": 83,
+    "fileName": "Collective Radio Vol. 83 - Akula [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2083%20-%20Akula%20%5BTrance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-hSHOQXRLGHz6WEKd-VnV9iQ-t500x500.jpg",
+    "releaseDate": "2020-06-14",
+    "genre": "Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "UDI}Fq00Mc0000-S-o=|_Mt1IT^jq[o|IA?^"
+  },
+  {
+    "episodeNum": 84,
+    "fileName": "Collective Radio Vol. 84 - Shane Armstrong [Funky Jackin' House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2084%20-%20Shane%20Armstrong%20%5BFunky%20Jackin'%20House%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-yzfTzOIw0uOtUrS0-99XJBg-t500x500.jpg",
+    "releaseDate": "2020-06-28",
+    "genre": "Jackin House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UHFg%h56^b0}G.RP~9v~[T%2-:X7^cNy,-g4"
+  },
+  {
+    "episodeNum": 85,
+    "fileName": "Collective Radio Vol. 85 - Farid Ahwazi [Riddim].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2085%20-%20Farid%20Ahwazi%20%5BRiddim%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-pzw2eLOyNESHn6AW-zu4zdg-t500x500.jpg",
+    "releaseDate": "2020-07-12",
+    "genre": "Riddim",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UkF=OQnOD#O7~6sRIWS%whxZW9ozxGWBWBxt"
+  },
+  {
+    "episodeNum": 86,
+    "fileName": "Collective Radio Vol. 86 - Silverback [Tech & Bass House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2086%20-%20Silverback%20%5BTech%20%26%20Bass%20House%5D.mp3",
+    "artists": [
+      "D0uce"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-r8wlfDUT5d4g8Ehz-IXIAZg-t500x500.jpg",
+    "releaseDate": "2020-07-26",
+    "genre": "Tech House",
+    "mood": "4tothefloor",
+    "coverArtBlurhash": "UOBW;r%JISDP_LxYNEH[teslxZspI-aKxt%M"
+  },
+  {
+    "episodeNum": 87,
+    "fileName": "Collective Radio Vol. 87 - tai [Chillwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2087%20-%20tai%20%5BChillwave%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-cdXm36nDzNyDMgyh-6ZnrEw-t500x500.jpg",
+    "releaseDate": "2020-08-09",
+    "genre": "Chillwave",
+    "mood": "chill",
+    "coverArtBlurhash": "UbDvcqRODixY~pRiIAt6%MjXf4xuNFWAxaxu"
+  },
+  {
+    "episodeNum": 88,
+    "fileName": "Collective Radio Vol. 88 - Akula [Liquid Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2088%20-%20Akula%20%5BLiquid%20Drum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-LokHb0ZSC1VjnboQ-TwnMtA-t500x500.jpg",
+    "releaseDate": "2020-08-23",
+    "genre": "Liquid Drum & Bass",
+    "mood": "chill",
+    "coverArtBlurhash": "UaF~d7D$Rhno?]ROoasD%Zs:t5jGpCs:Rjs;"
+  },
+  {
+    "episodeNum": 89,
+    "fileName": "Collective Radio Vol. 89 - Shane Armstrong [Deep House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2089%20-%20Shane%20Armstrong%20%5BDeep%20House%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-hEnzsrGeBBqyz8Y3-daALjw-t500x500.jpg",
+    "releaseDate": "2020-09-06",
+    "genre": "Deep House",
+    "mood": "chill",
+    "coverArtBlurhash": "UaCQSracWAMc_NjXWARO%Ms+n#t3x]n#adsl"
+  },
+  {
+    "episodeNum": 90,
+    "fileName": "Collective Radio Vol. 90 - Farid Ahwazi [Neuro Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2090%20-%20Farid%20Ahwazi%20%5BNeuro%20Drum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-uqCoOr4yeB3Gzbiz-8dUFuQ-t500x500.jpg",
+    "releaseDate": "2020-09-20",
+    "genre": "Neurofunk",
+    "mood": "energetic",
+    "coverArtBlurhash": "UHEW1{xAsi01Hy$|V?.NM~%JV@?X_FRQobIJ"
+  },
+  {
+    "episodeNum": 91,
+    "fileName": "Collective Radio Vol. 91 - tai [Melodic Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2091%20-%20tai%20%5BMelodic%20Dubstep%5D.mp3",
+    "artists": [
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000257691440-g8djdb-t500x500.jpg",
+    "releaseDate": "2020-10-04",
+    "genre": "Melodic Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UWF#^6xaJCkDT#bce-a#1JR+wIj?=EoJS$of"
+  },
+  {
+    "episodeNum": 92,
+    "fileName": "Collective Radio Vol. 92 - Akula [Techno].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2092%20-%20Akula%20%5BTechno%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-iUiAzU86Hg7tCgyR-uyoezg-t500x500.jpg",
+    "releaseDate": "2020-10-18",
+    "genre": "Techno",
+    "mood": "dark",
+    "coverArtBlurhash": "UE8hj;?[QlL#=C$wkpXnxt%0xUxUb;ouniwh"
+  },
+  {
+    "episodeNum": 93,
+    "fileName": "Collective Radio Vol. 93 - Shane Armstrong [Synthwave].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2093%20-%20Shane%20Armstrong%20%5BSynthwave%5D.mp3",
+    "artists": [
+      "Shane Armstrong"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-dAl3CxMypxBvVOxU-Vp6cPA-t500x500.jpg",
+    "releaseDate": "2020-11-01",
+    "genre": "Synthwave",
+    "mood": "melodic",
+    "coverArtBlurhash": "UKG8fpD#00EL?^aIROs9DN-o%L?HnNk9Ri-;"
+  },
+  {
+    "episodeNum": 94,
+    "fileName": "Collective Radio Vol. 94 - Farid Ahwazi & tai [Hybrid Trap].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2094%20-%20Farid%20Ahwazi%20%26%20tai%20%5BHybrid%20Trap%5D.mp3",
+    "artists": [
+      "Farid Ahwazi",
+      "Tai"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-SMm0P1ByKFW7d5jz-nwI6WA-t500x500.jpg",
+    "releaseDate": "2020-11-15",
+    "genre": "Hybrid Trap",
+    "mood": "energetic",
+    "coverArtBlurhash": "UeFiD5ROITRn~ojEM_Rl--oce-og%JRjjYt8"
+  },
+  {
+    "episodeNum": 95,
+    "fileName": "Collective Radio Vol. 95 - Silverback [Liquid Drum & Bass].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2095%20-%20Silverback%20%5BLiquid%20Drum%20%26%20Bass%5D.mp3",
+    "artists": [
+      "D0uce"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-wVRAU9ux78eq5BCO-v7LI5w-t500x500.jpg",
+    "releaseDate": "2020-11-29",
+    "genre": "Liquid Drum & Bass",
+    "mood": "chill",
+    "coverArtBlurhash": "UWG8sU9DVt%D?ai|obRiMy-:%2IT?KW9Rixo"
+  },
+  {
+    "episodeNum": 96,
+    "fileName": "Collective Radio Vol. 96 - KRYLK [Hardstyle].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2096%20-%20KRYLK%20%5BHardstyle%5D.mp3",
+    "artists": [
+      "KRYLK"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000273901547-8kdt6q-t500x500.jpg",
+    "releaseDate": "2020-12-13",
+    "genre": "Hardstyle",
+    "mood": "euphoric",
+    "coverArtBlurhash": "UF8}[cxuDiRkF8RPohozwNkCM|RjHqs:xut7"
+  },
+  {
+    "episodeNum": 97,
+    "fileName": "Collective Radio Vol. 97 - Akula [Trance].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2097%20-%20Akula%20%5BTrance%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-vcZzyhUNoHxa4fCx-dHOZAw-t500x500.jpg",
+    "releaseDate": "2020-12-27",
+    "genre": "Trance",
+    "mood": "euphoric",
+    "coverArtBlurhash": "UgF6q9W9M^DP~nRPoxN1xUV?%L%MtdjbjZxb"
+  },
+  {
+    "episodeNum": 98,
+    "fileName": "Collective Radio Vol. 98 - M3L [Dubstep].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2098%20-%20M3L%20%5BDubstep%5D.mp3",
+    "artists": [
+      "M3L"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-000280474178-zt3hpu-t500x500.jpg",
+    "releaseDate": "2020-01-17",
+    "genre": "Dubstep",
+    "mood": "bass&heavy",
+    "coverArtBlurhash": "UUEe.1xZ4.ay~UoeE1f6WBWBWBoekrWVRjkB"
+  },
+  {
+    "episodeNum": 99,
+    "fileName": "Collective Radio Vol. 99 - Shane Armstrong & Farid Ahwazi [Future House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%2099%20-%20Shane%20Armstrong%20%26%20Farid%20Ahwazi%20%5BFuture%20House%5D.mp3",
+    "artists": [
+      "Shane Armstrong",
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/Collective%20Radio%20Vol.%2099%20-%20Shane%20Armstrong%20%26%20Farid%20Ahwazi%20%5BFuture%20House%5D.jpg",
+    "releaseDate": "2020-01-31",
+    "genre": "Future House",
+    "mood": "energetic",
+    "coverArtBlurhash": "UTKdPL4T4.E+Y8Mv$w?G$^X8NG?Hi{%LD%tS"
+  },
+  {
+    "episodeNum": 100,
+    "fileName": "Collective Radio Vol. 100 - Farid Ahwazi [Neurofunk].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%20100%20-%20Farid%20Ahwazi%20%5BNeurofunk%5D.mp3",
+    "artists": [
+      "Farid Ahwazi"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/artworks-xnzB7TcRo41yvZh5-VJUzQA-t500x500.jpg",
+    "releaseDate": "2022-10-17",
+    "genre": "Neurofunk",
+    "mood": "energetic",
+    "coverArtBlurhash": "UH9s^=-;rqsp]xs%T0R-~9${aJWB?D$~n%WE"
+  }
 ]

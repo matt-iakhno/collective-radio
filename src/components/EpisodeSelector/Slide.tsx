@@ -1,7 +1,7 @@
+import BlurhashImage from "./BlurhashImage";
 import { type Episode } from "@/types/types";
 
 import styles from "./slide.module.css";
-
 import { PiPlayDuotone } from "react-icons/pi";
 
 interface SlideProps {
@@ -16,10 +16,12 @@ const Slide: React.FC<SlideProps> = ({ episode, playEpisode }) => {
 
   return (
     <div className={styles.card}>
-      <img
-        className={styles.image}
+      <BlurhashImage
         src={episode.coverArt}
         alt={`Episode ${episode.episodeNum} - ${episode.genre[0]} Cover`}
+        blurhash={episode.coverArtBlurhash}
+        width={250}
+        height={250}
       />
       <button className={`${styles.play} `} onClick={() => playButtonClicked()}>
         <PiPlayDuotone size={150} />
