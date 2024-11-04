@@ -96,7 +96,6 @@ function Player({ selectedEpisode }: PlayerProps) {
 
   const handleListen = () => {
     setCurrentTime(playerRef.current!.currentTime);
-    // Update media session position state if available
     if ("mediaSession" in navigator && currentTrack) {
       navigator.mediaSession.setPositionState({
         duration,
@@ -115,20 +114,19 @@ function Player({ selectedEpisode }: PlayerProps) {
       <AudioPlayer
         ref={(player) => {
           if (player) {
-            playerRef.current = player.audio.current; // Access the underlying audio element
+            playerRef.current = player.audio.current;
           }
         }}
         src={currentTrack?.url}
         volume={DEFAULT_VOLUME}
-        className="rounded-lg"
         showSkipControls
         showJumpControls={false}
         showDownloadProgress={false}
         listenInterval={5000}
         onEnded={handleEnd}
         onPlay={handleOnPlay}
-        onListen={handleListen} // Capture current playback time
-        onLoadedMetaData={handleLoadedMetadata} // Set duration when metadata loads
+        onListen={handleListen}
+        onLoadedMetaData={handleLoadedMetadata}
         onError={handleError}
         customAdditionalControls={[]}
         customIcons={{
@@ -141,7 +139,6 @@ function Player({ selectedEpisode }: PlayerProps) {
           volume: <LuVolume1 color="#fece02" size={25} />,
           volumeMute: <LuVolumeX color="#fece02" size={25} />,
         }}
-        // Try other props!
       />
     </div>
   );
