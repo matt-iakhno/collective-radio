@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 
 import { useEpisodes } from "@/contexts";
@@ -27,11 +27,14 @@ interface PlayerProps {
 
 function Player({ selectedEpisode }: PlayerProps) {
   const episodes = useEpisodes();
+  const playerRef = useRef<HTMLAudioElement | null>(null);
 
   // TODO: able to read return to right episode on subsequent session
   const [currentTrack, setCurrentTrack] = useState<undefined | Episode>(
     undefined
   );
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -91,17 +94,41 @@ function Player({ selectedEpisode }: PlayerProps) {
     console.log("media error", e);
   };
 
+  const handleListen = () => {
+    setCurrentTime(playerRef.current!.currentTime);
+    // Update media session position state if available
+    if ("mediaSession" in navigator && currentTrack) {
+      navigator.mediaSession.setPositionState({
+        duration,
+        playbackRate: 1.0,
+        position: currentTime,
+      });
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    setDuration(playerRef.current!.duration);
+  };
+
   return (
     <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
       <AudioPlayer
+        ref={(player) => {
+          if (player) {
+            playerRef.current = player.audio.current; // Access the underlying audio element
+          }
+        }}
         src={currentTrack?.url}
         volume={DEFAULT_VOLUME}
         className="rounded-lg"
         showSkipControls
         showJumpControls={false}
         showDownloadProgress={false}
+        listenInterval={5000}
         onEnded={handleEnd}
         onPlay={handleOnPlay}
+        onListen={handleListen} // Capture current playback time
+        onLoadedMetaData={handleLoadedMetadata} // Set duration when metadata loads
         onError={handleError}
         customAdditionalControls={[]}
         customIcons={{

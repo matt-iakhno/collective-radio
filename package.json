@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/goldman": "^5.1.0",
+    "@fontsource/monoton": "^5.1.0",
+    "@fontsource/rubik": "^5.1.0",
     "@georgedoescode/spline": "^1.0.1",
     "@types/babel-generator": "^6.25.8",
     "react": "^18.3.1",

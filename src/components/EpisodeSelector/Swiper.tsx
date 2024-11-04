@@ -69,7 +69,7 @@ function Swiper({ selectedCategory, setSelectedEpisode }: SwiperProps) {
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={2}
-          spaceBetween={20}
+          spaceBetween={0}
           initialSlide={activeIndex}
           breakpoints={{
             768: {
@@ -94,7 +94,7 @@ function Swiper({ selectedCategory, setSelectedEpisode }: SwiperProps) {
             stretch: 0,
             depth: 100,
             modifier: 3,
-            slideShadows: true,
+            slideShadows: false,
           }}
           mousewheel={{
             thresholdDelta: 70,
