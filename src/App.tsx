@@ -8,13 +8,15 @@ import "@fontsource/monoton";
 import "./reset.css";
 import "./App.css";
 
+import { AppProvider } from "@/contexts/AppContext";
+
 function App() {
   return (
-    <>
+    <AppProvider>
       <Hero />
 
       <Media />
-    </>
+    </AppProvider>
   );
 }
 

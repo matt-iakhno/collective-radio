@@ -1,29 +1,27 @@
 import { useMemo } from "react";
-import { useEpisodes } from "@/contexts";
+import { useEpisodes, useGenre } from "@/contexts";
 
 import styles from "./categoryselector.module.css";
-import { shuffle } from "@/lib";
+// import { shuffle } from "@/lib";
 
 interface CategorySelectorProps {
   onShowCarousel: () => void;
-  setSelectedCategory: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-function CategorySelector({
-  onShowCarousel,
-  setSelectedCategory,
-}: CategorySelectorProps) {
+function CategorySelector({ onShowCarousel }: CategorySelectorProps) {
   const episodes = useEpisodes();
+  const { selectedGenre, setSelectedGenre } = useGenre();
 
   // Memoized filter calculation
   const categories = useMemo(() => {
-    const categories = episodes.map((episode) => episode.mood);
-    return shuffle(Array.from(new Set(categories)));
-  }, [episodes]);
+    const categories = episodes.episodes.map((episode) => episode.mood).sort();
+    return Array.from(new Set(categories));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCategorySelect = (i: number) => {
     onShowCarousel();
-    setSelectedCategory(categories[i]);
+    setSelectedGenre(categories[i]);
     window.scrollTo({
       top: document.documentElement.scrollHeight,
       behavior: "smooth",
@@ -35,7 +33,10 @@ function CategorySelector({
       {categories.map((category, i) => {
         return (
           <button
-            className={styles.brick}
+            className={`
+              ${styles.brick}
+              ${category === selectedGenre ? styles.active : ""}
+            `}
             key={category}
             onClick={() => handleCategorySelect(i)}
           >

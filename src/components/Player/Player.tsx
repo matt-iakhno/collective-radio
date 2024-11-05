@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 
 import { useEpisodes } from "@/contexts";
-import { Episode } from "@/types/types";
 
 import "react-h5-audio-player/lib/styles.css";
 import styles from "./player.module.css";
@@ -20,30 +19,14 @@ import { isMobileDevice } from "@/lib";
 
 const DEFAULT_VOLUME = isMobileDevice() ? 1.0 : 0.5;
 
-interface PlayerProps {
-  selectedGenre: string | undefined;
-  selectedEpisode: number | undefined;
-}
-
-function Player({ selectedEpisode }: PlayerProps) {
+function Player() {
   const episodes = useEpisodes();
   const playerRef = useRef<HTMLAudioElement | null>(null);
 
-  // TODO: able to read return to right episode on subsequent session
-  const [currentTrack, setCurrentTrack] = useState<undefined | Episode>(
-    undefined
-  );
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const source = episodes.find(
-      (episode) => episode.episodeNum === selectedEpisode
-    );
-    setCurrentTrack(source);
-  }, [selectedEpisode, episodes]);
 
   // show player when user has scrolled past the Episode selector
   useEffect(() => {
@@ -62,8 +45,8 @@ function Player({ selectedEpisode }: PlayerProps) {
   }, []);
 
   useEffect(() => {
-    if ("mediaSession" in navigator && currentTrack) {
-      const { episodeNum, artists, coverArt } = currentTrack;
+    if ("mediaSession" in navigator && episodes.selectedEpisode) {
+      const { episodeNum, artists, coverArt } = episodes.selectedEpisode;
       const episodeName = "Collective Radio EP" + episodeNum;
       const episodeArtists = artists.join(" & ");
 
@@ -80,7 +63,7 @@ function Player({ selectedEpisode }: PlayerProps) {
         ],
       });
     }
-  }, [currentTrack]);
+  }, [episodes.selectedEpisode]);
 
   const handleEnd = () => {
     //console.log("media end");
@@ -96,7 +79,10 @@ function Player({ selectedEpisode }: PlayerProps) {
 
   const handleListen = () => {
     setCurrentTime(playerRef.current!.currentTime);
-    if ("mediaSession" in navigator && currentTrack) {
+    if (
+      "mediaSession" in navigator &&
+      "setPositionState" in navigator.mediaSession
+    ) {
       navigator.mediaSession.setPositionState({
         duration,
         playbackRate: 1.0,
@@ -117,7 +103,7 @@ function Player({ selectedEpisode }: PlayerProps) {
             playerRef.current = player.audio.current;
           }
         }}
-        src={currentTrack?.url}
+        src={episodes.selectedEpisode?.url}
         volume={DEFAULT_VOLUME}
         showSkipControls
         showJumpControls={false}

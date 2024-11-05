@@ -163,7 +163,7 @@ main div {
 }
 
 .about {
-  padding: 5rem 10rem 0 10rem;
+  padding: 5rem 12rem;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -178,8 +178,8 @@ main div {
 }
 
 .about h1 {
-  font-size: 4rem;
-  margin-bottom: 0;
+  font-size: 3rem;
+  margin: 0;
 }
 
 .genreSelector {
@@ -195,7 +195,9 @@ main div {
 }
 
 .about h3 {
-  font-size: 3rem;
+  font-size: 2rem;
+  padding-top: 5rem;
+  margin: 0;
 }
 
 .playerContainer {
@@ -213,12 +215,13 @@ main div {
 
   .about h3 {
     font-size: 2rem;
+    padding-top: 3rem;
   }
 }
 
 @media only screen and (max-width: 1366px) {
   .about {
-    padding: 3rem 5rem;
+    padding: 4rem 6rem;
   }
   .about h1 {
     font-size: 2rem;
@@ -231,7 +234,7 @@ main div {
 
 @media only screen and (max-width: 768px) {
   .about {
-    padding: 2rem 3rem;
+    padding: 3rem 5rem;
   }
   .about h1 {
     font-size: 1.5rem;
@@ -239,5 +242,6 @@ main div {
 
   .about h3 {
     font-size: 1.5rem;
+    padding-top: 2rem;
   }
 }

@@ -1,3 +1,3 @@
-import { EpisodesProvider, useEpisodes } from "./EpisodesContext";
+import { AppProvider, useAppContext, useEpisodes, usePlayer, useGenre } from "./AppContext";
 
-export { EpisodesProvider, useEpisodes };
+export { useEpisodes, AppProvider, useAppContext, usePlayer, useGenre };
