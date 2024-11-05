@@ -1,2 +1,2 @@
-export * from './Player';
-export { default } from './Player';
+export * from './Player2';
+export { default } from './Player2';

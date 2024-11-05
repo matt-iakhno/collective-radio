@@ -5,7 +5,6 @@ import CategorySelector from "@/components/CategorySelector";
 import Player from "@/components/Player";
 
 import styles from "./media.module.css";
-// import Player from "../Player";
 
 function Media() {
   const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
@@ -39,12 +38,6 @@ function Media() {
       </main>
       <section className={styles.playerContainer}>
         <Player />
-        {/* <PlayerProvider>
-          <Player
-            selectedGenre={selectedCategory}
-            selectedEpisode={selectedEpisode}
-          />
-        </PlayerProvider> */}
       </section>
     </>
   );

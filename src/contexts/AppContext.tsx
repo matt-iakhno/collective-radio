@@ -4,6 +4,8 @@ import {
   createContext,
   useReducer,
   useMemo,
+  useRef,
+  useState,
   ReactNode,
   useContext,
 } from "react";
@@ -66,9 +68,21 @@ export const useGenre = () => {
 
 export const usePlayer = () => {
   const { state, dispatch } = useAppContext();
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const progressBarRef = useRef<HTMLInputElement>(null);
+
+  const [timeProgress, setTimeProgress] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+
   return {
     selectedEpisode: state.selectedEpisode,
     isPlaying: state.isPlaying,
     togglePlay: () => dispatch({ type: ActionTypes.TOGGLE_PLAY }),
+    audioRef,
+    progressBarRef,
+    timeProgress,
+    setTimeProgress,
+    duration,
+    setDuration,
   };
 };

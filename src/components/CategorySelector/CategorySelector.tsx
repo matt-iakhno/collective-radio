@@ -9,15 +9,14 @@ interface CategorySelectorProps {
 }
 
 function CategorySelector({ onShowCarousel }: CategorySelectorProps) {
-  const episodes = useEpisodes();
+  const { episodes } = useEpisodes();
   const { selectedGenre, setSelectedGenre } = useGenre();
 
   // Memoized filter calculation
   const categories = useMemo(() => {
-    const categories = episodes.episodes.map((episode) => episode.mood).sort();
+    const categories = episodes.map((episode) => episode.mood).sort();
     return Array.from(new Set(categories));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [episodes]);
 
   const handleCategorySelect = (i: number) => {
     onShowCarousel();

@@ -19,18 +19,18 @@ function Swiper() {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const episodes = useEpisodes();
-  const genre = useGenre();
+  const { episodes } = useEpisodes();
+  const { selectedGenre } = useGenre();
 
   // update carousel with active episodes whenever a new genre is selected
   useEffect(() => {
-    if (genre.selectedGenre) {
-      const genreEpisodes = episodes.episodes.filter(
-        (episode) => episode.mood === genre.selectedGenre
+    if (selectedGenre) {
+      const genreEpisodes = episodes.filter(
+        (episode) => episode.mood === selectedGenre
       );
       setFilteredEpisodes(genreEpisodes);
     }
-  }, [genre.selectedGenre, episodes.episodes]);
+  }, [selectedGenre, episodes]);
 
   // go to a random episode in the carousel when the episode list is updated
   useEffect(() => {
