@@ -49,10 +49,6 @@ function Swiper() {
     }
   };
 
-  const playEpisode = (episodeNum: number) => {
-    // episodes.setSelectedEpisode(episodeNum);
-  };
-
   return (
     <div className={styles.container}>
       <div
