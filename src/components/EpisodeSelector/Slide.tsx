@@ -9,7 +9,7 @@ interface SlideProps {
   episode: Episode;
 }
 
-const Slide: React.FC<SlideProps> = ({ episode }) => {
+const Slide = ({ episode }: SlideProps) => {
   const episodes = useEpisodes();
 
   const playButtonClicked = () => {

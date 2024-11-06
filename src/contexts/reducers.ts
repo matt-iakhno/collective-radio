@@ -5,6 +5,8 @@ export const initialState: AppState = {
   selectedGenre: null,
   selectedEpisode: null,
   isPlaying: false,
+  timeProgress: null,
+  duration: null
 };
 
 export const appReducer = (state: AppState, action: AppAction): AppState => {
@@ -15,6 +17,10 @@ export const appReducer = (state: AppState, action: AppAction): AppState => {
       return { ...state, selectedEpisode: action.payload };
     case ActionTypes.TOGGLE_PLAY:
       return { ...state, isPlaying: !state.isPlaying };
+    case ActionTypes.SET_TIME_PROGRESS:
+      return { ...state, timeProgress: action.payload };
+    case ActionTypes.SET_DURATION:
+      return { ...state, duration: action.payload };
     default:
       return state;
   }

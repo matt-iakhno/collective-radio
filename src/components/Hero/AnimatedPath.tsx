@@ -7,7 +7,7 @@ interface AnimatedPathProps {
   children: React.ReactNode; // Accept children as a prop
 }
 
-const AnimatedPath: React.FC<AnimatedPathProps> = ({ children }) => {
+const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const simplex = new createNoise2D();
   const numPoints = 6;
   const rad = 75;

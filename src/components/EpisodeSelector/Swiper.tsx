@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "./swiper.module.css";
 
-function Swiper() {
+const Swiper = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[] | []>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -108,6 +108,6 @@ function Swiper() {
       </div>
     </div>
   );
-}
+};
 
 export default Swiper;

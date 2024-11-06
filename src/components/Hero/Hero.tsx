@@ -3,7 +3,7 @@ import AnimatedPath from "./AnimatedPath.tsx";
 
 import { TfiMouse } from "react-icons/tfi";
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <AnimatedPath>
       <section className={styles.hero}>

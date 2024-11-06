@@ -1,27 +1,60 @@
-import { useEffect } from "react";
+import { useEffect, RefObject, useRef, useCallback } from "react";
 import { useEpisodes, usePlayer } from "@/contexts";
 
-import {
-  LuPause,
-  LuPlay,
-  // LuVolumeX,
-  // LuVolume1,
-} from "react-icons/lu";
+import { LuPause, LuPlay } from "react-icons/lu";
 
-import styles from "./player2.module.css";
+import styles from "./player.module.css";
 
-function Controls() {
+interface ControlsProps {
+  audioRef: RefObject<HTMLAudioElement>;
+  progressBarRef: RefObject<HTMLInputElement>;
+}
+
+const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   const { selectedEpisode } = useEpisodes();
-  const { isPlaying, togglePlay, audioRef, progressBarRef, setDuration } =
+  const { isPlaying, togglePlay, duration, setDuration, setTimeProgress } =
     usePlayer();
 
+  const updateProgress = useCallback(() => {
+    if (audioRef.current && progressBarRef.current && duration) {
+      const currentTime = audioRef.current.currentTime;
+      setTimeProgress(currentTime);
+      progressBarRef.current.value = currentTime.toString();
+      progressBarRef.current.style.setProperty(
+        "--range-progress",
+        `${(currentTime / duration) * 100}%`
+      );
+    }
+  }, [duration, setTimeProgress, audioRef, progressBarRef]);
+
+  const startAnimation = useCallback(() => {
+    if (audioRef.current && progressBarRef.current && duration) {
+      const animate = () => {
+        updateProgress();
+        playAnimationRef.current = requestAnimationFrame(animate);
+      };
+      playAnimationRef.current = requestAnimationFrame(animate);
+    }
+  }, [updateProgress, duration, audioRef, progressBarRef]);
+
+  const playAnimationRef = useRef<number | null>(null);
   useEffect(() => {
     if (isPlaying) {
       audioRef.current?.play();
+      startAnimation();
     } else {
       audioRef.current?.pause();
+      if (playAnimationRef.current !== null) {
+        cancelAnimationFrame(playAnimationRef.current);
+        playAnimationRef.current = null;
+      }
     }
-  }, [isPlaying, audioRef]);
+    return () => {
+      if (playAnimationRef.current !== null) {
+        cancelAnimationFrame(playAnimationRef.current);
+      }
+    };
+  }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
   if (!selectedEpisode) return <></>;
 
@@ -32,7 +65,6 @@ function Controls() {
   const onLoadedMetadata = () => {
     const seconds = audioRef.current?.duration;
     if (seconds !== undefined) {
-      console.log("Should update setDuration", typeof setDuration);
       setDuration(seconds);
       if (progressBarRef.current) {
         progressBarRef.current.max = seconds.toString();
@@ -47,11 +79,11 @@ function Controls() {
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
       />
-      <button onClick={() => handleOnPlay()}>
+      <button className={styles.playIcon} onClick={() => handleOnPlay()}>
         {isPlaying ? <LuPause size={30} /> : <LuPlay size={30} />}
       </button>
     </div>
   );
-}
+};
 
 export default Controls;

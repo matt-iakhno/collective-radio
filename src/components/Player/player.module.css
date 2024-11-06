@@ -1,11 +1,17 @@
-.container {
+.playerContainer {
+  position: fixed;
+  bottom: 0;
+  min-height: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
   width: 80%;
   margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-  bottom: 20px;
-  margin: 0 auto;
+  padding: 0.5rem 10px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 2s ease-out, transform 2s ease-out;
@@ -16,53 +22,167 @@
   transform: translateY(0);
 }
 
-@media only screen and (max-width: 767px) {
-  .container {
-    width: 100%;
-    max-width: 95%;
-    margin: 0 auto;
-  }
+.playerControls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin: auto;
+  flex: 1;
 }
 
-/* player skin  */
-:global(.rhap_container) {
-  background: rgba(0, 0, 0, 0.8);
+.volumeControl {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 150px;
+}
+
+.mediaContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.currentTrack {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 320px;
+}
+
+.currentTrackCover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 0.375rem;
+}
+.currentTrackCover img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.currentTrackName {
+  font-weight: bold;
+}
+
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 50%;
+}
+
+.progressBar {
+  max-width: 80%;
+  background-color: #d1d5db;
+}
+
+.progressBarContainer input[type="range"] {
+  flex-grow: 1;
+  --range-progress: 0%;
+  /* ... */
+}
+
+.progressBarContainer input[type="range"]::before {
+  /* ... */
+  background: #f50;
+  width: var(--range-progress);
+  /* ... */
+}
+
+.volumeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.volumeBar {
+  appearance: none;
+  width: 100%;
+  height: 8px;
   border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease;
 }
 
-:global(.rhap_time) {
+.volumeBar::-webkit-slider-runnable-track {
+  background-color: #fece02;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.volumeBar::-moz-range-track {
+  background-color: #fece02;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.volumeBar::-ms-track {
+  background-color: #fece02;
+  height: 8px;
+  border-radius: 2px;
+}
+/* Thumb styling */
+.volumeBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #fe8802;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: -4px; /* Center thumb on track */
+}
+
+.volumeBar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: #fe8802;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.volumeBar::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: #fe8802;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.playIcon {
+  border: none;
+  background: none;
+  fill: #fece02;
   color: #fece02;
-}
-:global(.rhap_play-status--paused .rhap_progress-bar),
-:global(.rhap_play-status--playing .rhap_progress-bar) {
-  background: #333;
+  min-height: 40px;
 }
 
-:global(.rhap_play-status--paused .rhap_progress-filled),
-:global(.rhap_play-status--playing .rhap_progress-filled) {
-  background: linear-gradient(
-    to right,
-    #fece02 0%,
-    #fece02 calc(100% - 200px),
-    #fe8802 100%
-  );
+.volumeIcon {
+  border: none;
+  background: none;
+  fill: #fece02;
+  color: #fece02;
+  transform: translateY(2px);
 }
 
-@media (max-width: 766px) {
-  :global(.rhap_play-status--paused .rhap_progress-filled),
-  :global(.rhap_play-status--playing .rhap_progress-filled) {
-    background: linear-gradient(
-      to right,
-      #fece02 0%,
-      #fece02 calc(100% - 100px),
-      #fe8802 100%
-    );
+@media (min-width: 1024px) {
+  .playerContainer {
+    flex-direction: row;
   }
-}
-
-:global(.rhap_volume-indicator) {
-  background: #fece02;
-}
-:global(.rhap_volume-bar) {
-  background: #fe8802;
+  .currentTrackName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 16rem;
+  }
 }
