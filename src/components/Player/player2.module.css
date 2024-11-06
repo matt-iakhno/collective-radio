@@ -1,6 +1,7 @@
 .playerContainer {
   min-height: 2rem;
-  background-color: #2e2d2d;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 2.25rem;
@@ -8,6 +9,18 @@
   align-items: center;
   color: white;
   padding: 0.5rem 10px;
+  width: 80%;
+  margin-bottom: 20px;
+  position: fixed;
+  bottom: 0px;
+  opacity: 0;
+  transition: opacity 2s ease-out, transform 2s ease-out;
+  transform: translateY(20px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .playerControls {
@@ -72,7 +85,7 @@
 }
 
 .progressBarContainer input[type="range"] {
-  --range-progress: 50%;
+  --range-progress: 0%;
   /* ... */
 }
 

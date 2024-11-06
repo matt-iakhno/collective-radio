@@ -12,11 +12,12 @@ import { AppProvider } from "@/contexts/AppContext";
 
 function App() {
   return (
-    <AppProvider>
+    <>
       <Hero />
-
-      <Media />
-    </AppProvider>
+      <AppProvider>
+        <Media />
+      </AppProvider>
+    </>
   );
 }
 

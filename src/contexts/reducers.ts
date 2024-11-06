@@ -14,7 +14,7 @@ export const appReducer = (state: AppState, action: AppAction): AppState => {
     case ActionTypes.SET_SELECTED_EPISODE:
       return { ...state, selectedEpisode: action.payload };
     case ActionTypes.TOGGLE_PLAY:
-      return { ...state, isPlaying: !state.isPlaying };
+      return { ...state, isPlaying: !state.isPlaying };s
     default:
       return state;
   }

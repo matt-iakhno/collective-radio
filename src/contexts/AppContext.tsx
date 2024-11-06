@@ -68,18 +68,31 @@ export const useGenre = () => {
 
 export const usePlayer = () => {
   const { state, dispatch } = useAppContext();
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const progressBarRef = useRef<HTMLInputElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const progressBarRef = useRef<HTMLInputElement | null>(null);
 
   const [timeProgress, setTimeProgress] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
+
+  // Function to set the audioRef
+  const setAudioRef = (element: HTMLAudioElement) => {
+    console.log("usePlayer() setAudioRef", element);
+    audioRef.current = element;
+  };
+  // Function to set the audioRef
+  const setProgressBarRef = (element: HTMLInputElement) => {
+    console.log("usePlayer() setProgressBarRef", element);
+    progressBarRef.current = element;
+  };
 
   return {
     selectedEpisode: state.selectedEpisode,
     isPlaying: state.isPlaying,
     togglePlay: () => dispatch({ type: ActionTypes.TOGGLE_PLAY }),
     audioRef,
+    setAudioRef,
     progressBarRef,
+    setProgressBarRef,
     timeProgress,
     setTimeProgress,
     duration,

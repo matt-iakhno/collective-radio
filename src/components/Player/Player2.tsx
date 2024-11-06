@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import TrackInfo from "./TrackInfo";
@@ -11,9 +12,28 @@ import styles from "./player2.module.css";
 
 function Player() {
   // const episodes = useEpisodes();
+  const [isVisible, setIsVisible] = useState(false);
+
+  // show player when user has scrolled past the Episode selector
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const bottomThreshold = document.documentElement.offsetHeight - 300;
+
+      if (scrollPosition >= bottomThreshold) {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className={styles.playerContainer}>
+    <div
+      className={`${styles.playerContainer} ${isVisible ? styles.visible : ""}`}
+    >
       <TrackInfo />
       <div className={styles.playerControls}>
         <Controls />
