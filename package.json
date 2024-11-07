@@ -1,10 +1,10 @@
 {
-  "name": "vite-npm",
-  "private": true,
+  "name": "collective-radio-website",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npx kill-port 5173 && vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -16,7 +16,6 @@
     "react": "^18.3.1",
     "react-blurhash": "^0.3.0",
     "react-dom": "^18.3.1",
-    "react-h5-audio-player": "^3.9.3",
     "react-icons": "^5.3.0",
     "simplex-noise": "^4.0.3",
     "swiper": "^11.1.14"

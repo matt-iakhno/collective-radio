@@ -1,17 +1,19 @@
 import BlurhashImage from "./BlurhashImage";
 import { type Episode } from "@/types/types";
+import { useEpisodes } from "@/contexts";
 
 import styles from "./slide.module.css";
 import { PiPlayDuotone } from "react-icons/pi";
 
 interface SlideProps {
   episode: Episode;
-  playEpisode: (episodeNum: number) => void;
 }
 
-const Slide: React.FC<SlideProps> = ({ episode, playEpisode }) => {
+const Slide = ({ episode }: SlideProps) => {
+  const episodes = useEpisodes();
+
   const playButtonClicked = () => {
-    playEpisode(episode.episodeNum);
+    episodes.setSelectedEpisode(episode);
   };
 
   return (

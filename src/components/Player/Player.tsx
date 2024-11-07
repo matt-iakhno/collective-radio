@@ -1,49 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import AudioPlayer from "react-h5-audio-player";
 
-import { useEpisodes } from "@/contexts";
-import { Episode } from "@/types/types";
+import Controls from "./Controls";
+import ProgressBar from "./ProgressBar";
+import TrackInfo from "./TrackInfo";
+import VolumeControl from "./VolumeControl";
 
-import "react-h5-audio-player/lib/styles.css";
 import styles from "./player.module.css";
 
-import {
-  LuArrowRightToLine,
-  LuArrowLeftToLine,
-  LuPause,
-  LuPlay,
-  LuVolumeX,
-  LuVolume1,
-} from "react-icons/lu";
-
-import { isMobileDevice } from "@/lib";
-
-const DEFAULT_VOLUME = isMobileDevice() ? 1.0 : 0.5;
-
-interface PlayerProps {
-  selectedGenre: string | undefined;
-  selectedEpisode: number | undefined;
-}
-
-function Player({ selectedEpisode }: PlayerProps) {
-  const episodes = useEpisodes();
-  const playerRef = useRef<HTMLAudioElement | null>(null);
-
-  // TODO: able to read return to right episode on subsequent session
-  const [currentTrack, setCurrentTrack] = useState<undefined | Episode>(
-    undefined
-  );
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-
+const Player = () => {
+  // const episodes = useEpisodes();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const progressBarRef = useRef<HTMLInputElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const source = episodes.find(
-      (episode) => episode.episodeNum === selectedEpisode
-    );
-    setCurrentTrack(source);
-  }, [selectedEpisode, episodes]);
 
   // show player when user has scrolled past the Episode selector
   useEffect(() => {
@@ -61,87 +29,32 @@ function Player({ selectedEpisode }: PlayerProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if ("mediaSession" in navigator && currentTrack) {
-      const { episodeNum, artists, coverArt } = currentTrack;
-      const episodeName = "Collective Radio EP" + episodeNum;
-      const episodeArtists = artists.join(" & ");
+  // const handlePlay = () => {
+  //   audioRef.current?.play();
+  // };
 
-      navigator.mediaSession.metadata = new MediaMetadata({
-        title: episodeName,
-        artist: episodeArtists,
-        album: "Collective Radio",
-        artwork: [
-          {
-            src: coverArt,
-            sizes: "500x500",
-            type: "image/jpeg",
-          },
-        ],
-      });
-    }
-  }, [currentTrack]);
+  // const handlePause = () => {
+  //   audioRef.current?.pause();
+  // };
 
-  const handleEnd = () => {
-    //console.log("media end");
-  };
-
-  const handleOnPlay = () => {
-    //console.log("media play");
-  };
-
-  const handleError = (e: unknown) => {
-    console.log("media error", e);
-  };
-
-  const handleListen = () => {
-    setCurrentTime(playerRef.current!.currentTime);
-    if ("mediaSession" in navigator && currentTrack) {
-      navigator.mediaSession.setPositionState({
-        duration,
-        playbackRate: 1.0,
-        position: currentTime,
-      });
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    setDuration(playerRef.current!.duration);
-  };
+  // const handleSeek = () => {
+  //   audioRef.current?.setCurrentTime(30); // Seeks to 30 seconds
+  // };
 
   return (
-    <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
-      <AudioPlayer
-        ref={(player) => {
-          if (player) {
-            playerRef.current = player.audio.current;
-          }
-        }}
-        src={currentTrack?.url}
-        volume={DEFAULT_VOLUME}
-        showSkipControls
-        showJumpControls={false}
-        showDownloadProgress={false}
-        listenInterval={5000}
-        onEnded={handleEnd}
-        onPlay={handleOnPlay}
-        onListen={handleListen}
-        onLoadedMetaData={handleLoadedMetadata}
-        onError={handleError}
-        customAdditionalControls={[]}
-        customIcons={{
-          play: <LuPlay color="#fece02" size={30} />,
-          pause: <LuPause color="#fece02" size={30} />,
-          previous: <LuArrowLeftToLine color="#fece02" size={25} />,
-          next: <LuArrowRightToLine color="#fece02" size={25} />,
-          // loop: <LuRepeat1 color="#fff" size={25} />,
-          // loopOff: <LuRepeat color="#fff" size={25} />,
-          volume: <LuVolume1 color="#fece02" size={25} />,
-          volumeMute: <LuVolumeX color="#fece02" size={25} />,
-        }}
-      />
+    <div
+      className={`${styles.playerContainer} ${isVisible ? styles.visible : ""}`}
+    >
+      <TrackInfo />
+      <div className={styles.playerControls}>
+        <Controls audioRef={audioRef} progressBarRef={progressBarRef} />
+        <ProgressBar audioRef={audioRef} progressBarRef={progressBarRef} />
+      </div>
+      <div className={styles.volumeControl}>
+        <VolumeControl audioRef={audioRef} />
+      </div>
     </div>
   );
-}
+};
 
 export default Player;

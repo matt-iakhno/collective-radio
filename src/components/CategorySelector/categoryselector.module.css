@@ -26,7 +26,9 @@
   transform: translate3d(0, 0, 0);
   box-shadow: 0 0 0 0 black;
 }
-.brickFront:hover {
+
+.brickFront:hover,
+.brick.active .brickFront {
   transform: translate3d(10px, -10px, 0);
   box-shadow: 0px 0px 0 black, -1px 1px 0 black, -2px 2px 0 black,
     -3px 3px 0 black, -4px 4px 0 black, -5px 5px 0 black, -6px 6px 0 black,

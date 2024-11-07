@@ -1,14 +1,25 @@
-.container {
-  width: 80%;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
+:root {
+  --progressBarHeight: 4px;
+}
+
+.playerContainer {
   position: fixed;
-  bottom: 20px;
-  margin: 0 auto;
+  bottom: 0;
+  min-height: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: row;
+  gap: 2.25rem;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin-bottom: 20px;
+  padding: 0.5rem 10px;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 2s ease-out, transform 2s ease-out;
+  width: 90%;
+  max-width: 1366px;
 }
 
 .visible {
@@ -16,53 +27,254 @@
   transform: translateY(0);
 }
 
-@media only screen and (max-width: 767px) {
-  .container {
-    width: 100%;
-    max-width: 95%;
-    margin: 0 auto;
-  }
+.playerControls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin: auto;
+  flex: 1;
 }
 
-/* player skin  */
-:global(.rhap_container) {
-  background: rgba(0, 0, 0, 0.8);
+.volumeControl {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.5rem;
+  width: 320px;
+}
+
+.mediaContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.currentTrack {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 320px;
+}
+
+.currentTrackCover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border-radius: 0.375rem;
+}
+.currentTrackCover img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.currentTrackName {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 16rem;
+}
+.currentTrackArtists {
+  font-weight: 1em;
+  height: 2em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1em;
+  word-break: break-word;
+}
+
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.progressBar {
+  appearance: none;
+  /* max-width: 80%; */
+  background: none;
+}
+.progressBar::-webkit-slider-runnable-track {
+  background-color: var(--yellow);
+  height: var(--progressBarHeight);
+  border-radius: 2px;
+}
+
+.progressBar::-moz-range-track {
+  background-color: var(--yellow);
+  height: var(--progressBarHeight);
+  border-radius: 2px;
+}
+
+.progressBar::-ms-track {
+  background-color: var(--yellow);
+  height: var(--progressBarHeight);
+  border-radius: 2px;
+}
+/* Thumb styling */
+.progressBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: -4px;
+}
+
+.progressBar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.progressBar::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.progressBarContainer input[type="range"] {
+  flex-grow: 1;
+  --range-progress: 0%;
+  /* ... */
+}
+
+.progressBarContainer input[type="range"]::before {
+  /* ... */
+  background: #f50;
+  width: var(--range-progress);
+  /* ... */
+}
+
+.volumeContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-right: 10px;
+}
+
+.volumeBar {
+  appearance: none;
+  width: 100%;
+  background: transparent;
   border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease;
+  max-width: 100px;
 }
 
-:global(.rhap_time) {
-  color: #fece02;
-}
-:global(.rhap_play-status--paused .rhap_progress-bar),
-:global(.rhap_play-status--playing .rhap_progress-bar) {
-  background: #333;
+.volumeBar::-webkit-slider-runnable-track {
+  background-color: var(--yellow);
+  height: var(--progressBarHeight);
+  border-radius: 2px;
 }
 
-:global(.rhap_play-status--paused .rhap_progress-filled),
-:global(.rhap_play-status--playing .rhap_progress-filled) {
-  background: linear-gradient(
-    to right,
-    #fece02 0%,
-    #fece02 calc(100% - 200px),
-    #fe8802 100%
-  );
+.volumeBar::-moz-range-track {
+  background-color: var(--yellow);
+  height: var(--progressBarHeight);
+  border-radius: 2px;
 }
 
-@media (max-width: 766px) {
-  :global(.rhap_play-status--paused .rhap_progress-filled),
-  :global(.rhap_play-status--playing .rhap_progress-filled) {
-    background: linear-gradient(
-      to right,
-      #fece02 0%,
-      #fece02 calc(100% - 100px),
-      #fe8802 100%
-    );
+.volumeBar::-ms-track {
+  background-color: var(--yellow);
+  height: var(--progressBarHeight);
+  border-radius: 2px;
+}
+
+/* Thumb styling */
+.volumeBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: -4px;
+}
+
+.volumeBar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.volumeBar::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  background-color: var(--orange);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.placeholder {
+  height: 40px;
+}
+
+.playIcon {
+  border: none;
+  background: none;
+  fill: var(--yellow);
+  color: var(--yellow);
+  height: 40px;
+}
+
+.volumeIcon {
+  border: none;
+  background: none;
+  fill: var(--yellow);
+  color: var(--yellow);
+  transform: translateY(2px);
+}
+
+@media (max-width: 1023px) {
+  .playerContainer {
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.95);
+  }
+  .playerControls {
+    flex-direction: row;
+  }
+  .currentTrack {
+    align-self: flex-start;
+  }
+  .currentTrackName {
+    max-width: 16rem;
+  }
+  .currentTrackCover {
+    width: 70px;
+    height: 70px;
+  }
+  .volumeControl {
+    display: none;
   }
 }
 
-:global(.rhap_volume-indicator) {
-  background: #fece02;
-}
-:global(.rhap_volume-bar) {
-  background: #fe8802;
+@media (max-width: 500px) {
+  .playerContainer {
+    width: 100%;
+    margin-bottom: 0;
+  }
 }

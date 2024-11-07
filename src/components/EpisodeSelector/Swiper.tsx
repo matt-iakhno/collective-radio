@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import Slide from "./Slide";
-import { useEpisodes } from "@/contexts";
+import { useEpisodes, useGenre } from "@/contexts";
 import { type Episode } from "@/types/types";
 
 import { Swiper as SwiperLibrary, SwiperSlide } from "swiper/react";
@@ -13,32 +13,31 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "./swiper.module.css";
 
-interface SwiperProps {
-  selectedCategory: string | undefined;
-  setSelectedEpisode: (episodeNum: number) => void;
-}
-
-function Swiper({ selectedCategory, setSelectedEpisode }: SwiperProps) {
+const Swiper = () => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[] | []>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const episodes = useEpisodes();
+  const { episodes } = useEpisodes();
+  const { selectedGenre } = useGenre();
 
+  // update carousel with active episodes whenever a new genre is selected
   useEffect(() => {
-    if (selectedCategory) {
+    if (selectedGenre) {
       const genreEpisodes = episodes.filter(
-        (episode) => episode.mood === selectedCategory
+        (episode) => episode.mood === selectedGenre
       );
       setFilteredEpisodes(genreEpisodes);
-      setActiveIndex(Math.floor(Math.random() * genreEpisodes.length));
-      goToSlide(activeIndex);
-
-      // pick a random episode from this genre to set as the active slide
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedCategory, episodes]);
+  }, [selectedGenre, episodes]);
+
+  // go to a random episode in the carousel when the episode list is updated
+  useEffect(() => {
+    const randomEpisode = Math.floor(Math.random() * filteredEpisodes.length);
+    setActiveIndex(randomEpisode);
+    goToSlide(randomEpisode);
+  }, [filteredEpisodes]);
 
   const handleSlideChange = (swiper: SwiperCore) => {
     setActiveIndex(swiper.activeIndex);
@@ -48,10 +47,6 @@ function Swiper({ selectedCategory, setSelectedEpisode }: SwiperProps) {
     if (swiperRef.current) {
       swiperRef.current.slideTo(index);
     }
-  };
-
-  const playEpisode = (episodeNum: number) => {
-    setSelectedEpisode(episodeNum);
   };
 
   return (
@@ -106,13 +101,13 @@ function Swiper({ selectedCategory, setSelectedEpisode }: SwiperProps) {
           {filteredEpisodes.length &&
             filteredEpisodes.map((episode) => (
               <SwiperSlide key={episode.episodeNum}>
-                <Slide episode={episode} playEpisode={playEpisode} />
+                <Slide episode={episode} />
               </SwiperSlide>
             ))}
         </SwiperLibrary>
       </div>
     </div>
   );
-}
+};
 
 export default Swiper;
