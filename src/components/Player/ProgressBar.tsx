@@ -19,18 +19,15 @@ const ProgressBar = ({ audioRef, progressBarRef }: ProgressBarProps) => {
         "--range-progress",
         `${newTime}%`
       );
+      if ("mediaSession" in navigator && duration) {
+        navigator.mediaSession.setPositionState({
+          duration,
+          playbackRate: 1.0,
+          position: newTime,
+        });
+      }
     }
   };
-
-  if ("mediaSession" in navigator && duration && timeProgress) {
-    navigator.mediaSession.setPositionState({
-      duration,
-      playbackRate: 1.0,
-      position: timeProgress,
-    });
-  }
-
-  const displayDuration = duration ? formatSecondsToHHMMSS(duration) : "--:--";
 
   return (
     <div className={styles.progressBarContainer}>
@@ -43,7 +40,7 @@ const ProgressBar = ({ audioRef, progressBarRef }: ProgressBarProps) => {
         ref={progressBarRef}
         onChange={handleProgressChange}
       />
-      <span>{displayDuration}</span>
+      <span>{duration ? formatSecondsToHHMMSS(duration) : "--:--"}</span>
     </div>
   );
 };

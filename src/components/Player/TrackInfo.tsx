@@ -11,7 +11,7 @@ function TrackInfo() {
   const defaultCoverArt =
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect width='100%25' height='100%25' fill='black' /%3E%3C/svg%3E";
 
-  const artists = selectedEpisode?.artists ?? defaultArtists;
+  const artists = selectedEpisode?.artists.join(" & ") ?? defaultArtists;
   const coverArt = selectedEpisode?.coverArt ?? defaultCoverArt;
   const episodeText = selectedEpisode?.episodeNum
     ? "Collective Radio EP" + selectedEpisode.episodeNum
@@ -44,8 +44,8 @@ function TrackInfo() {
         <img src={coverArt} alt={`${episodeText} cover`} />
       </div>
       <div>
-        <p className={styles.currentTrackName}>{episodeText}</p>
-        <p className="text-sm text-gray-400">{artists}</p>
+        <div className={styles.currentTrackName}>{episodeText}</div>
+        <div className={styles.currentTrackArtists}>{artists}</div>
       </div>
     </div>
   );

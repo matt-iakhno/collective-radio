@@ -15,6 +15,11 @@
   overflow-x: hidden;
   padding: none;
   margin: none;
+
+  --yellow: #fece02;
+  --orange: #fe8802;
+  --blue: #00c2ff;
+  --pink: #e54cff;
 }
 
 body {

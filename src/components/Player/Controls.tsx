@@ -56,7 +56,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     };
   }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
-  if (!selectedEpisode) return <></>;
+  if (!selectedEpisode) return <div className={styles.placeholder}></div>;
 
   const handleOnPlay = () => {
     togglePlay();
