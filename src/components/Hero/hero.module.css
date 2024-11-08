@@ -10,7 +10,8 @@
 }
 
 .logo {
-  height: 200px;
+  height: 150px;
+  width: 150px;
   cursor: pointer;
   position: fixed;
   right: 0;
