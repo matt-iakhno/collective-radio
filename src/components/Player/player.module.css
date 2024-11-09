@@ -97,6 +97,10 @@
   gap: 1.25rem;
   width: 100%;
 }
+.progressBarContainer span {
+  width: 75px;
+  text-align: center;
+}
 
 .progressBar {
   appearance: none;
