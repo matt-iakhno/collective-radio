@@ -24,6 +24,7 @@ function Media() {
       );
     }
     return () => {
+      //@ts-expect-error just trying it out
       if (vantaEffect) vantaEffect.destroy();
     };
   }, [vantaEffect]);
