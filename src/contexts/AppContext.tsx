@@ -19,6 +19,13 @@ interface AppContextProps {
   dispatch: React.Dispatch<AppAction>;
 }
 
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    umami: any;
+  }
+}
+
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {

@@ -71,6 +71,31 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     };
   }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
+  // record a play event every time new episode is slected and playback begins for the first time
+  useEffect(() => {
+    const audioElement = audioRef.current;
+    if (!audioElement) return;
+
+    const handlePlayOnce = () => {
+      if (window.umami) {
+        console.log("Umami track selected");
+        window.umami.track("play", {
+          episodeNum: selectedEpisode?.episodeNum,
+        });
+      }
+      audioElement.removeEventListener("play", handlePlayOnce);
+    };
+
+    // Attach the one-time event listener when the source changes
+    audioElement.addEventListener("play", handlePlayOnce);
+
+    // Cleanup in case the component unmounts or the src changes
+    return () => {
+      audioElement.removeEventListener("play", handlePlayOnce);
+    };
+  }, [selectedEpisode?.episodeNum, audioRef]);
+
+  // hook for Media Session handlers for play/pause/scrubbing events on Mobile
   useMediaSessionHandlers(audioRef);
 
   const handleOnPlay = () => {
