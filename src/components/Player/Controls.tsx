@@ -71,7 +71,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     };
   }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
-  useMediaSessionHandlers(audioRef.current);
+  useMediaSessionHandlers(audioRef);
 
   const handleOnPlay = () => {
     if (!selectedEpisode) return;
