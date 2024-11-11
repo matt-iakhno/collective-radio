@@ -4,11 +4,13 @@ import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import TrackInfo from "./TrackInfo";
 import VolumeControl from "./VolumeControl";
+import { useEpisodes } from "@/contexts";
 
 import styles from "./player.module.css";
 
 const Player = () => {
   // const episodes = useEpisodes();
+  const { selectedEpisode } = useEpisodes();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressBarRef = useRef<HTMLInputElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -28,6 +30,13 @@ const Player = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // show player if there is a selected episode
+  useEffect(() => {
+    if (selectedEpisode) {
+      setIsVisible(true);
+    }
+  }, [selectedEpisode]);
 
   // const handlePlay = () => {
   //   audioRef.current?.play();

@@ -1,11 +1,12 @@
 .container {
   display: flex;
   justify-content: space-evenly;
-  max-width: 80vw;
+  padding: 0 10rem;
   flex-wrap: wrap;
   row-gap: 20px;
 }
 .brick {
+  background: none;
   text-align: center;
   text-transform: uppercase;
   font-family: "Goldman";
@@ -35,18 +36,33 @@
     -7px 7px 0 black, -8px 8px 0 black, -9px 9px 0 black, -10px 10px 0 black;
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1800px) {
   .brick {
     font-size: 1.2rem;
+  }
+  .brickFront {
+    padding: 15px;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .container {
+    padding: 0 6rem;
+  }
+  .brick {
+    font-size: 1.1rem;
+  }
+  .brickFront {
+    padding: 10px;
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
   .brick {
     font-size: 1rem;
-  }
-  .brickFront {
-    padding: 10px;
   }
 }
 

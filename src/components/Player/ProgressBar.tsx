@@ -1,7 +1,8 @@
 import { RefObject } from "react";
 import { usePlayer } from "@/contexts";
+import { formatSecondsToHHMMSS } from "@/lib";
+
 import styles from "./player.module.css";
-import { formatSecondsToHHMMSS } from "@/lib/convertToHHMMSS";
 
 interface ProgressBarProps {
   audioRef: RefObject<HTMLAudioElement>;
@@ -19,13 +20,6 @@ const ProgressBar = ({ audioRef, progressBarRef }: ProgressBarProps) => {
         "--range-progress",
         `${newTime}%`
       );
-      if ("mediaSession" in navigator && duration) {
-        navigator.mediaSession.setPositionState({
-          duration,
-          playbackRate: 1.0,
-          position: newTime,
-        });
-      }
     }
   };
 

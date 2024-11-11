@@ -19,12 +19,14 @@ function CategorySelector({ onShowCarousel }: CategorySelectorProps) {
   }, [episodes]);
 
   const handleCategorySelect = (i: number) => {
-    onShowCarousel();
+    if (!selectedGenre) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }
     setSelectedGenre(categories[i]);
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth",
-    });
+    onShowCarousel();
   };
 
   return (

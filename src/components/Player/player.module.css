@@ -242,6 +242,7 @@
   fill: var(--yellow);
   color: var(--yellow);
   height: 40px;
+  cursor: pointer;
 }
 
 .volumeIcon {
@@ -250,6 +251,7 @@
   fill: var(--yellow);
   color: var(--yellow);
   transform: translateY(2px);
+  cursor: pointer;
 }
 
 @media (max-width: 1023px) {
@@ -280,5 +282,11 @@
   .playerContainer {
     width: 100%;
     margin-bottom: 0;
+  }
+  .playerControls {
+    max-width: 90%;
+  }
+  .progressBarContainer span {
+    display: none;
   }
 }

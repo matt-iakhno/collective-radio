@@ -12,8 +12,14 @@ interface ControlsProps {
 
 const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   const { selectedEpisode } = useEpisodes();
-  const { isPlaying, togglePlay, duration, setDuration, setTimeProgress } =
-    usePlayer();
+  const {
+    isPlaying,
+    togglePlay,
+    duration,
+    setDuration,
+    timeProgress,
+    setTimeProgress,
+  } = usePlayer();
 
   const updateProgress = useCallback(() => {
     if (audioRef.current && progressBarRef.current && duration) {
@@ -24,6 +30,14 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
         "--range-progress",
         `${(currentTime / duration) * 100}%`
       );
+
+      if ("mediaSession" in navigator && duration) {
+        navigator.mediaSession.setPositionState({
+          duration,
+          playbackRate: 1.0,
+          position: currentTime,
+        });
+      }
     }
   }, [duration, setTimeProgress, audioRef, progressBarRef]);
 
@@ -56,18 +70,27 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     };
   }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
-  if (!selectedEpisode) return <div className={styles.placeholder}></div>;
-
   const handleOnPlay = () => {
+    if (!selectedEpisode) return;
     togglePlay();
   };
 
   const onLoadedMetadata = () => {
-    const seconds = audioRef.current?.duration;
-    if (seconds !== undefined) {
-      setDuration(seconds);
+    const duration = audioRef.current?.duration;
+    if (duration !== undefined) {
+      setDuration(duration);
       if (progressBarRef.current) {
-        progressBarRef.current.max = seconds.toString();
+        progressBarRef.current.max = duration.toString();
+
+        // bring back progress from state
+        if (timeProgress) {
+          if (audioRef.current) audioRef.current.currentTime = timeProgress;
+          progressBarRef.current.value = timeProgress.toString();
+          progressBarRef.current.style.setProperty(
+            "--range-progress",
+            `${(timeProgress / duration) * 100}%`
+          );
+        }
       }
     }
   };
@@ -75,7 +98,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   return (
     <div className={styles.mediaContainer}>
       <audio
-        src={selectedEpisode.url}
+        src={selectedEpisode?.url}
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
       />

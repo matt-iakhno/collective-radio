@@ -6,6 +6,7 @@ import {
   useMemo,
   ReactNode,
   useContext,
+  useEffect,
 } from "react";
 
 import { appReducer, initialState } from "@/contexts/reducers";
@@ -23,12 +24,38 @@ const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const memoizedEpisodes = useMemo(() => episodes as Episode[], []);
 
-  const initialAppState: AppState = {
-    ...initialState,
-    episodes: memoizedEpisodes,
-  };
+  // check local storage to see if there was a previous episode playing
+  const savedState = useMemo(() => {
+    const saved = localStorage.getItem("playerState");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return {
+        ...initialState,
+        episodes: memoizedEpisodes,
+        selectedEpisode: parsed.selectedEpisode,
+        timeProgress: parsed.timeProgress,
+      };
+    }
+    return {
+      ...initialState,
+      episodes: memoizedEpisodes,
+    };
+  }, [memoizedEpisodes]);
 
-  const [state, dispatch] = useReducer(appReducer, initialAppState);
+  const [state, dispatch] = useReducer(appReducer, savedState);
+
+  // Save state changes to localStorage
+  useEffect(() => {
+    if (state.selectedEpisode) {
+      localStorage.setItem(
+        "playerState",
+        JSON.stringify({
+          selectedEpisode: state.selectedEpisode,
+          timeProgress: state.timeProgress,
+        })
+      );
+    }
+  }, [state.selectedEpisode, state.timeProgress]);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
@@ -44,7 +71,6 @@ export const useAppContext = () => {
   return context;
 };
 
-// TODO: able to read return to right episode on subsequent session
 export const useEpisodes = () => {
   const { state, dispatch } = useAppContext();
   return {
