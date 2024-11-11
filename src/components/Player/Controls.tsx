@@ -1,5 +1,6 @@
 import { useEffect, RefObject, useRef, useCallback } from "react";
 import { useEpisodes, usePlayer } from "@/contexts";
+import { useMediaSessionHandlers } from "@/lib";
 
 import { LuPause, LuPlay } from "react-icons/lu";
 
@@ -69,6 +70,8 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
       }
     };
   }, [isPlaying, startAnimation, updateProgress, audioRef]);
+
+  useMediaSessionHandlers(audioRef.current);
 
   const handleOnPlay = () => {
     if (!selectedEpisode) return;
