@@ -14,6 +14,10 @@ main div {
   grid-column-start: 1;
 }
 
+.content {
+  width: 100vw;
+}
+
 .content::before {
   content: "";
   position: absolute;
@@ -22,158 +26,39 @@ main div {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
-  z-index: -1;
-  pointer-events: none;
+  z-index: 0;
+  /* pointer-events: none; */
 }
 
-.circle {
-  /* width: 95vw;
-  height: 95vh; */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  position: absolute;
-  background: radial-gradient(
-    #fece02 3px,
-    transparent 5px,
-    #00c2ff 7px,
-    transparent 9px,
-    #fece02 11px,
-    transparent 13px,
-    15px,
-    transparent 17px,
-    #00c2ff 19px,
-    transparent 21px,
-    #fece02 23px,
-    transparent 25px,
-    #00c2ff 27px,
-    transparent 29px,
-    #fece02 31px,
-    transparent 33px
-  );
-  background-size: 30px 30px;
+.funky {
+  margin: 0;
+  --x: calc(var(--posX, 0) * 1px);
+  --y: calc(var(--posY, 0) * 1px);
+  background-image: linear-gradient(115deg, #fece02, rgb(0 0 0)),
+    radial-gradient(
+      90% 100% at calc(50% + var(--x)) calc(0% + var(--y)),
+      rgb(200 200 200),
+      rgb(022 000 045)
+    ),
+    radial-gradient(
+      100% 100% at calc(80% - var(--x)) calc(0% - var(--y)),
+      #fece02,
+      rgb(39, 35, 0)
+    ),
+    radial-gradient(
+      150% 210% at calc(100% + var(--x)) calc(0% + var(--y)),
+      rgb(020 175 125),
+      rgb(000 010 255)
+    ),
+    radial-gradient(
+      100% 100% at calc(100% - var(--x)) calc(30% - var(--y)),
+      #fece02,
+      rgb(000 200 255)
+    ),
+    linear-gradient(60deg, rgb(255 000 000), rgb(120 086 255));
+  background-blend-mode: overlay, overlay, difference, difference, difference,
+    normal;
 }
-.a {
-  -webkit-animation: adjustHue 1s alternate infinite;
-}
-
-@-webkit-keyframes adjustHue {
-  0% {
-    -webkit-filter: hue-rotate(30deg);
-  }
-  50% {
-    -webkit-filter: hue-rotate(60deg);
-  }
-  100% {
-    -webkit-filter: hue-rotate(90deg);
-  }
-}
-@-webkit-keyframes loading {
-  to {
-    -webkit-transform: rotate(360deg);
-  }
-}
-@-moz-keyframes loading {
-  to {
-    -moz-transform: rotate(360deg);
-  }
-}
-@-ms-keyframes loading {
-  to {
-    -ms-transform: rotate(360deg);
-  }
-}
-@keyframes loading {
-  to {
-    transform: rotate(360deg);
-  }
-}
-.circle {
-  -webkit-animation-name: blinker;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-name: blinker;
-  -moz-animation-duration: 3s;
-  -moz-animation-timing-function: linear;
-  -moz-animation-iteration-count: infinite;
-  animation-name: blinker;
-  animation-duration: 3s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  color: #fff;
-}
-
-@-moz-keyframes blinker {
-  0% {
-    opacity: 0.03;
-  }
-  50% {
-    opacity: 0.1;
-  }
-  100% {
-    opacity: 0.03;
-  }
-}
-
-@-webkit-keyframes blinker {
-  0% {
-    opacity: 0.03;
-  }
-  50% {
-    opacity: 0.1;
-  }
-  100% {
-    opacity: 0.03;
-  }
-}
-
-@keyframes blinker {
-  0% {
-    opacity: 0.03;
-  }
-  50% {
-    opacity: 0.1;
-  }
-  100% {
-    opacity: 0.03;
-  }
-}
-.a {
-  background: radial-gradient(
-    #0b853d 3px,
-    transparent 5px,
-    #000 7px,
-    transparent 9px,
-    #0b853d 11px,
-    transparent 13px,
-    15px,
-    transparent 17px,
-    #000 19px,
-    transparent 21px,
-    #0b853d 23px,
-    transparent 25px,
-    #fff 27px,
-    transparent 29px,
-    #000 31px,
-    transparent 33px
-  );
-  background-color: #000;
-  background-size: 32px 32px;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  margin: -10px;
-  opacity: 0.05;
-}
-
-.content {
-  width: 100vw;
-  z-index: 2;
-}
-
 .about {
   padding: 5rem 12rem;
   justify-content: center;
@@ -183,6 +68,7 @@ main div {
   letter-spacing: clamp(-1.75px, -0.25vw, -3.5px);
   word-spacing: 1rem;
   text-align: justify;
+  position: relative;
 }
 
 .carousel {

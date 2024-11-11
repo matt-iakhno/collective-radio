@@ -6,33 +6,43 @@ import Player from "@/components/Player";
 
 import styles from "./media.module.css";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
-import RINGS from "vanta/dist/vanta.rings.min";
-
 function Media() {
   const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
+  const divRef = useRef<HTMLDivElement>(null);
 
-  const [vantaEffect, setVantaEffect] = useState(null);
-  const myRef = useRef(null);
   useEffect(() => {
-    if (!vantaEffect) {
-      setVantaEffect(
-        RINGS({
-          el: myRef.current,
-        })
-      );
-    }
-    return () => {
-      //@ts-expect-error just trying it out
-      if (vantaEffect) vantaEffect.destroy();
+    const handlePointerMove = (e: PointerEvent) => {
+      if (!divRef.current) return;
+
+      const el = divRef.current;
+      const { clientX: x, clientY: y } = e;
+      const {
+        top: t,
+        left: l,
+        width: w,
+        height: h,
+      } = el.getBoundingClientRect();
+
+      el.style.setProperty("--posX", `${x - l - w / 2}`);
+      el.style.setProperty("--posY", `${y - t - h / 2}`);
     };
-  }, [vantaEffect]);
+
+    const divElement = divRef.current;
+    divElement?.addEventListener("pointermove", handlePointerMove);
+
+    return () => {
+      divElement?.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, []);
 
   return (
     <>
       <main>
-        <div ref={myRef}>
+        {/* <div>
+          <div className={styles.a}></div>
+          <div className={styles.circle}></div>
+        </div> */}
+        <div ref={divRef} className={styles.funky}>
           <div className={styles.content}>
             <section className={styles.about}>
               <h1>
@@ -52,10 +62,6 @@ function Media() {
             </section>
           </div>
         </div>
-        {/* <div>
-          <div className={styles.a}></div>
-          <div className={styles.circle}></div>
-        </div> */}
       </main>
       <section className={styles.playerContainer}>
         <Player />
