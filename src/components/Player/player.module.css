@@ -240,9 +240,13 @@
 .playIcon {
   border: none;
   background: none;
-  fill: var(--yellow);
-  color: var(--yellow);
+  color: #333;
   height: 40px;
+  cursor: initial;
+}
+
+.playActive {
+  color: var(--yellow);
   cursor: pointer;
 }
 

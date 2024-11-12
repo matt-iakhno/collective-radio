@@ -66,6 +66,7 @@ const Swiper = () => {
           slidesPerView={2}
           spaceBetween={0}
           initialSlide={activeIndex}
+          slideToClickedSlide={true}
           breakpoints={{
             768: {
               slidesPerView: 3,

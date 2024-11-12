@@ -78,7 +78,6 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
 
     const handlePlayOnce = () => {
       if (window.umami) {
-        console.log("Umami track selected");
         window.umami.track("play", {
           episodeNum: selectedEpisode?.episodeNum,
         });
@@ -130,7 +129,12 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
         ref={audioRef}
         onLoadedMetadata={onLoadedMetadata}
       />
-      <button className={styles.playIcon} onClick={() => handleOnPlay()}>
+      <button
+        className={`${styles.playIcon} ${
+          selectedEpisode !== null ? styles.playActive : styles.playInactive
+        }`}
+        onClick={() => handleOnPlay()}
+      >
         {isPlaying ? <LuPause size={30} /> : <LuPlay size={30} />}
       </button>
     </div>

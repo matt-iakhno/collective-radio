@@ -15,11 +15,6 @@ const Hero = () => {
             height="200px"
             className={styles.logo}
           />
-          {/* <input
-          type="text"
-          placeholder="Search..."
-          className={styles.searchBar}
-        /> */}
         </div>
 
         <h1 className={styles.title}>
@@ -34,7 +29,7 @@ const Hero = () => {
 
         <div className={styles.scrollDown}>
           <span>
-            Scroll <TfiMouse size={25} />
+            Scroll <TfiMouse size={30} />
           </span>
         </div>
       </section>
