@@ -1,5 +1,4 @@
 main {
-  /* padding: 150px; */
   overflow: hidden;
   background: #000;
   transform-style: preserve-3d;
@@ -25,12 +24,12 @@ main div {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 0;
   /* pointer-events: none; */
 }
 
-.funky {
+.aurora {
   margin: 0;
   --x: calc(var(--posX, 0) * 1px);
   --y: calc(var(--posY, 0) * 1px);

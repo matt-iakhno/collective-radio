@@ -5,12 +5,13 @@ import { useEpisodes, useGenre } from "@/contexts";
 import { type Episode } from "@/types/types";
 
 import { Swiper as SwiperLibrary, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import { EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
+import "swiper/css/effect-creative";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import styles from "./swiper.module.css";
 
 const Swiper = () => {
@@ -57,7 +58,6 @@ const Swiper = () => {
         }`}
       >
         <SwiperLibrary
-          effect={"coverflow"}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           onInit={() => setIsVisible(true)}
           onSlideChange={handleSlideChange}
@@ -66,23 +66,22 @@ const Swiper = () => {
           slidesPerView={2}
           spaceBetween={0}
           initialSlide={activeIndex}
-          slideToClickedSlide={true}
           breakpoints={{
             768: {
-              slidesPerView: 3,
-              spaceBetween: 20,
+              slidesPerView: 4,
+              spaceBetween: 0,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 30,
+              spaceBetween: 0,
             },
             1566: {
               slidesPerView: 5,
-              spaceBetween: 40,
+              spaceBetween: 20,
             },
             1920: {
               slidesPerView: 6,
-              spaceBetween: 60,
+              spaceBetween: 50,
             },
           }}
           coverflowEffect={{
@@ -95,8 +94,9 @@ const Swiper = () => {
           mousewheel={{
             thresholdDelta: 70,
           }}
-          navigation={false}
-          modules={[EffectCoverflow]}
+          navigation={true}
+          modules={[Navigation, EffectCoverflow]}
+          effect="coverflow"
           className={styles.swiper}
         >
           {filteredEpisodes.length &&

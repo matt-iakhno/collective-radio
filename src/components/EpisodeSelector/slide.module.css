@@ -45,6 +45,7 @@
   stroke-dashoffset: 480;
   stroke: var(--yellow);
   transform: translateY(0);
+  fill: rgba(0, 0, 0, 0.8);
 }
 
 .play .circle {
@@ -93,6 +94,13 @@
 }
 :global(.swiper-slide-active) .play {
   opacity: 1;
+}
+
+:global(.swiper-button-next) {
+  color: var(--yellow) !important;
+}
+:global(.swiper-button-prev) {
+  color: var(--yellow) !important;
 }
 
 .cardText {

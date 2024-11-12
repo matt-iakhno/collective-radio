@@ -38,11 +38,7 @@ function Media() {
   return (
     <>
       <main>
-        {/* <div>
-          <div className={styles.a}></div>
-          <div className={styles.circle}></div>
-        </div> */}
-        <div ref={divRef} className={styles.funky}>
+        <div ref={divRef} className={styles.aurora}>
           <div className={styles.content}>
             <section className={styles.about}>
               <h1>

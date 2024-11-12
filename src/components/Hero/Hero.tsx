@@ -19,11 +19,11 @@ const Hero = () => {
 
         <h1 className={styles.title}>
           Collective Radio
-          <div className={styles.aurora}>
-            <div className={styles.aurora__item}></div>
-            <div className={styles.aurora__item}></div>
-            <div className={styles.aurora__item}></div>
-            <div className={styles.aurora__item}></div>
+          <div className={styles.blob}>
+            <div className={styles.blobCorner}></div>
+            <div className={styles.blobCorner}></div>
+            <div className={styles.blobCorner}></div>
+            <div className={styles.blobCorner}></div>
           </div>
         </h1>
 
