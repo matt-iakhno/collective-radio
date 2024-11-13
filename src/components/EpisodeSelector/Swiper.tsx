@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Slide from "./Slide";
 import { useEpisodes, useGenre } from "@/contexts";
 import { type Episode } from "@/types/types";
+import { isMobileDevice } from "@/lib";
 
 import { Swiper as SwiperLibrary, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -81,14 +82,14 @@ const Swiper = () => {
             },
             1920: {
               slidesPerView: 6,
-              spaceBetween: 50,
+              spaceBetween: 30,
             },
           }}
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
             depth: 100,
-            modifier: 3,
+            modifier: isMobileDevice() ? 6 : 3,
             slideShadows: false,
           }}
           mousewheel={{

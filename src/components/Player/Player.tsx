@@ -23,8 +23,6 @@ const Player = () => {
           ? window.innerHeight + 60
           : document.documentElement.offsetHeight - 300;
 
-      console.log("Bottom threshold", bottomThreshold);
-
       if (scrollPosition >= bottomThreshold) {
         setIsVisible(true);
       }
@@ -33,6 +31,7 @@ const Player = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
