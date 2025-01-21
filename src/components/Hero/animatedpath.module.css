@@ -1,3 +1,8 @@
+:root {
+  --startColor: hsl(0, 100%, 75%);
+  --stopColor: hsl(0, 100%, 75%);
+}
+
 .container {
   width: 100vw;
   height: 100vh;
