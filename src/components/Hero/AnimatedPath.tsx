@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { spline } from "@georgedoescode/spline";
 import { createNoise2D } from "simplex-noise";
 import styles from "./animatedpath.module.css";
@@ -11,19 +11,16 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const simplex = new createNoise2D();
   const numPoints = 6;
   const rad = 75;
+  const points = createPoints();
 
-  // Use useRef to maintain mutable values without triggering rerenders
-  const pointsRef = useRef(createPoints());
-  const noiseStepRef = useRef(0.0005);
-  const hueNoiseOffsetRef = useRef(0);
-  const animationFrameRef = useRef<number>();
+  let hueNoiseOffset = 0;
+  let noiseStep = 0.0005; // Reduced by a factor of 10
 
   useEffect(() => {
     const path = document.querySelector<SVGPathElement>("path")!;
     const root = document.documentElement;
 
     function animate() {
-      const points = pointsRef.current;
       path.setAttribute("d", spline(points, 1, true));
 
       // For every point...
@@ -37,47 +34,44 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
         point.x = x;
         point.y = y;
 
-        point.noiseOffsetX += noiseStepRef.current;
-        point.noiseOffsetY += noiseStepRef.current;
+        point.noiseOffsetX += noiseStep;
+        point.noiseOffsetY += noiseStep;
       });
 
-      const hueNoise = noise(
-        hueNoiseOffsetRef.current,
-        hueNoiseOffsetRef.current
-      );
+      const hueNoise = noise(hueNoiseOffset, hueNoiseOffset);
       const hue = map(hueNoise, -1, 1, 0, 360);
 
       root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
       root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
       document.body.style.background = `hsl(${hue + 60}, 75%, 5%)`;
 
-      hueNoiseOffsetRef.current += noiseStepRef.current / 6;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      hueNoiseOffset += noiseStep / 6;
 
-      animationFrameRef.current = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
     }
 
     // Start the animation
     animate();
 
-    const handleMouseOver = () => {
-      noiseStepRef.current = 0.001;
-    };
+    path.addEventListener("mouseover", () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      noiseStep = 0.001;
+    });
 
-    const handleMouseLeave = () => {
-      noiseStepRef.current = 0.0005;
-    };
-
-    path.addEventListener("mouseover", handleMouseOver);
-    path.addEventListener("mouseleave", handleMouseLeave);
+    path.addEventListener("mouseleave", () => {
+      noiseStep = 0.0005;
+    });
 
     return () => {
-      path.removeEventListener("mouseover", handleMouseOver);
-      path.removeEventListener("mouseleave", handleMouseLeave);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      path.removeEventListener("mouseover", () => {
+        noiseStep = 0.001;
+      });
+      path.removeEventListener("mouseleave", () => {
+        noiseStep = 0.0005;
+      });
     };
-  }, []);
+  }, [points]);
 
   function map(
     n: number,
@@ -133,7 +127,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
             />
           </linearGradient>
         </defs>
-        <path fill="url(#gradient)" d={spline(pointsRef.current, 1, true)} />
+        <path fill="url(#gradient)" d={spline(points, 1, true)} />
       </svg>
       <div className={styles.childrenContainer}>{children}</div>
     </div>
