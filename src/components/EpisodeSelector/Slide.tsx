@@ -84,8 +84,11 @@ const Slide = ({ episode }: SlideProps) => {
             </span>
           </div>
           <div>
-            <span>{episode.releaseDate.substring(8, 10)}</span>
-            <span>{episode.releaseDate.substring(5, 7)}</span>
+            <div>
+              <span>{episode.releaseDate.substring(8, 10)}</span>/
+              <span>{episode.releaseDate.substring(5, 7)}</span>
+            </div>
+            <span>{episode.releaseDate.substring(0, 4)}</span>
           </div>
         </div>
       </div>
