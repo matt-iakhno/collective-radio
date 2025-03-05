@@ -10,9 +10,9 @@ interface AnimatedPathProps {
 const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const NUM_POINTS = 6;
   const RAD = 75;
+  const points = createPoints();
 
   useEffect(() => {
-    const points = createPoints();
     const simplex = new createNoise2D();
     let hueNoiseOffset = 0;
     let noiseStep = 0.0005;
@@ -132,7 +132,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
             />
           </linearGradient>
         </defs>
-        <path fill="url(#gradient)" d={spline(NUM_POINTS, 1, true)} />
+        <path fill="url(#gradient)" d={spline(points, 1, true)} />
       </svg>
       <div className={styles.childrenContainer}>{children}</div>
     </div>
