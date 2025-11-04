@@ -4,7 +4,7 @@
   "description": "Collective Radio Vancouver player application.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0D0D0D",
+  "background_color": "#fece02",
   "theme_color": "#fece02",
   "icons": [
     {
