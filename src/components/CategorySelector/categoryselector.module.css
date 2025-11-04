@@ -57,12 +57,24 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 836px) {
   .container {
-    padding: 0 3rem;
+    margin: 0 20px;
   }
+}
+
+@media only screen and (max-width: 768px) {
   .brick {
     font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .brick {
+    font-size: 0.8rem;
   }
 }
 

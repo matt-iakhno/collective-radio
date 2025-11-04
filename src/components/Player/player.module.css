@@ -267,6 +267,7 @@
   }
   .playerControls {
     flex-direction: row;
+    order: 3;
   }
   .currentTrack {
     align-self: flex-start;
@@ -279,6 +280,15 @@
     height: 70px;
     min-width: 70px;
   }
+  .volumeControl {
+    order: 1;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 650px) {
   .volumeControl {
     display: none;
   }
