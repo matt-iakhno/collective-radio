@@ -21,26 +21,33 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     timeProgress,
     setTimeProgress,
   } = usePlayer();
+  const lastMediaSessionUpdate = useRef(0);
 
   const updateProgress = useCallback(() => {
-    if (audioRef.current && progressBarRef.current && duration) {
-      const currentTime = audioRef.current.currentTime;
-      setTimeProgress(currentTime);
-      progressBarRef.current.value = currentTime.toString();
-      progressBarRef.current.style.setProperty(
-        "--range-progress",
-        `${(currentTime / duration) * 100}%`
-      );
+    if (!audioRef.current || !progressBarRef.current || !duration) return;
 
-      if ("mediaSession" in navigator && duration) {
+    const currentTime = audioRef.current.currentTime;
+    setTimeProgress(currentTime);
+
+    progressBarRef.current.value = currentTime.toString();
+    progressBarRef.current.style.setProperty(
+      "--range-progress",
+      `${(currentTime / duration) * 100}%`
+    );
+
+    if ("mediaSession" in navigator) {
+      const now = Date.now();
+      if (now - lastMediaSessionUpdate.current > 1000) {
         navigator.mediaSession.setPositionState({
           duration,
-          playbackRate: 1.0,
+          playbackRate: audioRef.current.playbackRate ?? 1.0,
           position: currentTime,
         });
+        lastMediaSessionUpdate.current = now;
       }
     }
-  }, [duration, setTimeProgress, audioRef, progressBarRef]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [duration, setTimeProgress]);
 
   const startAnimation = useCallback(() => {
     if (audioRef.current && progressBarRef.current && duration) {
@@ -56,9 +63,11 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current?.play();
+      navigator.mediaSession.playbackState = "playing";
       startAnimation();
     } else {
       audioRef.current?.pause();
+      navigator.mediaSession.playbackState = "paused";
       if (playAnimationRef.current !== null) {
         cancelAnimationFrame(playAnimationRef.current);
         playAnimationRef.current = null;

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { spline } from "@georgedoescode/spline";
 import { createNoise2D } from "simplex-noise";
 import styles from "./animatedpath.module.css";
@@ -11,19 +11,22 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const NUM_POINTS = 6;
   const RAD = 75;
 
+  const pathRef = useRef<SVGPathElement | null>(null);
+  const rootRef = useRef<HTMLElement | null>(null);
+
+  const points = useMemo(() => createPoints(), []); // Memoize points to avoid recalculating
+
   useEffect(() => {
-    const points = createPoints();
     const simplex = new createNoise2D();
     let hueNoiseOffset = 0;
     let noiseStep = 0.0005;
     let rafId: number;
     let lastTime = 0;
 
-    const path = document.querySelector<SVGPathElement>("path")!;
-    const root = document.documentElement;
+    const path = pathRef.current!;
+    const root = rootRef.current!;
 
     function animate(timestamp: number) {
-      // Throttle updates to every 16ms (approximately 60fps)
       if (timestamp - lastTime < 16) {
         rafId = requestAnimationFrame(animate);
         return;
@@ -32,7 +35,6 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
 
       path.setAttribute("d", spline(points, 1, true));
 
-      // Update points in batch
       for (let i = 0; i < points.length; i++) {
         const point = points[i];
         const nX = simplex(point.noiseOffsetX, point.noiseOffsetX);
@@ -64,19 +66,17 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
       noiseStep = 0.0005;
     };
 
-    // Start the animation
     rafId = requestAnimationFrame(animate);
 
-    path.addEventListener("mouseover", handleMouseOver);
-    path.addEventListener("mouseleave", handleMouseLeave);
+    path.addEventListener("mouseover", handleMouseOver, { passive: true });
+    path.addEventListener("mouseleave", handleMouseLeave, { passive: true });
 
     return () => {
       cancelAnimationFrame(rafId);
       path.removeEventListener("mouseover", handleMouseOver);
       path.removeEventListener("mouseleave", handleMouseLeave);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [points]);
 
   function map(
     n: number,
@@ -87,10 +87,6 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   ) {
     return ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
   }
-
-  // function noise(x: number, y: number) {
-  //   return simplex(x, y);
-  // }
 
   function createPoints() {
     const points = [];
@@ -116,7 +112,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={(el) => (rootRef.current = el)}>
       <svg viewBox="0 0 200 200" className={styles.blob}>
         <defs>
           <linearGradient id="gradient" gradientTransform="rotate(90)">
@@ -132,7 +128,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
             />
           </linearGradient>
         </defs>
-        <path fill="url(#gradient)" d={spline(NUM_POINTS, 1, true)} />
+        <path ref={pathRef} fill="url(#gradient)" d={spline(points, 1, true)} />
       </svg>
       <div className={styles.childrenContainer}>{children}</div>
     </div>

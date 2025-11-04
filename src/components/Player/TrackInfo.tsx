@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { useEpisodes } from "@/contexts";
+import { useEpisodes, usePlayer } from "@/contexts";
 
 import styles from "./player.module.css";
 
 function TrackInfo() {
   const { selectedEpisode } = useEpisodes();
+  const { isPlaying, togglePlay } = usePlayer();
 
   const defaultArtists = [""];
   // the default cover art is a black square
@@ -31,11 +32,27 @@ function TrackInfo() {
           {
             src: coverArt,
             sizes: "500x500",
-            type: "image/jpeg",
+            type: coverArt.startsWith("data:image/svg+xml")
+              ? "image/svg+xml"
+              : "image/jpeg",
           },
         ],
       });
+
+      navigator.mediaSession.setActionHandler("play", () => {
+        if (!isPlaying) togglePlay();
+      });
+      navigator.mediaSession.setActionHandler("pause", () => {
+        if (isPlaying) togglePlay();
+        // Add pause logic here
+      });
     }
+
+    return () => {
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.metadata = null; // Clear metadata
+      }
+    };
   }, [selectedEpisode]);
 
   return (
