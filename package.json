@@ -13,7 +13,6 @@
     "@fontsource/goldman": "^5.1.0",
     "@fontsource/monoton": "^5.1.0",
     "@georgedoescode/spline": "^1.0.1",
-    "embla-carousel-react": "^8.6.0",
     "hls.js": "^1.5.17",
     "react": "^18.3.1",
     "react-blurhash": "^0.3.0",

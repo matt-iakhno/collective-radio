@@ -14,7 +14,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const pathRef = useRef<SVGPathElement | null>(null);
   const rootRef = useRef<HTMLElement | null>(null);
 
-  const points = useMemo(() => createPoints(), []); // Memoize points to avoid recalculating
+  const points = useMemo(() => createPoints(), []);
 
   useEffect(() => {
     const simplex = new createNoise2D();
@@ -27,7 +27,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
     const root = rootRef.current!;
 
     function animate(timestamp: number) {
-      if (timestamp - lastTime < 16) {
+      if (timestamp - lastTime < 32) {
         rafId = requestAnimationFrame(animate);
         return;
       }
@@ -59,11 +59,11 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
     }
 
     const handleMouseOver = () => {
-      noiseStep = 0.001;
+      noiseStep = 0.005;
     };
 
     const handleMouseLeave = () => {
-      noiseStep = 0.0005;
+      noiseStep = 0.001;
     };
 
     rafId = requestAnimationFrame(animate);

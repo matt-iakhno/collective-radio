@@ -13,10 +13,13 @@ function Media() {
   return (
     <>
       <main>
-        <BackgroundVideo
-          src="https://media.collectiveradio.com/background-video/master.m3u8"
-          mobileSrc="https://media.collectiveradio.com/background-video-mobile/master.m3u8"
-        />
+        {/* <div className={styles.containerInside}>
+          <div className={styles.circleSmall}></div>
+          <div className={styles.circleMedium}></div>
+          <div className={styles.circleLarge}></div>
+          <div className={styles.circleXlarge}></div>
+          <div className={styles.circleXxlarge}></div>
+        </div> */}
         <div className={styles.content}>
           <section className={styles.about}>
             <h1>

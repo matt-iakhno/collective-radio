@@ -53,60 +53,47 @@ const Swiper = () => {
 
   return (
     <div className={styles.container}>
-      <div
-        className={`${styles.carouselContainer} ${
-          isVisible ? styles.fadeIn : ""
-        }`}
-      >
-        <SwiperLibrary
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          onInit={() => setIsVisible(true)}
-          onSlideChange={handleSlideChange}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={2}
-          spaceBetween={0}
-          initialSlide={activeIndex}
-          breakpoints={{
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 0,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 0,
-            },
-            1566: {
-              slidesPerView: 5,
-              spaceBetween: 20,
-            },
-            1920: {
-              slidesPerView: 6,
-              spaceBetween: 30,
-            },
-          }}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: isMobileDevice() ? 6 : 3,
-            slideShadows: false,
-          }}
-          mousewheel={{
-            thresholdDelta: 70,
-          }}
-          navigation={true}
-          modules={[Navigation, EffectCoverflow]}
-          effect="coverflow"
-          className={styles.swiper}
+      <div className={styles.fadedEdges}>
+        <div
+          className={`${styles.carouselContainer} ${
+            isVisible ? styles.fadeIn : ""
+          }`}
         >
-          {filteredEpisodes.length &&
-            filteredEpisodes.map((episode) => (
-              <SwiperSlide key={episode.episodeNum}>
-                <Slide episode={episode} />
-              </SwiperSlide>
-            ))}
-        </SwiperLibrary>
+          <SwiperLibrary
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onInit={() => setIsVisible(true)}
+            onSlideChange={handleSlideChange}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            spaceBetween={50}
+            initialSlide={activeIndex}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: isMobileDevice() ? 6 : 3,
+              slideShadows: false,
+            }}
+            mousewheel={{
+              thresholdDelta: 70,
+            }}
+            navigation={true}
+            modules={[Navigation, EffectCoverflow]}
+            effect="coverflow"
+            className={styles.swiper}
+          >
+            {filteredEpisodes.length &&
+              filteredEpisodes.map((episode) => (
+                <SwiperSlide
+                  className={styles.swiperSlide}
+                  key={episode.episodeNum}
+                >
+                  <Slide episode={episode} />
+                </SwiperSlide>
+              ))}
+          </SwiperLibrary>
+        </div>
       </div>
     </div>
   );

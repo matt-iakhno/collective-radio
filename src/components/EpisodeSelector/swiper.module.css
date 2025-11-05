@@ -13,3 +13,29 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.fadedEdges {
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0px,
+    black 30px,
+    black calc(100% - 30px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0px,
+    black 30px,
+    black calc(100% - 30px),
+    transparent 100%
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.swiperSlide {
+  width: fit-content;
+}
