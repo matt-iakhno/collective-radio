@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import BackgroundVideo from "@/components//VideoBg";
 import EpisodeSelector from "@/components/EpisodeSelector";
 import CategorySelector from "@/components/CategorySelector";
 import Player from "@/components/Player";
@@ -13,13 +12,6 @@ function Media() {
   return (
     <>
       <main>
-        {/* <div className={styles.containerInside}>
-          <div className={styles.circleSmall}></div>
-          <div className={styles.circleMedium}></div>
-          <div className={styles.circleLarge}></div>
-          <div className={styles.circleXlarge}></div>
-          <div className={styles.circleXxlarge}></div>
-        </div> */}
         <div className={styles.content}>
           <section className={styles.about}>
             <h1>
