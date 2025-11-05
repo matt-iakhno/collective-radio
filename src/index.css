@@ -20,6 +20,8 @@
   --orange: #fe8802;
   --blue: #00c2ff;
   --pink: #e54cff;
+
+  --swiper-navigation-sides-offset: 30px;
 }
 
 body {
