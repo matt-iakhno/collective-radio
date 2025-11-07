@@ -14,6 +14,7 @@ The live project is currently being served through Render.com, and the assets th
 - custom player component wrapping around native `<audio>`
 - MediaSession integration to allow control of `<audio>` element on mobile devices
 - Font loading optimized via `@fontsource` to reduce React bundle size and blocking
+- Includes a service worker and full PWA support, allowing the app to be installed on Android devices for a smoother, more reliable playback experience (prevents phone memory cleanup from stopping playback).
 - `blurhash` implementation on artwork to improve user experience during image loading
 - Umami analytics proxied through a Cloudflare Worker (to avoid ad blockers)
 - Quick load - <100kb main bundle, 0.3s LCP
