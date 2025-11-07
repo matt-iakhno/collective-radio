@@ -10,13 +10,14 @@
 }
 
 .logo {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   cursor: pointer;
   position: fixed;
   right: 0;
   z-index: 2;
   mix-blend-mode: exclusion;
+  opacity: 0;
 }
 
 .scrollDown {
@@ -44,7 +45,7 @@
 }
 
 .title {
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(3rem, 9vw, 7rem);
   font-weight: 800;
   letter-spacing: clamp(-1.75px, -0.25vw, -3.5px);
   position: relative;

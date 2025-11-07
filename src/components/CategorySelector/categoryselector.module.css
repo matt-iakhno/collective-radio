@@ -36,18 +36,31 @@
     -7px 7px 0 black, -8px 8px 0 black, -9px 9px 0 black, -10px 10px 0 black;
 }
 
+@media only screen and (max-width: 1920px) {
+  .brick {
+    font-size: 1.1rem;
+  }
+}
+
 @media only screen and (max-width: 1800px) {
   .brick {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .brickFront {
     padding: 15px;
   }
 }
 
+@media only screen and (max-width: 1602px) {
+  .container {
+    max-width: 780px;
+  }
+}
+
 @media only screen and (max-width: 1366px) {
   .container {
-    padding: 0 6rem;
+    padding: 0 5rem;
+    max-width: 780px;
   }
   .brick {
     font-size: 1.1rem;
@@ -59,7 +72,7 @@
 
 @media only screen and (max-width: 836px) {
   .container {
-    margin: 0 20px;
+    margin: 0 20px 0 25px;
   }
 }
 
@@ -71,10 +84,13 @@
 
 @media only screen and (max-width: 650px) {
   .container {
-    padding: 0 1rem;
+    padding: 0;
   }
   .brick {
     font-size: 0.8rem;
+    margin-right: 0;
+  }
+  .genreSelector {
   }
 }
 
