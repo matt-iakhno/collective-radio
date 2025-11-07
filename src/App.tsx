@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Hero from "./components/Hero";
 import Media from "./components/Media";
 
