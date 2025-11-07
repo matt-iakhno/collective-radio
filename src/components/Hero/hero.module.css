@@ -1,6 +1,6 @@
 .hero {
   width: 100dvw;
-  height: 100dvh;
+  height: var(--app-height);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
