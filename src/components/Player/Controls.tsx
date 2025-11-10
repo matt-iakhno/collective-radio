@@ -21,113 +21,119 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     timeProgress,
     setTimeProgress,
   } = usePlayer();
+
   const lastMediaSessionUpdate = useRef(0);
 
-  const updateProgress = useCallback(() => {
-    if (!audioRef.current || !progressBarRef.current || !duration) return;
-
-    const currentTime = audioRef.current.currentTime;
-    setTimeProgress(currentTime);
-
-    progressBarRef.current.value = currentTime.toString();
-    progressBarRef.current.style.setProperty(
-      "--range-progress",
-      `${(currentTime / duration) * 100}%`
-    );
-
-    if ("mediaSession" in navigator) {
-      const now = Date.now();
-      if (now - lastMediaSessionUpdate.current > 1000) {
-        navigator.mediaSession.setPositionState({
-          duration,
-          playbackRate: audioRef.current.playbackRate ?? 1.0,
-          position: currentTime,
-        });
-        lastMediaSessionUpdate.current = now;
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [duration, setTimeProgress]);
-
-  const startAnimation = useCallback(() => {
-    if (audioRef.current && progressBarRef.current && duration) {
-      const animate = () => {
-        updateProgress();
-        playAnimationRef.current = requestAnimationFrame(animate);
-      };
-      playAnimationRef.current = requestAnimationFrame(animate);
-    }
-  }, [updateProgress, duration, audioRef, progressBarRef]);
-
-  const playAnimationRef = useRef<number | null>(null);
+  // Update progress & MediaSession position
   useEffect(() => {
-    if (isPlaying) {
-      audioRef.current?.play();
-      navigator.mediaSession.playbackState = "playing";
-      startAnimation();
-    } else {
-      audioRef.current?.pause();
-      navigator.mediaSession.playbackState = "paused";
-      if (playAnimationRef.current !== null) {
-        cancelAnimationFrame(playAnimationRef.current);
-        playAnimationRef.current = null;
-      }
-    }
-    return () => {
-      if (playAnimationRef.current !== null) {
-        cancelAnimationFrame(playAnimationRef.current);
+    const audio = audioRef.current;
+    const progress = progressBarRef.current;
+    if (!audio || !progress || !duration) return;
+
+    const onTimeUpdate = () => {
+      const currentTime = audio.currentTime;
+      setTimeProgress(currentTime);
+
+      progress.value = currentTime.toString();
+      progress.style.setProperty(
+        "--range-progress",
+        `${(currentTime / duration) * 100}%`
+      );
+
+      // Update MediaSession position at most once per second
+      if ("mediaSession" in navigator) {
+        const now = Date.now();
+        if (now - lastMediaSessionUpdate.current > 1000) {
+          navigator.mediaSession.setPositionState({
+            duration,
+            playbackRate: audio.playbackRate ?? 1,
+            position: currentTime,
+          });
+          lastMediaSessionUpdate.current = now;
+        }
       }
     };
-  }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
-  // record a play event every time new episode is slected and playback begins for the first time
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    return () => audio.removeEventListener("timeupdate", onTimeUpdate);
+  }, [audioRef, progressBarRef, duration, setTimeProgress]);
+
+  // MediaSession handlers (play/pause/seek)
   useEffect(() => {
-    const audioElement = audioRef.current;
-    if (!audioElement) return;
+    const audio = audioRef.current;
+    if (!audio || !("mediaSession" in navigator)) return;
+
+    navigator.mediaSession.setActionHandler("play", () => audio.play());
+    navigator.mediaSession.setActionHandler("pause", () => audio.pause());
+
+    navigator.mediaSession.setActionHandler("seekbackward", (details) => {
+      const skip = details.seekOffset ?? 10;
+      audio.currentTime = Math.max(0, audio.currentTime - skip);
+    });
+
+    navigator.mediaSession.setActionHandler("seekforward", (details) => {
+      const skip = details.seekOffset ?? 10;
+      audio.currentTime = Math.min(audio.duration, audio.currentTime + skip);
+    });
+
+    navigator.mediaSession.setActionHandler("seekto", (details) => {
+      if (details.fastSeek && "fastSeek" in audio) {
+        (audio as any).fastSeek(details.seekTime);
+      } else {
+        audio.currentTime = details.seekTime ?? audio.currentTime;
+      }
+    });
+  }, [audioRef]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.play();
+      if ("mediaSession" in navigator)
+        navigator.mediaSession.playbackState = "playing";
+    } else {
+      audio.pause();
+      if ("mediaSession" in navigator)
+        navigator.mediaSession.playbackState = "paused";
+    }
+  }, [isPlaying, audioRef]);
+
+  // Track plays for analytics
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
     const handlePlayOnce = () => {
       if (window.umami) {
-        window.umami.track("play", {
-          episodeNum: selectedEpisode?.episodeNum,
-        });
+        window.umami.track("play", { episodeNum: selectedEpisode?.episodeNum });
       }
-      audioElement.removeEventListener("play", handlePlayOnce);
+      audio.removeEventListener("play", handlePlayOnce);
     };
 
-    // Attach the one-time event listener when the source changes
-    audioElement.addEventListener("play", handlePlayOnce);
-
-    // Cleanup in case the component unmounts or the src changes
-    return () => {
-      audioElement.removeEventListener("play", handlePlayOnce);
-    };
+    audio.addEventListener("play", handlePlayOnce);
+    return () => audio.removeEventListener("play", handlePlayOnce);
   }, [selectedEpisode?.episodeNum, audioRef]);
 
-  // hook for Media Session handlers for play/pause/scrubbing events on Mobile
-  useMediaSessionHandlers(audioRef);
-
-  const handleOnPlay = () => {
-    if (!selectedEpisode) return;
-    togglePlay();
-  };
-
+  // metadata load (duration, progress restoration, MediaSession metadata)
   const onLoadedMetadata = () => {
-    const duration = audioRef.current?.duration;
-    if (duration !== undefined) {
-      setDuration(duration);
-      if (progressBarRef.current) {
-        progressBarRef.current.max = duration.toString();
+    const audio = audioRef.current;
+    const progress = progressBarRef.current;
+    if (!audio || !progress) return;
 
-        // bring back progress from state
-        if (timeProgress) {
-          if (audioRef.current) audioRef.current.currentTime = timeProgress;
-          progressBarRef.current.value = timeProgress.toString();
-          progressBarRef.current.style.setProperty(
-            "--range-progress",
-            `${(timeProgress / duration) * 100}%`
-          );
-        }
-      }
+    const dur = audio.duration;
+    setDuration(dur);
+    progress.max = dur.toString();
+
+    // Restore previous progress
+    if (timeProgress) {
+      audio.currentTime = timeProgress;
+      progress.value = timeProgress.toString();
+      progress.style.setProperty(
+        "--range-progress",
+        `${(timeProgress / dur) * 100}%`
+      );
     }
   };
 
@@ -140,9 +146,9 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
       />
       <button
         className={`${styles.playIcon} ${
-          selectedEpisode !== null ? styles.playActive : styles.playInactive
+          selectedEpisode ? styles.playActive : styles.playInactive
         }`}
-        onClick={() => handleOnPlay()}
+        onClick={togglePlay}
       >
         {isPlaying ? <LuPause size={30} /> : <LuPlay size={30} />}
       </button>
