@@ -22,16 +22,43 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
       });
 
       navigator.mediaSession.setActionHandler("seekbackward", (details) => {
-        if (audioRef.current) {
-          const skip = details.seekOffset ?? 10;
-          audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - skip);
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const skip = details.seekOffset ?? 10;
+        const targetTime = Math.max(0, audio.currentTime - skip);
+
+        // Use fastSeek if available for smooth jumps
+        if ("fastSeek" in audio) {
+          (audio as any).fastSeek(targetTime);
+        }
+
+        if ("setPositionState" in navigator.mediaSession) {
+          navigator.mediaSession.setPositionState({
+            duration: audio.duration,
+            position: targetTime,
+            playbackRate: audio.playbackRate,
+          });
         }
       });
 
       navigator.mediaSession.setActionHandler("seekforward", (details) => {
-        if (audioRef.current) {
-          const skip = details.seekOffset ?? 10;
-          audioRef.current.currentTime = Math.min(audioRef.current.duration, audioRef.current.currentTime + skip);
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const skip = details.seekOffset ?? 10; // default 10s
+        const targetTime = Math.min(audio.duration, audio.currentTime + skip);
+
+        if ("fastSeek" in audio) {
+          (audio as any).fastSeek(targetTime);
+        }
+
+        if ("setPositionState" in navigator.mediaSession) {
+          navigator.mediaSession.setPositionState({
+            duration: audio.duration,
+            position: targetTime,
+            playbackRate: audio.playbackRate,
+          });
         }
       });
 
