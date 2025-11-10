@@ -52,7 +52,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
 
       root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
       root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
-      document.body.style.background = `hsl(${hue + 60}, 75%, 5%)`;
+      document.body.style.background = `hsl(${hue + 60}, 75%, 10%)`;
 
       hueNoiseOffset += noiseStep / 6;
       rafId = requestAnimationFrame(animate);
