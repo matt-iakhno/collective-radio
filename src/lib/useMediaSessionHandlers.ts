@@ -10,14 +10,14 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
     if ("mediaSession" in navigator) {
       // Set the play action handler
       navigator.mediaSession.setActionHandler("play", () => {
-        if (audioRef.current && audioRef.current.paused) {
+        if (audioRef.current && !isPlaying) {
           togglePlay();
         }
       });
 
       // Set the pause action handler
       navigator.mediaSession.setActionHandler("pause", () => {
-        if (audioRef.current && !audioRef.current.paused) {
+        if (audioRef.current && isPlaying) {
           togglePlay();
         }
       });
@@ -54,5 +54,5 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
         navigator.mediaSession.setActionHandler("pause", null);
       }
     };
-  }, [audioRef, togglePlay]);
+  }, [audioRef, isPlaying, togglePlay]);
 };
