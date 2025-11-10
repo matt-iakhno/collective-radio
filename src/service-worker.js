@@ -1,4 +1,4 @@
-const CACHE_NAME = "collective-radio-cache-v1";
+const CACHE_NAME = `collective-radio-cache-${__BUILD_TIME__}`;
 const urlsToCache = ["/", "/index.html", "/manifest.webmanifest"];
 
 // Install event: Cache app shell
@@ -8,7 +8,6 @@ self.addEventListener("install", (event) => {
       return cache.addAll(urlsToCache);
     })
   );
-  self.skipWaiting(); // Activate the new service worker immediately
 });
 
 // Fetch event: Serve cached content when offline
@@ -20,7 +19,7 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-// Activate event: Clean up old caches and notify clients
+// Activate event: Clean up old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -31,7 +30,6 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
-  self.clients.claim(); // Take control of all clients immediately
 });
 
 // Notify clients about updates
@@ -39,10 +37,4 @@ self.addEventListener("message", (event) => {
   if (event.data === "SKIP_WAITING") {
     self.skipWaiting();
   }
-});
-
-// Notify clients when a new service worker is activated
-self.addEventListener("activate", async () => {
-  const clients = await self.clients.matchAll({ type: "window" });
-  clients.forEach((client) => client.postMessage({ type: "UPDATE_AVAILABLE" }));
 });

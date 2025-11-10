@@ -13,4 +13,7 @@ export default defineConfig({
   build: {
     manifest: true,
   },
+  define: {
+    __BUILD_TIME__: JSON.stringify(Date.now()), // inject timestamp
+  },
 })
