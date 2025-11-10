@@ -28,6 +28,13 @@
   cursor: pointer;
   animation: bounce 2s infinite;
   color: white;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scrollDown.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 .scrollDown svg {

@@ -72,6 +72,12 @@ main div {
   justify-content: center;
 }
 
+.waveSeparator {
+  transform: scaleY(0.3);
+  transform-origin: bottom;
+  margin-top: -300px;
+}
+
 @media only screen and (max-width: 1920px) {
   .about {
     padding: 3rem 10rem;

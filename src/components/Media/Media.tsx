@@ -3,6 +3,7 @@ import { useState } from "react";
 import EpisodeSelector from "@/components/EpisodeSelector";
 import CategorySelector from "@/components/CategorySelector";
 import Player from "@/components/Player";
+import WaveSectionSeparator from "./WaveSectionSeparator";
 
 import styles from "./media.module.css";
 
@@ -11,6 +12,7 @@ function Media() {
 
   return (
     <>
+      <WaveSectionSeparator />
       <main>
         <div className={styles.content}>
           <section className={styles.about}>

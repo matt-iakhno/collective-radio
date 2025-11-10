@@ -16,6 +16,7 @@
   cursor: pointer;
   outline: none;
   border: 2px solid #fece02;
+  transform: translateX(5px);
 }
 .brickFront {
   display: inline-block;
