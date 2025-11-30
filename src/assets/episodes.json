@@ -1303,5 +1303,18 @@
     "genre": "Neurofunk",
     "mood": "energetic",
     "coverArtBlurhash": "UH9s^=-;rqsp]xs%T0R-~9${aJWB?D$~n%WE"
+  },
+  {
+    "episodeNum": 101,
+    "fileName": "Collective Radio Vol. 101 - Silverback [Progressive House].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%20101%20-%20Silverback%20%5BProgressive%20House%5D.mp3",
+    "artists": [
+      "Silverback"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/Collective%20Radio%20101%20Silverback.jpg",
+    "releaseDate": "2025-11-30",
+    "genre": "Progressive House",
+    "mood": "melodic",
+    "coverArtBlurhash": "eNID]?P3r;;JKi}z=vSir?$frTwIR-JCk8?QW;RkkD$k%e-oSiOXxU"
   }
 ]

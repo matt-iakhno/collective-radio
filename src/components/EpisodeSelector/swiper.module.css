@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.spiwer {
+  transform: translateX(-10px);
+}
+
 .carouselContainer {
   opacity: 0;
   transition: opacity 3s ease, transform 3s ease;
