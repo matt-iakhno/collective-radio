@@ -7,8 +7,17 @@ import WaveSectionSeparator from "./WaveSectionSeparator";
 
 import styles from "./media.module.css";
 
-function Media() {
-  const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
+interface MediaProps {
+  carouselVisible?: boolean;
+  setCarouselVisible?: (visible: boolean) => void;
+}
+
+function Media({ carouselVisible, setCarouselVisible }: MediaProps) {
+  const [internalCarouselVisible, setInternalCarouselVisible] = useState<boolean>(false);
+
+  // Use external state if provided, otherwise use internal state
+  const isCarouselVisible = carouselVisible !== undefined ? carouselVisible : internalCarouselVisible;
+  const handleSetCarouselVisible = setCarouselVisible || setInternalCarouselVisible;
 
   return (
     <>
@@ -25,7 +34,7 @@ function Media() {
 
           <section className={styles.genreSelector}>
             <CategorySelector
-              onShowCarousel={() => setIsCarouselVisible(true)}
+              onShowCarousel={() => handleSetCarouselVisible(true)}
             />
           </section>
           <section className={styles.carousel}>
