@@ -8,7 +8,7 @@ import Media from "@/components/Media";
 
 function EpisodePage() {
   const { episodeNum } = useParams<{ episodeNum: string }>();
-  const { episodes, setSelectedEpisode } = useEpisodes();
+  const { episodes, selectedEpisode, setSelectedEpisode } = useEpisodes();
   const { setSelectedGenre } = useGenre();
 
   useEffect(() => {
@@ -20,21 +20,26 @@ function EpisodePage() {
     const episode = episodes.find((ep: Episode) => ep.episodeNum === episodeNumber);
 
     if (episode) {
-      // Set the genre to the episode's mood
-      setSelectedGenre(episode.mood);
-      // Set the selected episode
-      setSelectedEpisode(episode);
-      // Immediately update localStorage to prevent UrlSync from redirecting
-      // to a previously saved episode
-      localStorage.setItem(
-        "playerState",
-        JSON.stringify({
-          selectedEpisode: episode,
-          timeProgress: null, // Reset time progress when navigating to new episode
-        })
-      );
+      // Only update state if the episode has changed to prevent infinite loops
+      if (selectedEpisode?.episodeNum !== episode.episodeNum) {
+        // Set the genre to the episode's mood
+        setSelectedGenre(episode.mood);
+        // Set the selected episode
+        setSelectedEpisode(episode);
+        
+        // Immediately update localStorage to prevent UrlSync from redirecting
+        // to a previously saved episode
+        localStorage.setItem(
+          "playerState",
+          JSON.stringify({
+            selectedEpisode: episode,
+            timeProgress: null, // Reset time progress when navigating to new episode
+          })
+        );
+      }
     }
-  }, [episodeNum, episodes, setSelectedGenre, setSelectedEpisode]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [episodeNum, episodes, selectedEpisode?.episodeNum]);
 
   // Check if episode exists
   if (!episodeNum) {
