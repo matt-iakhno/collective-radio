@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useEpisodes, useGenre } from "@/contexts";
+import { useEpisodes, useGenre, usePlayer } from "@/contexts";
 import { type Episode } from "@/types/types";
 import Hero from "@/components/Hero";
 import Media from "@/components/Media";
@@ -10,6 +10,7 @@ function EpisodePage() {
   const { episodeNum } = useParams<{ episodeNum: string }>();
   const { episodes, selectedEpisode, setSelectedEpisode } = useEpisodes();
   const { setSelectedGenre } = useGenre();
+  const { setTimeProgress } = usePlayer();
 
   useEffect(() => {
     if (!episodeNum) return;
@@ -22,11 +23,10 @@ function EpisodePage() {
     if (episode) {
       // Only update state if the episode has changed to prevent infinite loops
       if (selectedEpisode?.episodeNum !== episode.episodeNum) {
-        // Set the genre to the episode's mood
+        setTimeProgress(0);
         setSelectedGenre(episode.mood);
-        // Set the selected episode
         setSelectedEpisode(episode);
-        
+
         // Immediately update localStorage to prevent UrlSync from redirecting
         // to a previously saved episode
         localStorage.setItem(
@@ -100,19 +100,19 @@ function EpisodePage() {
         <title>{episodeTitle}</title>
         <meta name="description" content={episodeDescription} />
         <link rel="canonical" href={episodeUrl} />
-        
+
         {/* Structured Data (JSON-LD) for SEO */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="music.song" />
         <meta property="og:title" content={episodeTitle} />
         <meta property="og:description" content={episodeDescription} />
         <meta property="og:image" content={ogImageUrl} />
         <meta property="og:url" content={episodeUrl} />
-        
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={episodeTitle} />

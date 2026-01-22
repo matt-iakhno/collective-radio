@@ -163,6 +163,54 @@ async function fetchEpisodeData(episodeNum: number, env: Env): Promise<Episode |
   }
 }
 
+/**
+ * Fetches Goldman font files and converts them to base64 data URIs
+ * Caches the fonts to avoid fetching on every request
+ */
+async function getGoldmanFonts(): Promise<{ regular: string; bold: string }> {
+  // Google Fonts API URLs for Goldman font (WOFF2 format)
+  const regularUrl = "https://fonts.gstatic.com/s/goldman/v21/pe0uMIWbN4JFplR2LDJ4C8v8ATo.woff2";
+  const boldUrl = "https://fonts.gstatic.com/s/goldman/v21/pe0sMIWbN4JFplR2FI5YJ8v8ATo.woff2";
+
+  try {
+    // Fetch both font files in parallel
+    const [regularResponse, boldResponse] = await Promise.all([
+      fetch(regularUrl),
+      fetch(boldUrl),
+    ]);
+
+    if (!regularResponse.ok || !boldResponse.ok) {
+      throw new Error("Failed to fetch fonts");
+    }
+
+    // Convert to base64
+    const regularArrayBuffer = await regularResponse.arrayBuffer();
+    const boldArrayBuffer = await boldResponse.arrayBuffer();
+
+    // Convert ArrayBuffer to base64
+    const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
+      const bytes = new Uint8Array(buffer);
+      let binary = "";
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binary);
+    };
+
+    const regularBase64 = arrayBufferToBase64(regularArrayBuffer);
+    const boldBase64 = arrayBufferToBase64(boldArrayBuffer);
+
+    return {
+      regular: `data:font/woff2;base64,${regularBase64}`,
+      bold: `data:font/woff2;base64,${boldBase64}`,
+    };
+  } catch (error) {
+    console.error("Error fetching Goldman fonts:", error);
+    // Return empty strings to fall back to system fonts
+    return { regular: "", bold: "" };
+  }
+}
+
 async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
   // OG image standard size: 1200x630px
   const width = 1200;
@@ -192,7 +240,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
   
   // Text area (right side)
   const textX = coverSize + 60; // Start after cover + padding
-  const textStartY = 150; // Top padding
+  const textStartY = 160; // Top padding
   const lineHeight = 60; // Equal spacing between lines
   const fontSize = 42; // Same font size for all lines
   
@@ -201,16 +249,37 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
   const logoX = width - logoSize;
   const logoY = height - logoSize;
 
+  // Fetch Goldman fonts and embed them
+  const fonts = await getGoldmanFonts();
+  const fontFace = fonts.regular && fonts.bold
+    ? `
+      <defs>
+        <style>
+          @font-face {
+            font-family: 'Goldman';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('${fonts.regular}') format('woff2');
+          }
+          @font-face {
+            font-family: 'Goldman';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('${fonts.bold}') format('woff2');
+          }
+        </style>
+      </defs>
+    `
+    : "";
+
+  const fontFamily = fonts.regular && fonts.bold ? "Goldman, Arial, sans-serif" : "Arial, sans-serif";
+
   // Generate SVG matching the design
   const svg = `
     <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <defs>
-        <!-- Import Goldman font from Google Fonts -->
-        <style>
-          @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
-        </style>
-      </defs>
-      
+      ${fontFace}
       <!-- Black background -->
       <rect width="${width}" height="${height}" fill="#000000"/>
       
@@ -230,7 +299,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
         <text 
           x="${textX}" 
           y="${textStartY}" 
-          font-family="Goldman, Arial, sans-serif" 
+          font-family="${fontFamily}" 
           font-size="${fontSize}" 
           font-weight="400" 
           fill="white"
@@ -242,7 +311,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
         <text 
           x="${textX}" 
           y="${textStartY + lineHeight}" 
-          font-family="Goldman, Arial, sans-serif" 
+          font-family="${fontFamily}" 
           font-size="${fontSize}" 
           font-weight="400" 
           fill="white"
@@ -254,7 +323,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
         <text 
           x="${textX}" 
           y="${textStartY + (lineHeight * 2)}" 
-          font-family="Goldman, Arial, sans-serif" 
+          font-family="${fontFamily}" 
           font-size="${fontSize}" 
           font-weight="400" 
           fill="white"
@@ -276,5 +345,6 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
   `.trim();
 
   // Return SVG as ArrayBuffer
-  return new TextEncoder().encode(svg);
+  const encoded = new TextEncoder().encode(svg);
+  return encoded.buffer as ArrayBuffer;
 }
