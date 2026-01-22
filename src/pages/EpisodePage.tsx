@@ -8,7 +8,7 @@ import Media from "@/components/Media";
 
 function EpisodePage() {
   const { episodeNum } = useParams<{ episodeNum: string }>();
-  const { episodes, selectedEpisode, setSelectedEpisode } = useEpisodes();
+  const { episodes, setSelectedEpisode } = useEpisodes();
   const { setSelectedGenre } = useGenre();
 
   useEffect(() => {
@@ -65,10 +65,6 @@ function EpisodePage() {
 
   const episodeTitle = `Collective Radio Vol. ${episode.episodeNum} - ${episode.artists.join(" & ")} [${episode.genre}]`;
   const episodeDescription = `Listen to Collective Radio Vol. ${episode.episodeNum} by ${episode.artists.join(" & ")} - ${episode.genre} mix. Released ${episode.releaseDate}.`;
-  // OG image URL - update this to match your Cloudflare Worker route
-  // Options:
-  // - https://og-image.collectiveradio.com/${episode.episodeNum}
-  // - https://your-worker.your-subdomain.workers.dev/og-image/${episode.episodeNum}
   const ogImageUrl = `https://og-image.collectiveradio.com/${episode.episodeNum}`;
   const episodeUrl = `https://www.collectiveradio.com/${episode.episodeNum}`;
 
