@@ -68,12 +68,38 @@ function EpisodePage() {
   const ogImageUrl = `https://og-image.collectiveradio.com/${episode.episodeNum}`;
   const episodeUrl = `https://www.collectiveradio.com/${episode.episodeNum}`;
 
+  // Structured data for SEO (JSON-LD)
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "MusicRecording",
+    "name": episodeTitle,
+    "description": episodeDescription,
+    "url": episodeUrl,
+    "image": ogImageUrl,
+    "datePublished": episode.releaseDate,
+    "genre": episode.genre,
+    "byArtist": {
+      "@type": "MusicGroup",
+      "name": episode.artists.join(" & ")
+    },
+    "inAlbum": {
+      "@type": "MusicAlbum",
+      "name": "Collective Radio",
+      "albumReleaseType": "PodcastSeries"
+    }
+  };
+
   return (
     <>
       <Helmet>
         <title>{episodeTitle}</title>
         <meta name="description" content={episodeDescription} />
         <link rel="canonical" href={episodeUrl} />
+        
+        {/* Structured Data (JSON-LD) for SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="music.song" />
