@@ -1,0 +1,27 @@
+name = "og-image-worker"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# KV namespace for caching (uncomment and add your namespace ID)
+[[kv_namespaces]]
+binding = "OG_IMAGE_CACHE"
+id = "d990c390b51347c3a58dbfe2c477b723"
+preview_id = "75f27db270aa47e0bedaa8b581e77c99"
+
+# R2 bucket for episodes.json storage
+[[r2_buckets]]
+binding = "EPISODES_BUCKET"
+bucket_name = "collectiveradio"
+
+# Environment variables (set via wrangler secret put or dashboard)
+# EPISODES_CDN_URL = "https://media.collectiveradio.com/episodes.json"
+
+# Route configuration (set via Cloudflare Dashboard or wrangler.toml)
+# routes = [
+#   { pattern = "og-image.collectiveradio.com/*", zone_name = "collectiveradio.com" }
+# ]
+
+# Or use custom domain
+# routes = [
+#   { pattern = "og-image.collectiveradio.com/*", custom_domain = true }
+# ]

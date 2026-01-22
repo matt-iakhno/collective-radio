@@ -18,33 +18,35 @@ export type AppState = {
   duration: number | null;
 };
 
-export enum ActionTypes {
-  SET_EPISODES = "SET_EPISODES",
-  SET_SELECTED_GENRE = "SET_SELECTED_GENRE",
-  SET_SELECTED_EPISODE = "SET_SELECTED_EPISODE",
-  SET_TIME_PROGRESS = "SET_TIME_PROGRESS",
-  SET_DURATION = "SET_DURATION",
-  TOGGLE_PLAY = "TOGGLE_PLAY",
-}
+export const ActionTypes = {
+  SET_EPISODES: "SET_EPISODES",
+  SET_SELECTED_GENRE: "SET_SELECTED_GENRE",
+  SET_SELECTED_EPISODE: "SET_SELECTED_EPISODE",
+  SET_TIME_PROGRESS: "SET_TIME_PROGRESS",
+  SET_DURATION: "SET_DURATION",
+  TOGGLE_PLAY: "TOGGLE_PLAY",
+} as const;
+
+export type ActionType = typeof ActionTypes[keyof typeof ActionTypes];
 
 interface SetSelectedGenreAction {
-  type: ActionTypes.SET_SELECTED_GENRE;
-  payload: string | null;
+  readonly type: typeof ActionTypes.SET_SELECTED_GENRE;
+  readonly payload: string | null;
 }
 interface SetSelectedEpisodeAction {
-  type: ActionTypes.SET_SELECTED_EPISODE;
-  payload: Episode | null;
+  readonly type: typeof ActionTypes.SET_SELECTED_EPISODE;
+  readonly payload: Episode | null;
 }
 interface SetTimeProgressAction {
-  type: ActionTypes.SET_TIME_PROGRESS;
-  payload: number | null;
+  readonly type: typeof ActionTypes.SET_TIME_PROGRESS;
+  readonly payload: number | null;
 }
 interface SetDurationAction {
-  type: ActionTypes.SET_DURATION;
-  payload: number | null;
+  readonly type: typeof ActionTypes.SET_DURATION;
+  readonly payload: number | null;
 }
 interface TogglePlayAction {
-  type: ActionTypes.TOGGLE_PLAY;
+  readonly type: typeof ActionTypes.TOGGLE_PLAY;
 }
 export type AppAction =
   | SetSelectedGenreAction

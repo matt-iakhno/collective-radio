@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import EpisodeSelector from "@/components/EpisodeSelector";
 import CategorySelector from "@/components/CategorySelector";
@@ -7,8 +7,19 @@ import WaveSectionSeparator from "./WaveSectionSeparator";
 
 import styles from "./media.module.css";
 
-function Media() {
+interface MediaProps {
+  initialEpisodeNum?: number;
+}
+
+function Media({ initialEpisodeNum }: MediaProps) {
   const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
+
+  // If initialEpisodeNum is provided, show carousel immediately
+  useEffect(() => {
+    if (initialEpisodeNum !== undefined) {
+      setIsCarouselVisible(true);
+    }
+  }, [initialEpisodeNum]);
 
   return (
     <>
@@ -29,7 +40,9 @@ function Media() {
             />
           </section>
           <section className={styles.carousel}>
-            {isCarouselVisible && <EpisodeSelector />}
+            {isCarouselVisible && (
+              <EpisodeSelector initialEpisodeNum={initialEpisodeNum} />
+            )}
           </section>
         </div>
       </main>

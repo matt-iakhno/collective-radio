@@ -9,8 +9,16 @@ import {
   useEffect,
 } from "react";
 
-import { appReducer, initialState } from "@/contexts/reducers";
-import { AppState, AppAction, ActionTypes, Episode } from "@/types/types.d";
+import { 
+  appReducer, 
+  initialState,
+  createSetSelectedGenreAction,
+  createSetSelectedEpisodeAction,
+  createTogglePlayAction,
+  createSetTimeProgressAction,
+  createSetDurationAction,
+} from "@/contexts/reducers";
+import { AppState, AppAction, Episode } from "@/types/types.d";
 
 import episodes from "@/assets/episodes.json";
 
@@ -84,7 +92,7 @@ export const useEpisodes = () => {
     episodes: state.episodes,
     selectedEpisode: state.selectedEpisode,
     setSelectedEpisode: (episode: Episode | null) =>
-      dispatch({ type: ActionTypes.SET_SELECTED_EPISODE, payload: episode }),
+      dispatch(createSetSelectedEpisodeAction(episode)),
   };
 };
 
@@ -92,8 +100,8 @@ export const useGenre = () => {
   const { state, dispatch } = useAppContext();
   return {
     selectedGenre: state.selectedGenre,
-    setSelectedGenre: (genre: string) =>
-      dispatch({ type: ActionTypes.SET_SELECTED_GENRE, payload: genre }),
+    setSelectedGenre: (genre: string | null) =>
+      dispatch(createSetSelectedGenreAction(genre)),
   };
 };
 
@@ -103,12 +111,12 @@ export const usePlayer = () => {
   return {
     selectedEpisode: state.selectedEpisode,
     isPlaying: state.isPlaying,
-    togglePlay: () => dispatch({ type: ActionTypes.TOGGLE_PLAY }),
+    togglePlay: () => dispatch(createTogglePlayAction()),
     timeProgress: state.timeProgress,
     setTimeProgress: (progress: number) =>
-      dispatch({ type: ActionTypes.SET_TIME_PROGRESS, payload: progress }),
+      dispatch(createSetTimeProgressAction(progress)),
     duration: state.duration,
     setDuration: (duration: number) =>
-      dispatch({ type: ActionTypes.SET_DURATION, payload: duration }),
+      dispatch(createSetDurationAction(duration)),
   };
 };

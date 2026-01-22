@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 import Slide from "./Slide";
 import { useEpisodes, useGenre } from "@/contexts";
@@ -15,7 +15,11 @@ import "swiper/css/effect-creative";
 import "swiper/css/navigation";
 import styles from "./swiper.module.css";
 
-const Swiper = () => {
+interface SwiperProps {
+  initialEpisodeNum?: number;
+}
+
+const Swiper = ({ initialEpisodeNum }: SwiperProps) => {
   const swiperRef = useRef<SwiperCore | null>(null);
   const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[] | []>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -34,22 +38,40 @@ const Swiper = () => {
     }
   }, [selectedGenre, episodes]);
 
-  // go to a random episode in the carousel when the episode list is updated
+  // go to a specific episode if initialEpisodeNum is provided, otherwise random
   useEffect(() => {
-    const randomEpisode = Math.floor(Math.random() * filteredEpisodes.length);
-    setActiveIndex(randomEpisode);
-    goToSlide(randomEpisode);
-  }, [filteredEpisodes]);
+    if (filteredEpisodes.length === 0) return;
+
+    let targetIndex = 0;
+    if (initialEpisodeNum !== undefined) {
+      // Find the index of the episode with the matching episodeNum
+      const foundIndex = filteredEpisodes.findIndex(
+        (ep) => ep.episodeNum === initialEpisodeNum
+      );
+      if (foundIndex !== -1) {
+        targetIndex = foundIndex;
+      } else {
+        // If episode not found in filtered list, use random
+        targetIndex = Math.floor(Math.random() * filteredEpisodes.length);
+      }
+    } else {
+      // No initial episode specified, use random
+      targetIndex = Math.floor(Math.random() * filteredEpisodes.length);
+    }
+
+    setActiveIndex(targetIndex);
+    goToSlide(targetIndex);
+  }, [filteredEpisodes, initialEpisodeNum]);
 
   const handleSlideChange = (swiper: SwiperCore) => {
     setActiveIndex(swiper.activeIndex);
   };
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(index);
     }
-  };
+  }, []);
 
   return (
     <div className={styles.container}>
