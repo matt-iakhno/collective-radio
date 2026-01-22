@@ -21,11 +21,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Wrangler
-        run: npm install -g wrangler@latest
-
       - name: Upload episodes.json to R2
         run: |
+          # Install wrangler
+          npm install -g wrangler@latest
+          
+          # Upload to R2 using wrangler with explicit auth
           wrangler r2 object put episodes.json \
             --bucket=collectiveradio \
             --file=src/assets/episodes.json
