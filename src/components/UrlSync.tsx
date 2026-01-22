@@ -19,7 +19,12 @@ const UrlSync = () => {
       return;
     }
 
-    // if we're NOT on an episode route (e.g., on home page "/")
+    // If we're on the homepage, don't redirect - let user stay there
+    if (location.pathname === "/") {
+      return;
+    }
+
+    // if we're NOT on an episode route and NOT on homepage
     if (state.selectedEpisode) {
       const expectedPath = `/${state.selectedEpisode.episodeNum}`;
       // Only navigate if we're not already on the correct route
