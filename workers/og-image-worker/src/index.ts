@@ -178,93 +178,103 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
       .replace(/'/g, "&#039;");
   };
 
-  const episodeTitle = escapeXml(`Collective Radio Vol. ${episode.episodeNum}`);
-  const artistName = escapeXml(episode.artists.join(" & "));
+  const episodeText = escapeXml(`Episode ${episode.episodeNum}`);
   const genre = escapeXml(episode.genre);
+  const artistName = escapeXml(episode.artists.join(" & "));
+  
+  // Logo URL - using the CDN URL
+  const logoUrl = "https://www.collectiveradio.com/android-chrome-192x192.png";
+  
+  // Cover art square size (left side)
+  const coverSize = height; // 630px square
+  const coverX = 0;
+  const coverY = 0;
+  
+  // Text area (right side)
+  const textX = coverSize + 60; // Start after cover + padding
+  const textStartY = 150; // Top padding
+  const lineHeight = 60; // Equal spacing between lines
+  const fontSize = 42; // Same font size for all lines
+  
+  // Logo size and position (bottom right)
+  const logoSize = 120;
+  const logoX = width - logoSize;
+  const logoY = height - logoSize;
 
-  // Generate SVG with episode information
-  // Using SVG is compatible with Cloudflare Workers and works for OG images
+  // Generate SVG matching the design
   const svg = `
     <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
-        <!-- Gradient overlay -->
-        <linearGradient id="overlay" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:rgba(0,0,0,0.3);stop-opacity:1" />
-          <stop offset="100%" style="stop-color:rgba(0,0,0,0.7);stop-opacity:1" />
-        </linearGradient>
-        <!-- Text shadow filter -->
-        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-          <feOffset dx="0" dy="2" result="offsetblur"/>
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.5"/>
-          </feComponentTransfer>
-          <feMerge>
-            <feMergeNode/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
+        <!-- Import Goldman font from Google Fonts -->
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+        </style>
       </defs>
       
-      <!-- Background image -->
+      <!-- Black background -->
+      <rect width="${width}" height="${height}" fill="#000000"/>
+      
+      <!-- Cover art square (left side) -->
       <image 
         href="${episode.coverArt}" 
-        x="0" 
-        y="0" 
-        width="${width}" 
-        height="${height}" 
+        x="${coverX}" 
+        y="${coverY}" 
+        width="${coverSize}" 
+        height="${coverSize}" 
         preserveAspectRatio="xMidYMid slice"
       />
       
-      <!-- Dark overlay -->
-      <rect width="${width}" height="${height}" fill="url(#overlay)"/>
-      
-      <!-- Content -->
-      <g transform="translate(${width / 2}, ${height / 2})">
-        <!-- Episode number -->
+      <!-- Text content (right side, left-aligned) -->
+      <g>
+        <!-- Episode XXX -->
         <text 
-          x="0" 
-          y="-80" 
-          font-family="Arial, sans-serif" 
-          font-size="64" 
-          font-weight="bold" 
-          fill="white" 
-          text-anchor="middle"
-          filter="url(#shadow)"
+          x="${textX}" 
+          y="${textStartY}" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="${fontSize}" 
+          font-weight="400" 
+          fill="white"
         >
-          ${episodeTitle}
-        </text>
-        
-        <!-- Artist name -->
-        <text 
-          x="0" 
-          y="0" 
-          font-family="Arial, sans-serif" 
-          font-size="48" 
-          fill="white" 
-          text-anchor="middle"
-          filter="url(#shadow)"
-        >
-          ${artistName}
+          ${episodeText}
         </text>
         
         <!-- Genre -->
         <text 
-          x="0" 
-          y="60" 
-          font-family="Arial, sans-serif" 
-          font-size="32" 
-          fill="#cccccc" 
-          text-anchor="middle"
-          filter="url(#shadow)"
+          x="${textX}" 
+          y="${textStartY + lineHeight}" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="${fontSize}" 
+          font-weight="400" 
+          fill="white"
         >
           ${genre}
         </text>
+        
+        <!-- Artist name -->
+        <text 
+          x="${textX}" 
+          y="${textStartY + (lineHeight * 2)}" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="${fontSize}" 
+          font-weight="400" 
+          fill="white"
+        >
+          ${artistName}
+        </text>
       </g>
+      
+      <!-- Logo (bottom right) -->
+      <image 
+        href="${logoUrl}" 
+        x="${logoX}" 
+        y="${logoY}" 
+        width="${logoSize}" 
+        height="${logoSize}" 
+        preserveAspectRatio="xMidYMid meet"
+      />
     </svg>
   `.trim();
 
   // Return SVG as ArrayBuffer
-  // Note: SVG works for OG images, but if you need PNG, see IMPLEMENTATION_STEPS.md
   return new TextEncoder().encode(svg);
 }

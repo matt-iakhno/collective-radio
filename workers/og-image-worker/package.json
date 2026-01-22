@@ -1,12 +1,14 @@
 {
   "name": "og-image-worker",
   "version": "1.0.0",
+  "type": "module",
   "description": "Cloudflare Worker for generating OG images for Collective Radio episodes",
   "main": "src/index.ts",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "tail": "wrangler tail"
+    "tail": "wrangler tail",
+    "preview": "node preview.js"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240101.0",
