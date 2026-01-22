@@ -21,7 +21,7 @@ const Swiper = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const { episodes } = useEpisodes();
+  const { episodes, selectedEpisode } = useEpisodes();
   const { selectedGenre } = useGenre();
 
   // update carousel with active episodes whenever a new genre is selected
@@ -34,12 +34,28 @@ const Swiper = () => {
     }
   }, [selectedGenre, episodes]);
 
-  // go to a random episode in the carousel when the episode list is updated
+  // go to the selected episode or a random episode when the episode list is updated
   useEffect(() => {
-    const randomEpisode = Math.floor(Math.random() * filteredEpisodes.length);
-    setActiveIndex(randomEpisode);
-    goToSlide(randomEpisode);
-  }, [filteredEpisodes]);
+    if (filteredEpisodes.length > 0) {
+      let targetIndex = 0;
+
+      // If there's a selected episode, try to find it in the filtered episodes
+      if (selectedEpisode) {
+        const selectedEpisodeIndex = filteredEpisodes.findIndex(
+          (episode) => episode.episodeNum === selectedEpisode.episodeNum
+        );
+        if (selectedEpisodeIndex !== -1) {
+          targetIndex = selectedEpisodeIndex;
+        }
+      } else {
+        // No selected episode, go to a random one
+        targetIndex = Math.floor(Math.random() * filteredEpisodes.length);
+      }
+
+      setActiveIndex(targetIndex);
+      goToSlide(targetIndex);
+    }
+  }, [filteredEpisodes, selectedEpisode]);
 
   const handleSlideChange = (swiper: SwiperCore) => {
     setActiveIndex(swiper.activeIndex);
