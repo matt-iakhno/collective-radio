@@ -1,5 +1,9 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Hero from "./components/Hero";
 import Media from "./components/Media";
+import EpisodePage from "./pages/EpisodePage";
+import UrlSync from "./components/UrlSync";
 
 import "@fontsource/goldman/400.css";
 import "@fontsource/goldman/700.css";
@@ -16,9 +20,23 @@ function App() {
 
   return (
     <AppProvider>
-      <Hero />
-
-      <Media />
+      <HelmetProvider>
+        <BrowserRouter>
+          <UrlSync />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Media />
+                </>
+              }
+            />
+            <Route path="/:episodeNum" element={<EpisodePage />} />
+          </Routes>
+        </BrowserRouter>
+      </HelmetProvider>
     </AppProvider>
   );
 }

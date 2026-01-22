@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import BlurhashImage from "./BlurhashImage";
 import { type Episode } from "@/types/types";
 import { useEpisodes, usePlayer } from "@/contexts";
@@ -9,10 +10,13 @@ interface SlideProps {
 }
 
 const Slide = ({ episode }: SlideProps) => {
+  const navigate = useNavigate();
   const episodes = useEpisodes();
   const { isPlaying, togglePlay } = usePlayer();
 
   const playButtonClicked = () => {
+    // Navigate to episode route
+    navigate(`/${episode.episodeNum}`);
     episodes.setSelectedEpisode(episode);
     if (!isPlaying) {
       togglePlay();
