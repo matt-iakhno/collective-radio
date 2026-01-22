@@ -1,1 +1,3 @@
+# Render.com static site redirects
+# This file tells Render to serve index.html for all routes (SPA routing)
 /*    /index.html   200

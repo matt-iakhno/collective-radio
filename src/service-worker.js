@@ -12,6 +12,13 @@ self.addEventListener("install", (event) => {
 
 // Fetch event: Serve cached content when offline
 self.addEventListener("fetch", (event) => {
+  // Don't intercept navigation requests - let them go to the network
+  // This allows React Router to handle client-side routing
+  if (event.request.mode === "navigate") {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
