@@ -48,12 +48,12 @@ export default {
       const cacheKey = `og-image-${episodeNum}`;
       const cached = await env.OG_IMAGE_CACHE.get(cacheKey, { type: "arrayBuffer" });
       if (cached) {
-      return new Response(cached, {
-        headers: {
-          "Content-Type": "image/svg+xml",
-          "Cache-Control": "public, max-age=31536000, immutable",
-        },
-      });
+        return new Response(cached, {
+          headers: {
+            "Content-Type": "image/svg+xml",
+            "Cache-Control": "public, max-age=31536000, immutable",
+          },
+        });
       }
     }
 
@@ -228,26 +228,55 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
 
   const episodeText = escapeXml(`Episode ${episode.episodeNum}`);
   const genre = escapeXml(episode.genre);
-  const artistName = escapeXml(episode.artists.join(" & "));
-  
+
   // Logo URL - using the CDN URL
   const logoUrl = "https://www.collectiveradio.com/android-chrome-192x192.png";
-  
+
   // Cover art square size (left side)
   const coverSize = height; // 630px square
   const coverX = 0;
   const coverY = 0;
-  
+
   // Text area (right side)
   const textX = coverSize + 60; // Start after cover + padding
   const textStartY = 160; // Top padding
   const lineHeight = 60; // Equal spacing between lines
   const fontSize = 42; // Same font size for all lines
-  
+
   // Logo size and position (bottom right)
   const logoSize = 120;
   const logoX = width - logoSize;
   const logoY = height - logoSize;
+
+  // Calculate max width for artist text (from textX to before logo, with padding)
+  const maxArtistWidth = logoX - textX - 40;
+
+  // Prepare artist names with wrapping logic
+  // If text is too long and there are 2 artists, split at " & "
+  let artistLine1 = "";
+  let artistLine2 = "";
+  const fullArtistName = episode.artists.join(" & ");
+
+  if (episode.artists.length === 2) {
+    // Estimate text width more accurately
+    // For Goldman font at 42px: average character width is approximately 0.6 * fontSize
+    // This gives us ~25px per character on average
+    const avgCharWidth = fontSize * 0.6;
+    const estimatedWidth = fullArtistName.length * avgCharWidth;
+
+    if (estimatedWidth > maxArtistWidth) {
+      // Split at " & " - first line gets first artist + " &", second line gets second artist
+      artistLine1 = escapeXml(episode.artists[0] + " &");
+      artistLine2 = escapeXml(episode.artists[1]);
+    } else {
+      // Fits on one line
+      artistLine1 = escapeXml(fullArtistName);
+      artistLine2 = "";
+    }
+  } else {
+    artistLine1 = escapeXml(fullArtistName);
+    artistLine2 = "";
+  }
 
   // Fetch Goldman fonts and embed them
   const fonts = await getGoldmanFonts();
@@ -282,7 +311,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
       ${fontFace}
       <!-- Black background -->
       <rect width="${width}" height="${height}" fill="#000000"/>
-      
+
       <!-- Cover art square (left side) -->
       <image 
         href="${episode.coverArt}" 
@@ -292,7 +321,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
         height="${coverSize}" 
         preserveAspectRatio="xMidYMid slice"
       />
-      
+
       <!-- Text content (right side, left-aligned) -->
       <g>
         <!-- Episode XXX -->
@@ -306,7 +335,7 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
         >
           ${episodeText}
         </text>
-        
+
         <!-- Genre -->
         <text 
           x="${textX}" 
@@ -318,8 +347,8 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
         >
           ${genre}
         </text>
-        
-        <!-- Artist name -->
+
+        <!-- Artist name(s) -->
         <text 
           x="${textX}" 
           y="${textStartY + (lineHeight * 2)}" 
@@ -328,10 +357,22 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
           font-weight="400" 
           fill="white"
         >
-          ${artistName}
+          ${artistLine1}
         </text>
+        ${artistLine2 ? `
+        <text 
+          x="${textX}" 
+          y="${textStartY + (lineHeight * 3)}" 
+          font-family="${fontFamily}" 
+          font-size="${fontSize}" 
+          font-weight="400" 
+          fill="white"
+        >
+          ${artistLine2}
+        </text>
+        ` : ""}
       </g>
-      
+
       <!-- Logo (bottom right) -->
       <image 
         href="${logoUrl}" 
