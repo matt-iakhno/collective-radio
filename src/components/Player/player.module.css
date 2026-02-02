@@ -367,6 +367,9 @@
   .playIcon {
     transform: scale(1.2);
   }
+  .shareButton {
+    margin-right: 15px;
+  }
   .currentTrack {
     margin-left: 10px;
   }
