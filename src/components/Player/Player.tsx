@@ -52,20 +52,6 @@ const Player = ({ forceVisible, onVisible }: PlayerProps) => {
     }
   }, [isVisible, onVisible]);
 
-  // set URL state whenever episode changes
-  // useEffect(() => {
-  //   if (selectedEpisode) {
-  //     const params = new URLSearchParams(window.location.search);
-  //     params.set("episode", selectedEpisode.episodeNum.toString());
-
-  //     window.history.replaceState(
-  //       {},
-  //       "",
-  //       `${window.location.pathname}?${params.toString()}`
-  //     );
-  //   }
-  // }, [selectedEpisode]);
-
   return (
     <div
       className={`${styles.playerContainer} ${isVisible ? styles.visible : ""}`}

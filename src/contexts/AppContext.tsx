@@ -38,6 +38,8 @@ export const AppProvider = ({
   initialEpisodeNum,
 }: AppProviderProps) => {
   const memoizedEpisodes = useMemo(() => episodes as Episode[], []);
+  const canUseStorage =
+    typeof window !== "undefined" && typeof window.localStorage !== "undefined";
 
   // check local storage to see if there was a previous episode playing
   const savedState = useMemo(() => {
@@ -60,15 +62,17 @@ export const AppProvider = ({
       };
     }
 
-    const saved = localStorage.getItem("playerState");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      return {
-        ...initialState,
-        episodes: memoizedEpisodes,
-        selectedEpisode: parsed.selectedEpisode,
-        timeProgress: parsed.timeProgress,
-      };
+    if (canUseStorage) {
+      const saved = localStorage.getItem("playerState");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return {
+          ...initialState,
+          episodes: memoizedEpisodes,
+          selectedEpisode: parsed.selectedEpisode,
+          timeProgress: parsed.timeProgress,
+        };
+      }
     }
     return {
       ...initialState,
@@ -80,16 +84,17 @@ export const AppProvider = ({
 
   // Save state changes to localStorage
   useEffect(() => {
-    if (state.selectedEpisode) {
-      localStorage.setItem(
-        "playerState",
-        JSON.stringify({
-          selectedEpisode: state.selectedEpisode,
-          timeProgress: state.timeProgress,
-        })
-      );
+    if (!canUseStorage || !state.selectedEpisode) {
+      return;
     }
-  }, [state.selectedEpisode, state.timeProgress]);
+    localStorage.setItem(
+      "playerState",
+      JSON.stringify({
+        selectedEpisode: state.selectedEpisode,
+        timeProgress: state.timeProgress,
+      })
+    );
+  }, [canUseStorage, state.selectedEpisode, state.timeProgress]);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

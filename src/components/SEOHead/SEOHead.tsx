@@ -2,66 +2,112 @@ import { useEffect } from "react";
 import { type Episode } from "@/types/types";
 
 interface SEOHeadProps {
-  episode: Episode;
+  episode?: Episode;
 }
 
 const SEOHead = ({ episode }: SEOHeadProps) => {
   useEffect(() => {
-    const artists = episode.artists.join(" & ");
-    const title = `Collective Radio Ep ${episode.episodeNum} - ${artists} - ${episode.genre}`;
-    const description = `Listen to Collective Radio Vol. ${episode.episodeNum} by ${artists} - ${episode.genre} mix. Released ${episode.releaseDate}.`;
-    const ogImageUrl = `https://og-image.collectiveradio.com/${episode.episodeNum}`;
+    const isEpisode = Boolean(episode);
+    const artists = episode?.artists.join(" & ") ?? "";
+    const title = isEpisode
+      ? `Collective Radio Ep ${episode?.episodeNum} - ${artists} - ${episode?.genre}`
+      : "Collective Radio";
+    const description = isEpisode
+      ? `Listen to Collective Radio Vol. ${episode?.episodeNum} by ${artists} - ${episode?.genre} mix. Released ${episode?.releaseDate}.`
+      : "A multi-genre DJ mix podcast based in Vancouver, Canada.";
+    const ogImageUrl = isEpisode
+      ? `https://og-image.collectiveradio.com/${episode?.episodeNum}`
+      : "https://www.collectiveradio.com/og-image.jpg";
+    const baseUrl = "https://www.collectiveradio.com";
+    const pageUrl = isEpisode
+      ? `${baseUrl}/${episode?.episodeNum}`
+      : `${baseUrl}/`;
 
     document.title = title;
 
-    const setMetaContent = (selector: string, content: string) => {
-      const element = document.querySelector<HTMLMetaElement>(selector);
-      if (element) {
-        element.setAttribute("content", content);
+    const setMetaTag = (
+      attributes: Record<string, string>,
+      content: string
+    ) => {
+      const selector = Object.entries(attributes)
+        .map(([key, value]) => `meta[${key}="${value}"]`)
+        .join("");
+      let element = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!element) {
+        element = document.createElement("meta");
+        Object.entries(attributes).forEach(([key, value]) => {
+          element?.setAttribute(key, value);
+        });
+        document.head.appendChild(element);
       }
+      element.setAttribute("content", content);
     };
 
-    setMetaContent('meta[name="description"]', description);
-    setMetaContent('meta[property="og:title"]', title);
-    setMetaContent('meta[property="og:description"]', description);
-    setMetaContent('meta[property="og:image"]', ogImageUrl);
-
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "PodcastEpisode",
-      author: {
-        "@type": "Organization",
-        name: "Collective Radio",
-      },
-      creator: {
-        "@type": "Organization",
-        name: "Collective Radio",
-      },
-      name: title,
-      description,
-      episodeNumber: episode.episodeNum,
-      datePublished: episode.releaseDate,
-      url: window.location.href,
-      image: ogImageUrl,
-      audio: episode.url,
-      partOfSeries: {
-        "@type": "PodcastSeries",
-        name: "Collective Radio",
-        url: "https://www.collectiveradio.com/",
-      },
+    const setLinkTag = (rel: string, href: string) => {
+      let element = document.head.querySelector<HTMLLinkElement>(
+        `link[rel="${rel}"]`
+      );
+      if (!element) {
+        element = document.createElement("link");
+        element.setAttribute("rel", rel);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("href", href);
     };
+
+    setMetaTag({ name: "description" }, description);
+    setMetaTag({ property: "og:title" }, title);
+    setMetaTag({ property: "og:description" }, description);
+    setMetaTag({ property: "og:image" }, ogImageUrl);
+    setMetaTag({ property: "og:url" }, pageUrl);
+    setMetaTag({ property: "og:type" }, isEpisode ? "article" : "website");
+    setMetaTag({ name: "twitter:card" }, "summary_large_image");
+    setMetaTag({ name: "twitter:title" }, title);
+    setMetaTag({ name: "twitter:description" }, description);
+    setMetaTag({ name: "twitter:image" }, ogImageUrl);
+    setLinkTag("canonical", pageUrl);
 
     const scriptId = "episode-jsonld";
     const existingScript =
       document.getElementById(scriptId) as HTMLScriptElement | null;
-    const script =
-      existingScript ?? document.createElement("script");
-    script.id = scriptId;
-    script.type = "application/ld+json";
-    script.textContent = JSON.stringify(structuredData);
-    if (!existingScript) {
-      document.head.appendChild(script);
+
+    if (isEpisode && episode) {
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "PodcastEpisode",
+        author: {
+          "@type": "Organization",
+          name: "Collective Radio",
+        },
+        creator: {
+          "@type": "Organization",
+          name: "Collective Radio",
+        },
+        name: title,
+        description,
+        episodeNumber: episode.episodeNum,
+        datePublished: episode.releaseDate,
+        url: pageUrl,
+        image: ogImageUrl,
+        audio: episode.url,
+        partOfSeries: {
+          "@type": "PodcastSeries",
+          name: "Collective Radio",
+          url: "https://www.collectiveradio.com/",
+        },
+      };
+
+      const script = existingScript ?? document.createElement("script");
+      script.id = scriptId;
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(structuredData);
+      if (!existingScript) {
+        document.head.appendChild(script);
+      }
+    } else if (existingScript) {
+      existingScript.remove();
     }
+
   }, [episode]);
 
   return null;

@@ -52,9 +52,8 @@ const Swiper = ({ targetEpisodeNum, onInitialized }: SwiperProps) => {
     <div className={styles.container}>
       <div className={styles.fadedEdges}>
         <div
-          className={`${styles.carouselContainer} ${
-            isVisible ? styles.fadeIn : ""
-          }`}
+          className={`${styles.carouselContainer} ${isVisible ? styles.fadeIn : ""
+            }`}
         >
           <SwiperLibrary
             key={`${selectedGenre ?? "empty"}-${targetEpisodeNum ?? "random"}`}
