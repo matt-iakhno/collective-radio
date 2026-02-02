@@ -180,12 +180,15 @@ async function getGoldmanFonts(): Promise<{ regular: string; bold: string }> {
     ]);
 
     if (!regularResponse.ok || !boldResponse.ok) {
-      throw new Error("Failed to fetch fonts");
+      console.error(`Font fetch failed: regular=${regularResponse.status}, bold=${boldResponse.status}`);
+      throw new Error(`Failed to fetch fonts: regular=${regularResponse.status}, bold=${boldResponse.status}`);
     }
 
     // Convert to base64
     const regularArrayBuffer = await regularResponse.arrayBuffer();
     const boldArrayBuffer = await boldResponse.arrayBuffer();
+
+    console.log(`Fetched fonts: regular=${regularArrayBuffer.byteLength} bytes, bold=${boldArrayBuffer.byteLength} bytes`);
 
     // Convert ArrayBuffer to base64
     const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
@@ -200,9 +203,11 @@ async function getGoldmanFonts(): Promise<{ regular: string; bold: string }> {
     const regularBase64 = arrayBufferToBase64(regularArrayBuffer);
     const boldBase64 = arrayBufferToBase64(boldArrayBuffer);
 
+    console.log(`Base64 encoded: regular=${regularBase64.length} chars, bold=${boldBase64.length} chars`);
+
     return {
-      regular: `data:font/woff2;base64,${regularBase64}`,
-      bold: `data:font/woff2;base64,${boldBase64}`,
+      regular: regularBase64,
+      bold: boldBase64,
     };
   } catch (error) {
     console.error("Error fetching Goldman fonts:", error);
@@ -280,24 +285,34 @@ async function generateOGImage(episode: Episode): Promise<ArrayBuffer> {
 
   // Fetch Goldman fonts and embed them
   const fonts = await getGoldmanFonts();
+
+  // Log font status for debugging
+  if (!fonts.regular || !fonts.bold) {
+    console.warn("Goldman fonts not loaded, falling back to Arial");
+  } else {
+    console.log("Goldman fonts loaded successfully");
+  }
+
+  // Use CSS @font-face with data URI - this is the most compatible approach
+  // Note: Some OG image renderers may not support custom fonts at all
   const fontFace = fonts.regular && fonts.bold
     ? `
       <defs>
-        <style>
-          @font-face {
-            font-family: 'Goldman';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url('${fonts.regular}') format('woff2');
-          }
-          @font-face {
-            font-family: 'Goldman';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url('${fonts.bold}') format('woff2');
-          }
+        <style type="text/css">
+          <![CDATA[
+            @font-face {
+              font-family: 'Goldman';
+              font-style: normal;
+              font-weight: 400;
+              src: url('data:application/font-woff2;base64,${fonts.regular}') format('woff2');
+            }
+            @font-face {
+              font-family: 'Goldman';
+              font-style: normal;
+              font-weight: 700;
+              src: url('data:application/font-woff2;base64,${fonts.bold}') format('woff2');
+            }
+          ]]>
         </style>
       </defs>
     `

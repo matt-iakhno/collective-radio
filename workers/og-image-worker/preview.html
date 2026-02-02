@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Image Preview - Episode 44</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    .preview-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+    .preview-container svg {
+      display: block;
+    }
+    .info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 100px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <h1>OG Image Preview</h1>
+    <p>Episode 44: Shane Armstrong & Farid Ahwazi - Experimental</p>
+    <p>Size: 1200x630px (OG image standard)</p>
+  </div>
+  
+  <div class="preview-container">
+    <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      
+    <defs>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+      </style>
+    </defs>
+  
+      <!-- Black background -->
+      <rect width="1200" height="630" fill="#000000"/>
+      
+      <!-- Cover art square (left side) -->
+      <image 
+        href="https://media.collectiveradio.com/covers/artworks-000419835402-ml9nue-t500x500.jpg" 
+        x="0" 
+        y="0" 
+        width="630" 
+        height="630" 
+        preserveAspectRatio="xMidYMid slice"
+      />
+      
+      <!-- Text content (right side, left-aligned) -->
+      <g>
+        <!-- Episode XXX -->
+        <text 
+          x="690" 
+          y="160" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="42" 
+          font-weight="400" 
+          fill="white"
+        >
+          Episode 44
+        </text>
+        
+        <!-- Genre -->
+        <text 
+          x="690" 
+          y="220" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="42" 
+          font-weight="400" 
+          fill="white"
+        >
+          Experimental
+        </text>
+        
+        <!-- Artist name(s) -->
+        <text 
+          x="690" 
+          y="280" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="42" 
+          font-weight="400" 
+          fill="white"
+        >
+          Shane Armstrong &amp;
+        </text>
+        
+        <text 
+          x="690" 
+          y="340" 
+          font-family="Goldman, Arial, sans-serif" 
+          font-size="42" 
+          font-weight="400" 
+          fill="white"
+        >
+          Farid Ahwazi
+        </text>
+        
+      </g>
+      
+      <!-- Logo (bottom right) -->
+      <image 
+        href="https://www.collectiveradio.com/android-chrome-192x192.png" 
+        x="1080" 
+        y="510" 
+        width="120" 
+        height="120" 
+        preserveAspectRatio="xMidYMid meet"
+      />
+    </svg>
+  </div>
+  
+  <div class="controls">
+    <input type="number" id="episodeNum" value="44" min="1" max="101">
+    <button onclick="loadEpisode()">Load Episode</button>
+    <button onclick="downloadSVG()">Download SVG</button>
+  </div>
+  
+  <script>
+    function loadEpisode() {
+      const episodeNum = document.getElementById('episodeNum').value;
+      window.location.href = `?episode=${episodeNum}`;
+    }
+    
+    function downloadSVG() {
+      const svg = document.querySelector('svg');
+      const svgData = new XMLSerializer().serializeToString(svg);
+      const blob = new Blob([svgData], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `og-image-episode-44.svg`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    // Handle URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const episodeParam = params.get('episode');
+    if (episodeParam) {
+      document.getElementById('episodeNum').value = episodeParam;
+    }
+  </script>
+</body>
+</html>

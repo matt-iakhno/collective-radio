@@ -12,14 +12,18 @@ export const initialState: AppState = {
 export const appReducer = (state: AppState, action: AppAction): AppState => {
   switch (action.type) {
     case ActionTypes.SET_SELECTED_GENRE:
+      if (state.selectedGenre === action.payload) return state;
       return { ...state, selectedGenre: action.payload };
     case ActionTypes.SET_SELECTED_EPISODE:
+      if (state.selectedEpisode?.episodeNum === action.payload?.episodeNum) return state;
       return { ...state, selectedEpisode: action.payload };
     case ActionTypes.TOGGLE_PLAY:
       return { ...state, isPlaying: !state.isPlaying };
     case ActionTypes.SET_TIME_PROGRESS:
+      if (state.timeProgress === action.payload) return state;
       return { ...state, timeProgress: action.payload };
     case ActionTypes.SET_DURATION:
+      if (state.duration === action.payload) return state;
       return { ...state, duration: action.payload };
     default:
       return state;

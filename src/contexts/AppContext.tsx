@@ -9,8 +9,8 @@ import {
   useEffect,
 } from "react";
 
-import { 
-  appReducer, 
+import {
+  appReducer,
   initialState,
   createSetSelectedGenreAction,
   createSetSelectedEpisodeAction,

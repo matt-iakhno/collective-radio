@@ -65,7 +65,14 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   const playAnimationRef = useRef<number | null>(null);
   useEffect(() => {
     if (isPlaying) {
-      audioRef.current?.play();
+      const playPromise = audioRef.current?.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          if (error.name !== "AbortError") {
+            console.error("Playback failed:", error);
+          }
+        });
+      }
       navigator.mediaSession.playbackState = "playing";
       startAnimation();
     } else {

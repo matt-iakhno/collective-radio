@@ -18,21 +18,29 @@ const Player = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.innerHeight + window.scrollY;
+      const docHeight = document.documentElement.offsetHeight;
       const bottomThreshold =
         selectedEpisode !== null
           ? window.innerHeight + 60
-          : document.documentElement.offsetHeight - 300;
+          : docHeight - 300;
+      const isNowVisible = scrollPosition >= bottomThreshold;
 
-      if (scrollPosition >= bottomThreshold) {
+      if (isNowVisible) {
         setIsVisible(true);
+      } else if (selectedEpisode !== null) {
+        // If an episode is selected, we want to hide it if we scroll back up
+        setIsVisible(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
 
+    // Initial check
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [selectedEpisode]);
 
   // set URL state whenever episode changes
   // useEffect(() => {
