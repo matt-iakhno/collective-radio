@@ -12,7 +12,6 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const RAD = 75;
 
   const pathRef = useRef<SVGPathElement | null>(null);
-  const rootRef = useRef<HTMLElement | null>(null);
 
   const points = useMemo(() => createPoints(), []);
 
@@ -22,17 +21,28 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
     let noiseStep = 0.0005;
     let rafId: number;
     let lastTime = 0;
+    let lastColorUpdate = 0;
+    let lastHue = Number.NaN;
+    const colorIntervalMs = 120;
+    const minHueDelta = 1;
 
-    const path = pathRef.current!;
-    const root = rootRef.current!;
+    const pathElement = pathRef.current;
+    if (!pathElement) {
+      return;
+    }
+    const root = document.documentElement;
 
     function animate(timestamp: number) {
-      if (timestamp - lastTime < 32) {
+      if (timestamp - lastTime < 16) {
         rafId = requestAnimationFrame(animate);
         return;
       }
       lastTime = timestamp;
 
+      const path = pathRef.current;
+      if (!path) {
+        return;
+      }
       path.setAttribute("d", spline(points, 1, true));
 
       for (let i = 0; i < points.length; i++) {
@@ -47,19 +57,22 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
         point.noiseOffsetY += noiseStep;
       }
 
-      const hueNoise = simplex(hueNoiseOffset, hueNoiseOffset);
-      const hue = map(hueNoise, -1, 1, 0, 360);
-
-      root.style.setProperty("--startColor", `hsl(${hue}, 100%, 75%)`);
-      root.style.setProperty("--stopColor", `hsl(${hue + 60}, 100%, 75%)`);
-      document.body.style.background = `hsl(${hue + 60}, 75%, 10%)`;
-
       hueNoiseOffset += noiseStep / 6;
+      if (timestamp - lastColorUpdate >= colorIntervalMs) {
+        const hueNoise = simplex(hueNoiseOffset, hueNoiseOffset);
+        const hue = map(hueNoise, -1, 1, 0, 360);
+        if (Number.isNaN(lastHue) || Math.abs(hue - lastHue) >= minHueDelta) {
+          root.style.setProperty("--hue", `${Math.round(hue)}`);
+          lastHue = hue;
+        }
+        lastColorUpdate = timestamp;
+      }
+
       rafId = requestAnimationFrame(animate);
     }
 
     const handleMouseOver = () => {
-      noiseStep = 0.005;
+      noiseStep = 0.002;
     };
 
     const handleMouseLeave = () => {
@@ -68,13 +81,15 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
 
     rafId = requestAnimationFrame(animate);
 
-    path.addEventListener("mouseover", handleMouseOver, { passive: true });
-    path.addEventListener("mouseleave", handleMouseLeave, { passive: true });
+    pathElement.addEventListener("mouseover", handleMouseOver, { passive: true });
+    pathElement.addEventListener("mouseleave", handleMouseLeave, {
+      passive: true,
+    });
 
     return () => {
       cancelAnimationFrame(rafId);
-      path.removeEventListener("mouseover", handleMouseOver);
-      path.removeEventListener("mouseleave", handleMouseLeave);
+      pathElement.removeEventListener("mouseover", handleMouseOver);
+      pathElement.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [points]);
 
@@ -112,7 +127,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   }
 
   return (
-    <div className={styles.container} ref={(el) => (rootRef.current = el)}>
+    <div className={styles.container}>
       <svg viewBox="0 0 200 200" className={styles.blob}>
         <defs>
           <linearGradient id="gradient" gradientTransform="rotate(90)">
