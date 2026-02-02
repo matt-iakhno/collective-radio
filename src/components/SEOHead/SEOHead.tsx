@@ -52,7 +52,8 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
     };
 
     const scriptId = "episode-jsonld";
-    const existingScript = document.getElementById(scriptId);
+    const existingScript =
+      document.getElementById(scriptId) as HTMLScriptElement | null;
     const script =
       existingScript ?? document.createElement("script");
     script.id = scriptId;
