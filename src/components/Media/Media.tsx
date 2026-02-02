@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import EpisodeSelector from "@/components/EpisodeSelector";
 import CategorySelector from "@/components/CategorySelector";
@@ -16,6 +16,26 @@ function Media({ initialEpisode }: MediaProps) {
   const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(
     Boolean(initialEpisode)
   );
+  const [isSwiperReady, setIsSwiperReady] = useState(false);
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
+  const hasScrolledRef = useRef(false);
+
+  useEffect(() => {
+    if (!initialEpisode) {
+      return;
+    }
+    if (!isSwiperReady || !isPlayerReady) {
+      return;
+    }
+    if (hasScrolledRef.current) {
+      return;
+    }
+    hasScrolledRef.current = true;
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [initialEpisode, isPlayerReady, isSwiperReady]);
 
   return (
     <>
@@ -37,13 +57,19 @@ function Media({ initialEpisode }: MediaProps) {
           </section>
           <section className={styles.carousel}>
             {isCarouselVisible && (
-              <EpisodeSelector targetEpisodeNum={initialEpisode?.episodeNum} />
+              <EpisodeSelector
+                targetEpisodeNum={initialEpisode?.episodeNum}
+                onInitialized={() => setIsSwiperReady(true)}
+              />
             )}
           </section>
         </div>
       </main>
       <section className={styles.playerContainer}>
-        <Player />
+        <Player
+          forceVisible={Boolean(initialEpisode)}
+          onVisible={() => setIsPlayerReady(true)}
+        />
       </section>
     </>
   );

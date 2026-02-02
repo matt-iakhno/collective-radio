@@ -9,7 +9,12 @@ import { useEpisodes } from "@/contexts";
 
 import styles from "./player.module.css";
 
-const Player = () => {
+interface PlayerProps {
+  forceVisible?: boolean;
+  onVisible?: () => void;
+}
+
+const Player = ({ forceVisible, onVisible }: PlayerProps) => {
   const { selectedEpisode } = useEpisodes();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressBarRef = useRef<HTMLInputElement | null>(null);
@@ -34,6 +39,18 @@ const Player = () => {
     return () => window.removeEventListener("scroll", handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (forceVisible) {
+      setIsVisible(true);
+    }
+  }, [forceVisible]);
+
+  useEffect(() => {
+    if (isVisible) {
+      onVisible?.();
+    }
+  }, [isVisible, onVisible]);
 
   // set URL state whenever episode changes
   // useEffect(() => {

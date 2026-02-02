@@ -16,11 +16,11 @@ import styles from "./swiper.module.css";
 
 interface SwiperProps {
   targetEpisodeNum?: number;
+  onInitialized?: () => void;
 }
 
-const Swiper = ({ targetEpisodeNum }: SwiperProps) => {
+const Swiper = ({ targetEpisodeNum, onInitialized }: SwiperProps) => {
   const swiperRef = useRef<SwiperCore | null>(null);
-  const hasScrolledRef = useRef(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const { episodes } = useEpisodes();
@@ -62,13 +62,7 @@ const Swiper = ({ targetEpisodeNum }: SwiperProps) => {
             onInit={(swiper) => {
               setIsVisible(true);
               swiper.slideTo(initialSlideIndex, 0);
-              if (targetEpisodeNum !== undefined && !hasScrolledRef.current) {
-                hasScrolledRef.current = true;
-                window.scrollTo({
-                  top: document.documentElement.scrollHeight,
-                  behavior: "smooth",
-                });
-              }
+              onInitialized?.();
             }}
             grabCursor={true}
             centeredSlides={true}

@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./hero.module.css";
 import AnimatedPath from "./AnimatedPath.tsx";
 
 import { TfiMouse } from "react-icons/tfi";
 
 const Hero = () => {
+  const { episodeNum } = useParams();
   const [isScrollDownVisible, setIsScrollDownVisible] = useState(true);
 
   useEffect(() => {
+    if (episodeNum) {
+      setIsScrollDownVisible(false);
+      return;
+    }
     const handleScroll = () => {
       // Hide when scrolled down at least 100px
       setIsScrollDownVisible(window.scrollY < 200);
@@ -17,7 +23,7 @@ const Hero = () => {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [episodeNum]);
 
   return (
     <AnimatedPath>
