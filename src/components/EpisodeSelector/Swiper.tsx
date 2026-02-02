@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import Slide from "./Slide";
 import { useEpisodes, useGenre } from "@/contexts";
-import { type Episode } from "@/types/types";
 import { isMobileDevice } from "@/lib";
 
 import { Swiper as SwiperLibrary, SwiperSlide } from "swiper/react";
@@ -15,41 +14,39 @@ import "swiper/css/effect-creative";
 import "swiper/css/navigation";
 import styles from "./swiper.module.css";
 
-const Swiper = () => {
+interface SwiperProps {
+  targetEpisodeNum?: number;
+}
+
+const Swiper = ({ targetEpisodeNum }: SwiperProps) => {
   const swiperRef = useRef<SwiperCore | null>(null);
-  const [filteredEpisodes, setFilteredEpisodes] = useState<Episode[] | []>([]);
+  const hasScrolledRef = useRef(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const { episodes } = useEpisodes();
   const { selectedGenre } = useGenre();
 
-  // update carousel with active episodes whenever a new genre is selected
-  useEffect(() => {
-    if (selectedGenre) {
-      const genreEpisodes = episodes.filter(
-        (episode) => episode.mood === selectedGenre
-      );
-      setFilteredEpisodes(genreEpisodes);
+  const filteredEpisodes = useMemo(() => {
+    if (!selectedGenre) {
+      return [];
     }
+    return episodes.filter((episode) => episode.mood === selectedGenre);
   }, [selectedGenre, episodes]);
 
-  // go to a random episode in the carousel when the episode list is updated
-  useEffect(() => {
-    const randomEpisode = Math.floor(Math.random() * filteredEpisodes.length);
-    setActiveIndex(randomEpisode);
-    goToSlide(randomEpisode);
-  }, [filteredEpisodes]);
-
-  const handleSlideChange = (swiper: SwiperCore) => {
-    setActiveIndex(swiper.activeIndex);
-  };
-
-  const goToSlide = (index: number) => {
-    if (swiperRef.current) {
-      swiperRef.current.slideTo(index);
+  const initialSlideIndex = useMemo(() => {
+    if (!filteredEpisodes.length) {
+      return 0;
     }
-  };
+    if (targetEpisodeNum !== undefined) {
+      const targetIndex = filteredEpisodes.findIndex(
+        (episode) => episode.episodeNum === targetEpisodeNum
+      );
+      if (targetIndex >= 0) {
+        return targetIndex;
+      }
+    }
+    return Math.floor(Math.random() * filteredEpisodes.length);
+  }, [filteredEpisodes, targetEpisodeNum]);
 
   return (
     <div className={styles.container}>
@@ -60,14 +57,24 @@ const Swiper = () => {
           }`}
         >
           <SwiperLibrary
+            key={`${selectedGenre ?? "empty"}-${targetEpisodeNum ?? "random"}`}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onInit={() => setIsVisible(true)}
-            onSlideChange={handleSlideChange}
+            onInit={(swiper) => {
+              setIsVisible(true);
+              swiper.slideTo(initialSlideIndex, 0);
+              if (targetEpisodeNum !== undefined && !hasScrolledRef.current) {
+                hasScrolledRef.current = true;
+                window.scrollTo({
+                  top: document.documentElement.scrollHeight,
+                  behavior: "smooth",
+                });
+              }
+            }}
             grabCursor={true}
             centeredSlides={true}
             slidesPerView={"auto"}
             spaceBetween={50}
-            initialSlide={activeIndex}
+            initialSlide={initialSlideIndex}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,

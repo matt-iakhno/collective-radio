@@ -19,6 +19,11 @@ interface AppContextProps {
   dispatch: React.Dispatch<AppAction>;
 }
 
+interface AppProviderProps {
+  children: ReactNode;
+  initialEpisodeNum?: number;
+}
+
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,11 +33,33 @@ declare global {
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 
-export const AppProvider = ({ children }: { children: ReactNode }) => {
+export const AppProvider = ({
+  children,
+  initialEpisodeNum,
+}: AppProviderProps) => {
   const memoizedEpisodes = useMemo(() => episodes as Episode[], []);
 
   // check local storage to see if there was a previous episode playing
   const savedState = useMemo(() => {
+    if (initialEpisodeNum !== undefined) {
+      const matchedEpisode = memoizedEpisodes.find(
+        (episode) => episode.episodeNum === initialEpisodeNum
+      );
+      if (matchedEpisode) {
+        return {
+          ...initialState,
+          episodes: memoizedEpisodes,
+          selectedGenre: matchedEpisode.mood,
+          selectedEpisode: matchedEpisode,
+          timeProgress: 0,
+        };
+      }
+      return {
+        ...initialState,
+        episodes: memoizedEpisodes,
+      };
+    }
+
     const saved = localStorage.getItem("playerState");
     if (saved) {
       const parsed = JSON.parse(saved);
@@ -47,7 +74,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       ...initialState,
       episodes: memoizedEpisodes,
     };
-  }, [memoizedEpisodes]);
+  }, [memoizedEpisodes, initialEpisodeNum]);
 
   const [state, dispatch] = useReducer(appReducer, savedState);
 

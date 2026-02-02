@@ -5,10 +5,17 @@ import CategorySelector from "@/components/CategorySelector";
 import Player from "@/components/Player";
 import WaveSectionSeparator from "./WaveSectionSeparator";
 
+import { type Episode } from "@/types/types";
 import styles from "./media.module.css";
 
-function Media() {
-  const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(false);
+interface MediaProps {
+  initialEpisode?: Episode;
+}
+
+function Media({ initialEpisode }: MediaProps) {
+  const [isCarouselVisible, setIsCarouselVisible] = useState<boolean>(
+    Boolean(initialEpisode)
+  );
 
   return (
     <>
@@ -29,7 +36,9 @@ function Media() {
             />
           </section>
           <section className={styles.carousel}>
-            {isCarouselVisible && <EpisodeSelector />}
+            {isCarouselVisible && (
+              <EpisodeSelector targetEpisodeNum={initialEpisode?.episodeNum} />
+            )}
           </section>
         </div>
       </main>
