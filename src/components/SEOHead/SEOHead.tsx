@@ -10,6 +10,7 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
     const artists = episode.artists.join(" & ");
     const title = `Collective Radio Ep ${episode.episodeNum} - ${artists} - ${episode.genre}`;
     const description = `Listen to Collective Radio Vol. ${episode.episodeNum} by ${artists} - ${episode.genre} mix. Released ${episode.releaseDate}.`;
+    const ogImageUrl = `https://og-image.collectiveradio.com/${episode.episodeNum}`;
 
     document.title = title;
 
@@ -23,10 +24,43 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
     setMetaContent('meta[name="description"]', description);
     setMetaContent('meta[property="og:title"]', title);
     setMetaContent('meta[property="og:description"]', description);
-    setMetaContent(
-      'meta[property="og:image"]',
-      `https://og-image.collectiveradio.com/${episode.episodeNum}`
-    );
+    setMetaContent('meta[property="og:image"]', ogImageUrl);
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "PodcastEpisode",
+      author: {
+        "@type": "Organization",
+        name: "Collective Radio",
+      },
+      creator: {
+        "@type": "Organization",
+        name: "Collective Radio",
+      },
+      name: title,
+      description,
+      episodeNumber: episode.episodeNum,
+      datePublished: episode.releaseDate,
+      url: window.location.href,
+      image: ogImageUrl,
+      audio: episode.url,
+      partOfSeries: {
+        "@type": "PodcastSeries",
+        name: "Collective Radio",
+        url: "https://www.collectiveradio.com/",
+      },
+    };
+
+    const scriptId = "episode-jsonld";
+    const existingScript = document.getElementById(scriptId);
+    const script =
+      existingScript ?? document.createElement("script");
+    script.id = scriptId;
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(structuredData);
+    if (!existingScript) {
+      document.head.appendChild(script);
+    }
   }, [episode]);
 
   return null;

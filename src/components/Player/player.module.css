@@ -23,9 +23,13 @@
     rgba(15, 15, 15, 0.95)
   );
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
-  transition: opacity 2s ease-out, transform 2s ease-out;
+  transition:
+    opacity 2s ease-out,
+    transform 2s ease-out;
 }
 
 .visible {
@@ -43,12 +47,17 @@
   flex: 1;
 }
 
-.volumeControl {
+.secondaryButtons {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
-  width: 320px;
+  width: 360px;
+}
+
+.volumeControls {
+  display: flex;
+  align-items: center;
 }
 
 .mediaContainer {
@@ -184,6 +193,39 @@
   margin-right: 10px;
 }
 
+.shareContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.shareButton {
+  border: none;
+  background: none;
+  color: var(--yellow);
+  cursor: pointer;
+  transform: translateY(1px);
+}
+
+.shareButton:disabled {
+  color: rgba(255, 255, 255, 0.4);
+  cursor: default;
+}
+
+.shareToast {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
 .volumeBar {
   appearance: none;
   width: 100%;
@@ -299,7 +341,7 @@
     height: 70px;
     min-width: 70px;
   }
-  .volumeControl {
+  .secondaryButtons {
     order: 1;
     position: absolute;
     top: 20px;
@@ -308,7 +350,7 @@
 }
 
 @media (max-width: 650px) {
-  .volumeControl {
+  .volumeControls {
     display: none;
   }
 }

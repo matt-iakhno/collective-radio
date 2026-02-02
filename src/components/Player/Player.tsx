@@ -4,6 +4,7 @@ import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import TrackInfo from "./TrackInfo";
 import VolumeControl from "./VolumeControl";
+import ShareButton from "./ShareButton";
 import { useEpisodes } from "@/contexts";
 
 import styles from "./player.module.css";
@@ -57,8 +58,11 @@ const Player = () => {
         <Controls audioRef={audioRef} progressBarRef={progressBarRef} />
         <ProgressBar audioRef={audioRef} progressBarRef={progressBarRef} />
       </div>
-      <div className={styles.volumeControl}>
-        <VolumeControl audioRef={audioRef} />
+      <div className={styles.secondaryButtons}>
+        <ShareButton episode={selectedEpisode} />
+        <div className={styles.volumeControls}>
+          <VolumeControl audioRef={audioRef} />
+        </div>
       </div>
     </div>
   );

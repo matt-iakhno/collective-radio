@@ -18,6 +18,7 @@ const EpisodeRoute = () => {
     : null;
 
   if (!episode) {
+    localStorage.removeItem("playerState");
     return <Navigate to="/" replace />;
   }
 
