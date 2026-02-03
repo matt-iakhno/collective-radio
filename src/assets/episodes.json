@@ -1316,5 +1316,18 @@
     "genre": "Progressive House",
     "mood": "melodic",
     "coverArtBlurhash": "eNID]?P3r;;JKi}z=vSir?$frTwIR-JCk8?QW;RkkD$k%e-oSiOXxU"
+  },
+  {
+    "episodeNum": 102,
+    "fileName": "Collective Radio Vol. 102 - Akula [Party Mix].mp3",
+    "url": "https://media.collectiveradio.com/Collective%20Radio%20Vol.%20102%20-%20Akula%20%5BParty%20Mix%5D.mp3",
+    "artists": [
+      "Akula"
+    ],
+    "coverArt": "https://media.collectiveradio.com/covers/collective-radio-102-akula.jpg",
+    "releaseDate": "2026-02-02",
+    "genre": "Breakbeat & House",
+    "mood": "energetic",
+    "coverArtBlurhash": "UAF~aD~TM{%N]v~8.8R.:|wG9FIV^E?FIUR."
   }
 ]
