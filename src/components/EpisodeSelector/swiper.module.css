@@ -4,9 +4,20 @@
   margin: 0 auto;
 }
 
-.spiwer {
-  transform: translateX(-10px);
+.swiper {
+  transform: translateX(-25px);
 }
+@media only screen and (max-width: 1280px) {
+  .swiper {
+    transform: translateX(0);
+  }
+}
+
+/* .swiper:nth-child(2) {
+}
+
+.swiper:nth-child(3) {
+} */
 
 .carouselContainer {
   opacity: 0;

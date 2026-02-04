@@ -103,6 +103,13 @@
 }
 :global(.swiper-button-prev) {
   color: var(--yellow) !important;
+  transform: translateX(25px);
+}
+
+@media only screen and (max-width: 1280px) {
+  :global(.swiper-button-prev) {
+    transform: translateX(0);
+  }
 }
 
 .cardText {
