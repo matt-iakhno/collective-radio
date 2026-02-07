@@ -21,24 +21,6 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
     timeProgress,
     setTimeProgress,
   } = usePlayer();
-  const lastMediaSessionUpdate = useRef(0);
-
-  // Safely update media session position state, reading directly from the audio element
-  const updateMediaSessionPositionState = useCallback(() => {
-    if (!("mediaSession" in navigator) || !audioRef.current) return;
-    const { duration: dur, currentTime, playbackRate } = audioRef.current;
-    if (!isFinite(dur) || dur <= 0) return;
-    try {
-      navigator.mediaSession.setPositionState({
-        duration: dur,
-        playbackRate: playbackRate || 1.0,
-        position: Math.min(Math.max(0, currentTime), dur),
-      });
-    } catch {
-      // Ignore errors from invalid state
-    }
-  }, [audioRef]);
-
   const updateProgress = useCallback(() => {
     if (!audioRef.current || !progressBarRef.current || !duration) return;
 
@@ -51,12 +33,8 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
       `${(currentTime / duration) * 100}%`
     );
 
-    const now = Date.now();
-    if (now - lastMediaSessionUpdate.current > 1000) {
-      updateMediaSessionPositionState();
-      lastMediaSessionUpdate.current = now;
-    }
-  }, [duration, setTimeProgress, updateMediaSessionPositionState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [duration, setTimeProgress]);
 
   const startAnimation = useCallback(() => {
     if (audioRef.current && progressBarRef.current && duration) {
@@ -75,16 +53,9 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current?.play();
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.playbackState = "playing";
-      }
       startAnimation();
     } else {
       audioRef.current?.pause();
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.playbackState = "paused";
-        updateMediaSessionPositionState();
-      }
       if (playAnimationRef.current !== null) {
         cancelAnimationFrame(playAnimationRef.current);
         playAnimationRef.current = null;
@@ -95,7 +66,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
         cancelAnimationFrame(playAnimationRef.current);
       }
     };
-  }, [isPlaying, startAnimation, updateProgress, audioRef, updateMediaSessionPositionState]);
+  }, [isPlaying, startAnimation, updateProgress, audioRef]);
 
   // record a play event every time new episode is slected and playback begins for the first time
   useEffect(() => {
@@ -130,7 +101,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
 
   const onLoadedMetadata = () => {
     const duration = audioRef.current?.duration;
-    if (duration !== undefined) {
+    if (duration !== undefined && isFinite(duration) && duration > 0) {
       setDuration(duration);
       if (progressBarRef.current) {
         progressBarRef.current.max = duration.toString();
@@ -147,9 +118,80 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
           );
         }
       }
-      updateMediaSessionPositionState();
     }
   };
+
+  // Sync media session position/duration via audio element events.
+  // This is more reliable than syncing via React state because it reacts
+  // to the audio element's actual state (especially important for VBR audio
+  // where the browser corrects duration as it downloads more data).
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !("mediaSession" in navigator)) return;
+
+    let lastPositionSync = 0;
+
+    const syncPositionState = (force = false) => {
+      const { duration: dur, currentTime, playbackRate } = audio;
+      if (!isFinite(dur) || dur <= 0) return;
+
+      const now = Date.now();
+      if (!force && now - lastPositionSync < 1000) return;
+      lastPositionSync = now;
+
+      try {
+        navigator.mediaSession.setPositionState({
+          duration: dur,
+          playbackRate: playbackRate || 1.0,
+          position: Math.min(Math.max(0, currentTime), dur),
+        });
+      } catch {
+        // Ignore errors from invalid state
+      }
+    };
+
+    const handleTimeUpdate = () => syncPositionState();
+
+    const handleDurationChange = () => {
+      const dur = audio.duration;
+      if (isFinite(dur) && dur > 0) {
+        setDuration(dur);
+        if (progressBarRef.current) {
+          progressBarRef.current.max = dur.toString();
+        }
+        syncPositionState(true);
+      }
+    };
+
+    const handleSeeked = () => syncPositionState(true);
+
+    const handlePlay = () => {
+      navigator.mediaSession.playbackState = "playing";
+      syncPositionState(true);
+    };
+
+    const handlePause = () => {
+      navigator.mediaSession.playbackState = "paused";
+      syncPositionState(true);
+    };
+
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("durationchange", handleDurationChange);
+    audio.addEventListener("seeked", handleSeeked);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+
+    // Sync current state in case events already fired before this effect ran
+    handleDurationChange();
+
+    return () => {
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("durationchange", handleDurationChange);
+      audio.removeEventListener("seeked", handleSeeked);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+    };
+  }, [audioRef, progressBarRef, setDuration]);
 
   return (
     <div className={styles.mediaContainer}>
