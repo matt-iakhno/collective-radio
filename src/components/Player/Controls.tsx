@@ -23,6 +23,22 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   } = usePlayer();
   const lastMediaSessionUpdate = useRef(0);
 
+  // Safely update media session position state, reading directly from the audio element
+  const updateMediaSessionPositionState = useCallback(() => {
+    if (!("mediaSession" in navigator) || !audioRef.current) return;
+    const { duration: dur, currentTime, playbackRate } = audioRef.current;
+    if (!isFinite(dur) || dur <= 0) return;
+    try {
+      navigator.mediaSession.setPositionState({
+        duration: dur,
+        playbackRate: playbackRate || 1.0,
+        position: Math.min(Math.max(0, currentTime), dur),
+      });
+    } catch {
+      // Ignore errors from invalid state
+    }
+  }, [audioRef]);
+
   const updateProgress = useCallback(() => {
     if (!audioRef.current || !progressBarRef.current || !duration) return;
 
@@ -35,19 +51,12 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
       `${(currentTime / duration) * 100}%`
     );
 
-    if ("mediaSession" in navigator) {
-      const now = Date.now();
-      if (now - lastMediaSessionUpdate.current > 1000) {
-        navigator.mediaSession.setPositionState({
-          duration,
-          playbackRate: audioRef.current.playbackRate ?? 1.0,
-          position: currentTime,
-        });
-        lastMediaSessionUpdate.current = now;
-      }
+    const now = Date.now();
+    if (now - lastMediaSessionUpdate.current > 1000) {
+      updateMediaSessionPositionState();
+      lastMediaSessionUpdate.current = now;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [duration, setTimeProgress]);
+  }, [duration, setTimeProgress, updateMediaSessionPositionState]);
 
   const startAnimation = useCallback(() => {
     if (audioRef.current && progressBarRef.current && duration) {
@@ -66,11 +75,16 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current?.play();
-      navigator.mediaSession.playbackState = "playing";
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.playbackState = "playing";
+      }
       startAnimation();
     } else {
       audioRef.current?.pause();
-      navigator.mediaSession.playbackState = "paused";
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.playbackState = "paused";
+        updateMediaSessionPositionState();
+      }
       if (playAnimationRef.current !== null) {
         cancelAnimationFrame(playAnimationRef.current);
         playAnimationRef.current = null;
@@ -81,7 +95,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
         cancelAnimationFrame(playAnimationRef.current);
       }
     };
-  }, [isPlaying, startAnimation, updateProgress, audioRef]);
+  }, [isPlaying, startAnimation, updateProgress, audioRef, updateMediaSessionPositionState]);
 
   // record a play event every time new episode is slected and playback begins for the first time
   useEffect(() => {
@@ -133,6 +147,7 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
           );
         }
       }
+      updateMediaSessionPositionState();
     }
   };
 
@@ -144,9 +159,8 @@ const Controls = ({ audioRef, progressBarRef }: ControlsProps) => {
         onLoadedMetadata={onLoadedMetadata}
       />
       <button
-        className={`${styles.playIcon} ${
-          selectedEpisode !== null ? styles.playActive : styles.playInactive
-        }`}
+        className={`${styles.playIcon} ${selectedEpisode !== null ? styles.playActive : styles.playInactive
+          }`}
         onClick={() => handleOnPlay()}
       >
         {isPlaying ? <LuPause size={30} /> : <LuPlay size={30} />}

@@ -1,6 +1,21 @@
 import { useEffect, RefObject } from "react";
 import { usePlayer } from "@/contexts";
 
+function updatePositionState(audio: HTMLAudioElement) {
+  if (!("mediaSession" in navigator)) return;
+  const { duration, currentTime, playbackRate } = audio;
+  if (!isFinite(duration) || duration <= 0) return;
+  try {
+    navigator.mediaSession.setPositionState({
+      duration,
+      playbackRate: playbackRate || 1.0,
+      position: Math.min(Math.max(0, currentTime), duration),
+    });
+  } catch {
+    // Ignore errors from invalid state
+  }
+}
+
 export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) => {
   const {
     isPlaying,
@@ -26,6 +41,7 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
         if (audioRef.current) {
           const skip = details.seekOffset ?? 10;
           audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - skip);
+          updatePositionState(audioRef.current);
         }
       });
 
@@ -33,6 +49,7 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
         if (audioRef.current) {
           const skip = details.seekOffset ?? 10;
           audioRef.current.currentTime = Math.min(audioRef.current.duration, audioRef.current.currentTime + skip);
+          updatePositionState(audioRef.current);
         }
       });
 
@@ -43,6 +60,7 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
           } else {
             audioRef.current.currentTime = details.seekTime ?? audioRef.current.currentTime;
           }
+          updatePositionState(audioRef.current);
         }
       });
     }
@@ -52,6 +70,9 @@ export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) =
       if ("mediaSession" in navigator) {
         navigator.mediaSession.setActionHandler("play", null);
         navigator.mediaSession.setActionHandler("pause", null);
+        navigator.mediaSession.setActionHandler("seekbackward", null);
+        navigator.mediaSession.setActionHandler("seekforward", null);
+        navigator.mediaSession.setActionHandler("seekto", null);
       }
     };
   }, [audioRef, isPlaying, togglePlay]);
