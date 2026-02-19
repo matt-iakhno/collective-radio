@@ -1,15 +1,7 @@
-:root {
+.container {
   --hue: 0;
   --startColor: hsl(var(--hue), 100%, 75%);
   --stopColor: hsl(calc(var(--hue) + 60), 100%, 75%);
-  --bgColor: hsl(calc(var(--hue) + 60), 75%, 10%);
-}
-
-:global(body) {
-  background: var(--bgColor);
-}
-
-.container {
   width: 100vw;
   height: 100vh;
 }

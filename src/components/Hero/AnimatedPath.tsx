@@ -24,14 +24,14 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
     let rafId: number | null = null;
     let lastTime = 0;
     let lastHue = Number.NaN;
+    let lastPathD = "";
     let isVisible = false;
 
     const pathElement = pathRef.current;
-    const containerElement = containerRef.current;
-    if (!pathElement || !containerElement) {
+    if (!pathElement || !containerRef.current) {
       return;
     }
-    const root = document.documentElement;
+    const container = containerRef.current!;
 
     function animate(timestamp: number) {
       if (timestamp - lastTime < 16) {
@@ -44,7 +44,12 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
       if (!path) {
         return;
       }
-      path.setAttribute("d", spline(points, 1, true));
+
+      const newD = spline(points, 1, true);
+      if (newD !== lastPathD) {
+        path.setAttribute("d", newD);
+        lastPathD = newD;
+      }
 
       for (let i = 0; i < points.length; i++) {
         const point = points[i];
@@ -62,7 +67,8 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
       const hueNoise = simplex(hueNoiseOffset, hueNoiseOffset);
       const hue = Math.round(map(hueNoise, -1, 1, 0, 360));
       if (hue !== lastHue) {
-        root.style.setProperty("--hue", `${hue}`);
+        container.style.setProperty("--hue", `${hue}`);
+        document.body.style.background = `hsl(${hue + 60}, 75%, 10%)`;
         lastHue = hue;
       }
 
@@ -94,7 +100,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
       },
       { threshold: 0 }
     );
-    observer.observe(containerElement);
+    observer.observe(container);
 
     const handleMouseOver = () => {
       noiseStep = 0.002;
