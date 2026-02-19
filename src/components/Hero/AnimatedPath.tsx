@@ -12,6 +12,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   const RAD = 75;
 
   const pathRef = useRef<SVGPathElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const points = useMemo(() => createPoints(), []);
 
@@ -19,15 +20,17 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
     const simplex = new createNoise2D();
     let hueNoiseOffset = 0;
     let noiseStep = 0.0005;
-    let rafId: number;
+    let rafId: number | null = null;
     let lastTime = 0;
     let lastColorUpdate = 0;
     let lastHue = Number.NaN;
     const colorIntervalMs = 120;
     const minHueDelta = 1;
+    let isVisible = false;
 
     const pathElement = pathRef.current;
-    if (!pathElement) {
+    const containerElement = containerRef.current;
+    if (!pathElement || !containerElement) {
       return;
     }
     const root = document.documentElement;
@@ -71,6 +74,33 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
       rafId = requestAnimationFrame(animate);
     }
 
+    function startAnimation() {
+      if (rafId === null) {
+        lastTime = 0;
+        rafId = requestAnimationFrame(animate);
+      }
+    }
+
+    function stopAnimation() {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(containerElement);
+
     const handleMouseOver = () => {
       noiseStep = 0.002;
     };
@@ -79,15 +109,14 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
       noiseStep = 0.001;
     };
 
-    rafId = requestAnimationFrame(animate);
-
     pathElement.addEventListener("mouseover", handleMouseOver, { passive: true });
     pathElement.addEventListener("mouseleave", handleMouseLeave, {
       passive: true,
     });
 
     return () => {
-      cancelAnimationFrame(rafId);
+      stopAnimation();
+      observer.disconnect();
       pathElement.removeEventListener("mouseover", handleMouseOver);
       pathElement.removeEventListener("mouseleave", handleMouseLeave);
     };
@@ -127,7 +156,7 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
       <svg viewBox="0 0 200 200" className={styles.blob}>
         <defs>
           <linearGradient id="gradient" gradientTransform="rotate(90)">
