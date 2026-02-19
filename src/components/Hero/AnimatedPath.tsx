@@ -19,13 +19,11 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
   useEffect(() => {
     const simplex = new createNoise2D();
     let hueNoiseOffset = 0;
+    const hueNoiseStep = 0.00008;
     let noiseStep = 0.0005;
     let rafId: number | null = null;
     let lastTime = 0;
-    let lastColorUpdate = 0;
     let lastHue = Number.NaN;
-    const colorIntervalMs = 120;
-    const minHueDelta = 1;
     let isVisible = false;
 
     const pathElement = pathRef.current;
@@ -60,15 +58,12 @@ const AnimatedPath = ({ children }: AnimatedPathProps) => {
         point.noiseOffsetY += noiseStep;
       }
 
-      hueNoiseOffset += noiseStep / 6;
-      if (timestamp - lastColorUpdate >= colorIntervalMs) {
-        const hueNoise = simplex(hueNoiseOffset, hueNoiseOffset);
-        const hue = map(hueNoise, -1, 1, 0, 360);
-        if (Number.isNaN(lastHue) || Math.abs(hue - lastHue) >= minHueDelta) {
-          root.style.setProperty("--hue", `${Math.round(hue)}`);
-          lastHue = hue;
-        }
-        lastColorUpdate = timestamp;
+      hueNoiseOffset += hueNoiseStep;
+      const hueNoise = simplex(hueNoiseOffset, hueNoiseOffset);
+      const hue = Math.round(map(hueNoise, -1, 1, 0, 360));
+      if (hue !== lastHue) {
+        root.style.setProperty("--hue", `${hue}`);
+        lastHue = hue;
       }
 
       rafId = requestAnimationFrame(animate);
