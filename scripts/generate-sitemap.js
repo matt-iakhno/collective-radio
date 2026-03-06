@@ -13,7 +13,7 @@ const episodes = JSON.parse(fs.readFileSync(episodesPath, "utf-8"));
 const currentDate = new Date().toISOString().split("T")[0];
 
 // Generate sitemap
-const baseUrl = "https://www.collectiveradio.com";
+const baseUrl = "https://collectiveradio.com";
 const urls = [];
 
 // Home page
