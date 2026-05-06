@@ -17,8 +17,8 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
       : "A multi-genre DJ mix podcast based in Vancouver, Canada.";
     const ogImageUrl = isEpisode
       ? `https://og-image.collectiveradio.com/${episode?.episodeNum}`
-      : "https://www.collectiveradio.com/og-image.jpg";
-    const baseUrl = "https://www.collectiveradio.com";
+      : "https://collectiveradio.com/og-image.jpg";
+    const baseUrl = "https://collectiveradio.com";
     const pageUrl = isEpisode
       ? `${baseUrl}/${episode?.episodeNum}`
       : `${baseUrl}/`;
@@ -27,7 +27,7 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
 
     const setMetaTag = (
       attributes: Record<string, string>,
-      content: string
+      content: string,
     ) => {
       const selector = Object.entries(attributes)
         .map(([key, value]) => `meta[${key}="${value}"]`)
@@ -45,7 +45,7 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
 
     const setLinkTag = (rel: string, href: string) => {
       let element = document.head.querySelector<HTMLLinkElement>(
-        `link[rel="${rel}"]`
+        `link[rel="${rel}"]`,
       );
       if (!element) {
         element = document.createElement("link");
@@ -68,8 +68,9 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
     setLinkTag("canonical", pageUrl);
 
     const scriptId = "episode-jsonld";
-    const existingScript =
-      document.getElementById(scriptId) as HTMLScriptElement | null;
+    const existingScript = document.getElementById(
+      scriptId,
+    ) as HTMLScriptElement | null;
 
     if (isEpisode && episode) {
       const structuredData = {
@@ -107,7 +108,6 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
     } else if (existingScript) {
       existingScript.remove();
     }
-
   }, [episode]);
 
   return null;

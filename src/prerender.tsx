@@ -5,7 +5,7 @@ import EpisodeRoute from "@/components/EpisodeRoute";
 import episodes from "@/assets/episodes.json";
 import { type Episode } from "@/types/types";
 
-const BASE_URL = "https://www.collectiveradio.com";
+const BASE_URL = "https://collectiveradio.com";
 const DEFAULT_TITLE = "Collective Radio";
 const DEFAULT_DESCRIPTION =
   "A multi-genre DJ mix podcast based in Vancouver, Canada.";
