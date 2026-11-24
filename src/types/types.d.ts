@@ -14,6 +14,7 @@ export type AppState = {
   selectedGenre: string | null;
   selectedEpisode: Episode | null;
   isPlaying: boolean;
+  // position to resume from when the selected episode loads (not live playback time)
   timeProgress: number | null;
   duration: number | null;
 };
@@ -22,9 +23,9 @@ export enum ActionTypes {
   SET_EPISODES = "SET_EPISODES",
   SET_SELECTED_GENRE = "SET_SELECTED_GENRE",
   SET_SELECTED_EPISODE = "SET_SELECTED_EPISODE",
-  SET_TIME_PROGRESS = "SET_TIME_PROGRESS",
   SET_DURATION = "SET_DURATION",
   TOGGLE_PLAY = "TOGGLE_PLAY",
+  SET_PLAYING = "SET_PLAYING",
 }
 
 interface SetSelectedGenreAction {
@@ -35,10 +36,6 @@ interface SetSelectedEpisodeAction {
   type: ActionTypes.SET_SELECTED_EPISODE;
   payload: Episode | null;
 }
-interface SetTimeProgressAction {
-  type: ActionTypes.SET_TIME_PROGRESS;
-  payload: number | null;
-}
 interface SetDurationAction {
   type: ActionTypes.SET_DURATION;
   payload: number | null;
@@ -46,9 +43,13 @@ interface SetDurationAction {
 interface TogglePlayAction {
   type: ActionTypes.TOGGLE_PLAY;
 }
+interface SetPlayingAction {
+  type: ActionTypes.SET_PLAYING;
+  payload: boolean;
+}
 export type AppAction =
   | SetSelectedGenreAction
   | SetSelectedEpisodeAction
-  | SetTimeProgressAction
   | SetDurationAction
-  | TogglePlayAction;
+  | TogglePlayAction
+  | SetPlayingAction;

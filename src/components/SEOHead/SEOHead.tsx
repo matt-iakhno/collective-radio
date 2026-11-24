@@ -94,7 +94,7 @@ const SEOHead = ({ episode }: SEOHeadProps) => {
         partOfSeries: {
           "@type": "PodcastSeries",
           name: "Collective Radio",
-          url: "https://www.collectiveradio.com/",
+          url: "https://collectiveradio.com/",
         },
       };
 

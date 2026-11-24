@@ -1,58 +1,65 @@
 import { useEffect, RefObject } from "react";
-import { usePlayer } from "@/contexts";
 
-export const useMediaSessionHandlers = (audioRef: RefObject<HTMLAudioElement>) => {
-  const {
-    isPlaying,
-    togglePlay,
-  } = usePlayer();
+// Lock-screen / notification controls. Handlers act on the audio element
+// directly; its play/pause events keep app state in sync (see Controls), so
+// nothing here reads React state and the handlers never go stale.
+export const useMediaSessionHandlers = (
+  audioRef: RefObject<HTMLAudioElement>
+) => {
   useEffect(() => {
-    if ("mediaSession" in navigator) {
-      // Set the play action handler
-      navigator.mediaSession.setActionHandler("play", () => {
-        if (audioRef.current && !isPlaying) {
-          togglePlay();
-        }
-      });
+    if (!("mediaSession" in navigator)) return;
 
-      // Set the pause action handler
-      navigator.mediaSession.setActionHandler("pause", () => {
-        if (audioRef.current && isPlaying) {
-          togglePlay();
-        }
-      });
-
-      navigator.mediaSession.setActionHandler("seekbackward", (details) => {
-        if (audioRef.current) {
+    const handlers: [MediaSessionAction, MediaSessionActionHandler][] = [
+      ["play", () => audioRef.current?.play()],
+      ["pause", () => audioRef.current?.pause()],
+      [
+        "seekbackward",
+        (details) => {
+          const audio = audioRef.current;
+          if (!audio) return;
           const skip = details.seekOffset ?? 10;
-          audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - skip);
-        }
-      });
-
-      navigator.mediaSession.setActionHandler("seekforward", (details) => {
-        if (audioRef.current) {
+          audio.currentTime = Math.max(0, audio.currentTime - skip);
+        },
+      ],
+      [
+        "seekforward",
+        (details) => {
+          const audio = audioRef.current;
+          if (!audio) return;
           const skip = details.seekOffset ?? 10;
-          audioRef.current.currentTime = Math.min(audioRef.current.duration, audioRef.current.currentTime + skip);
-        }
-      });
-
-      navigator.mediaSession.setActionHandler("seekto", (details) => {
-        if (audioRef.current) {
-          if (details.fastSeek && "fastSeek" in audioRef.current) {
-            (audioRef.current as any).fastSeek(details.seekTime);
+          audio.currentTime = Math.min(audio.duration, audio.currentTime + skip);
+        },
+      ],
+      [
+        "seekto",
+        (details) => {
+          const audio = audioRef.current;
+          if (!audio || details.seekTime === undefined) return;
+          if (details.fastSeek && "fastSeek" in audio) {
+            audio.fastSeek(details.seekTime);
           } else {
-            audioRef.current.currentTime = details.seekTime ?? audioRef.current.currentTime;
+            audio.currentTime = details.seekTime;
           }
-        }
-      });
+        },
+      ],
+    ];
+
+    for (const [action, handler] of handlers) {
+      try {
+        navigator.mediaSession.setActionHandler(action, handler);
+      } catch {
+        // action not supported by this browser
+      }
     }
 
-    // Cleanup the handlers when component unmounts
     return () => {
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.setActionHandler("play", null);
-        navigator.mediaSession.setActionHandler("pause", null);
+      for (const [action] of handlers) {
+        try {
+          navigator.mediaSession.setActionHandler(action, null);
+        } catch {
+          // action not supported by this browser
+        }
       }
     };
-  }, [audioRef, isPlaying, togglePlay]);
+  }, [audioRef]);
 };

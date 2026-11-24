@@ -3,6 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import episodes from "@/assets/episodes.json";
 import { type Episode } from "@/types/types";
 import { AppProvider } from "@/contexts/AppContext";
+import { PLAYER_STATE_KEY } from "@/lib/playerStorage";
 import Hero from "@/components/Hero/Hero";
 import Media from "@/components/Media/Media";
 import SEOHead from "@/components/SEOHead/SEOHead";
@@ -18,7 +19,7 @@ const EpisodeRoute = () => {
     : null;
 
   if (!episode) {
-    localStorage.removeItem("playerState");
+    localStorage.removeItem(PLAYER_STATE_KEY);
     return <Navigate to="/" replace />;
   }
 

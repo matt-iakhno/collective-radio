@@ -2,6 +2,7 @@
   "name": "Collective Radio",
   "short_name": "Collective Radio",
   "description": "Collective Radio Vancouver player application.",
+  "id": "/",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0d0d0d",

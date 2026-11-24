@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { useEpisodes, usePlayer } from "@/contexts";
+import { useEpisodes } from "@/contexts";
 
 import styles from "./player.module.css";
 
 function TrackInfo() {
   const { selectedEpisode } = useEpisodes();
-  const { isPlaying, togglePlay } = usePlayer();
 
   const defaultArtists = [""];
   // the default cover art is a black square
@@ -38,14 +37,7 @@ function TrackInfo() {
           },
         ],
       });
-
-      navigator.mediaSession.setActionHandler("play", () => {
-        if (!isPlaying) togglePlay();
-      });
-      navigator.mediaSession.setActionHandler("pause", () => {
-        if (isPlaying) togglePlay();
-        // Add pause logic here
-      });
+      // play/pause action handlers live in useMediaSessionHandlers
     }
 
     return () => {

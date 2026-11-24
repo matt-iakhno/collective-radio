@@ -9,17 +9,6 @@
   overflow: hidden;
 }
 
-.logo {
-  height: 100px;
-  width: 100px;
-  cursor: pointer;
-  position: fixed;
-  right: 0;
-  z-index: 2;
-  mix-blend-mode: exclusion;
-  opacity: 0;
-}
-
 .scrollDown {
   padding: 20px;
   font-size: 3rem;
@@ -214,10 +203,6 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .logo {
-    width: 75px;
-    height: 75px;
-  }
   .scrollDown {
     font-size: 2rem;
   }

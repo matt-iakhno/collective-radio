@@ -7,10 +7,13 @@ import {
   ReactNode,
   useContext,
   useEffect,
+  useCallback,
 } from "react";
 
 import { appReducer, initialState } from "@/contexts/reducers";
 import { AppState, AppAction, ActionTypes, Episode } from "@/types/types.d";
+
+import { loadPlayerState, savePlayerState } from "@/lib/playerStorage";
 
 import episodes from "@/assets/episodes.json";
 
@@ -38,8 +41,6 @@ export const AppProvider = ({
   initialEpisodeNum,
 }: AppProviderProps) => {
   const memoizedEpisodes = useMemo(() => episodes as Episode[], []);
-  const canUseStorage =
-    typeof window !== "undefined" && typeof window.localStorage !== "undefined";
 
   // check local storage to see if there was a previous episode playing
   const savedState = useMemo(() => {
@@ -62,17 +63,14 @@ export const AppProvider = ({
       };
     }
 
-    if (canUseStorage) {
-      const saved = localStorage.getItem("playerState");
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        return {
-          ...initialState,
-          episodes: memoizedEpisodes,
-          selectedEpisode: parsed.selectedEpisode,
-          timeProgress: parsed.timeProgress,
-        };
-      }
+    const saved = loadPlayerState();
+    if (saved) {
+      return {
+        ...initialState,
+        episodes: memoizedEpisodes,
+        selectedEpisode: saved.selectedEpisode,
+        timeProgress: saved.timeProgress,
+      };
     }
     return {
       ...initialState,
@@ -82,22 +80,19 @@ export const AppProvider = ({
 
   const [state, dispatch] = useReducer(appReducer, savedState);
 
-  // Save state changes to localStorage
+  // Persist when the selected episode changes. The live playback position is
+  // persisted (throttled) by the player itself, from the audio element's events.
   useEffect(() => {
-    if (!canUseStorage || !state.selectedEpisode) {
+    if (!state.selectedEpisode) {
       return;
     }
-    localStorage.setItem(
-      "playerState",
-      JSON.stringify({
-        selectedEpisode: state.selectedEpisode,
-        timeProgress: state.timeProgress,
-      })
-    );
-  }, [canUseStorage, state.selectedEpisode, state.timeProgress]);
+    savePlayerState(state.selectedEpisode, state.timeProgress ?? 0);
+  }, [state.selectedEpisode, state.timeProgress]);
+
+  const value = useMemo(() => ({ state, dispatch }), [state]);
 
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppContext.Provider value={value}>
       {children}
     </AppContext.Provider>
   );
@@ -112,35 +107,57 @@ export const useAppContext = () => {
 
 export const useEpisodes = () => {
   const { state, dispatch } = useAppContext();
+  const setSelectedEpisode = useCallback(
+    (episode: Episode | null) =>
+      dispatch({ type: ActionTypes.SET_SELECTED_EPISODE, payload: episode }),
+    [dispatch]
+  );
   return {
     episodes: state.episodes,
     selectedEpisode: state.selectedEpisode,
-    setSelectedEpisode: (episode: Episode | null) =>
-      dispatch({ type: ActionTypes.SET_SELECTED_EPISODE, payload: episode }),
+    setSelectedEpisode,
   };
 };
 
 export const useGenre = () => {
   const { state, dispatch } = useAppContext();
+  const setSelectedGenre = useCallback(
+    (genre: string) =>
+      dispatch({ type: ActionTypes.SET_SELECTED_GENRE, payload: genre }),
+    [dispatch]
+  );
   return {
     selectedGenre: state.selectedGenre,
-    setSelectedGenre: (genre: string) =>
-      dispatch({ type: ActionTypes.SET_SELECTED_GENRE, payload: genre }),
+    setSelectedGenre,
   };
 };
 
 export const usePlayer = () => {
   const { state, dispatch } = useAppContext();
+  // stable callbacks so effects depending on them don't re-run every render
+  const togglePlay = useCallback(
+    () => dispatch({ type: ActionTypes.TOGGLE_PLAY }),
+    [dispatch]
+  );
+  const setIsPlaying = useCallback(
+    (playing: boolean) =>
+      dispatch({ type: ActionTypes.SET_PLAYING, payload: playing }),
+    [dispatch]
+  );
+  const setDuration = useCallback(
+    (duration: number) =>
+      dispatch({ type: ActionTypes.SET_DURATION, payload: duration }),
+    [dispatch]
+  );
 
   return {
     selectedEpisode: state.selectedEpisode,
     isPlaying: state.isPlaying,
-    togglePlay: () => dispatch({ type: ActionTypes.TOGGLE_PLAY }),
+    togglePlay,
+    setIsPlaying,
+    // resume point for the selected episode, not live playback time
     timeProgress: state.timeProgress,
-    setTimeProgress: (progress: number) =>
-      dispatch({ type: ActionTypes.SET_TIME_PROGRESS, payload: progress }),
     duration: state.duration,
-    setDuration: (duration: number) =>
-      dispatch({ type: ActionTypes.SET_DURATION, payload: duration }),
+    setDuration,
   };
 };

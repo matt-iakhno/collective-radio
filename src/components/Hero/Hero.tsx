@@ -28,15 +28,7 @@ const Hero = () => {
   return (
     <AnimatedPath>
       <section className={styles.hero}>
-        <div className={styles.topSection}>
-          <img
-            src="/collective_radio_spinning_logo.gif"
-            alt="Logo"
-            width="200px"
-            height="200px"
-            className={styles.logo}
-          />
-        </div>
+        <div className={styles.topSection}></div>
 
         <h1 className={styles.title}>
           Collective Radio
